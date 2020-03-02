@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 export default class Footer extends Component {
   render() {
@@ -18,9 +20,7 @@ export default class Footer extends Component {
             <div className="col-sm">
               <h3>Contact Us</h3>
               <p>
-                <span>
-                  <i class="far fa-envelope-open"></i>
-                </span>
+                <FontAwesomeIcon icon={faCoffee} />
                 Construction SRL works as international construction services
                 company and is a leading builder in diverse and numerous market
                 segments. Lorem ipsum dolor sit amet, consectetur adipiscing
