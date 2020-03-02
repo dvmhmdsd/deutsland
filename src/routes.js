@@ -40,7 +40,7 @@ export default [
         component: HistoryPage
     },
     {
-        path: '/about-us',
+        path: '/company',
         component: AboutPage
     },
     {
