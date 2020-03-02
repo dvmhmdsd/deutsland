@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class LoginPage extends Component {
+export default class HistoryPage extends Component {
   render() {
     return (
       <>
-        <p> Login page is ready. </p>
+        <p> History page is ready. </p>
       </>
     )
   }
