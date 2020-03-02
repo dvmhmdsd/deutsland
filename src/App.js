@@ -1,25 +1,33 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import routes from './routes';
+
+export default class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          {routes.map((route, index) => {
+            if (route.group) {
+              return <Route
+                key={index}
+                path={route.path}
+                render={({ match: { url } }) => (
+                  <>
+                    {route.group.map((adminRoute, idx) => {
+                      return <Route path={`${url}${adminRoute.path}`} key={idx} component={adminRoute.component} exact />
+                    })}
+                  </>
+                )}
+              />
+            } else {
+              return <Route key={index} exact path={route.path} component={route.component} />
+            }
+          })}
+        </Switch>
+      </Router>
+    )
+  }
 }
-
-export default App;
