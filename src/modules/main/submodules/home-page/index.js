@@ -1,11 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import Layout from "../../../../shared/layout";
+import Intro from "./components/intro";
 
 export default class HomePage extends Component {
   render() {
     return (
       <>
-        <p> Home page is ready. </p>
+        <Layout>
+          <Intro />
+        </Layout>
       </>
-    )
+    );
   }
 }
