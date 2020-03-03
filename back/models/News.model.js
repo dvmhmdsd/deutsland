@@ -12,6 +12,9 @@ const NewsSchema = new mongoose.Schema({
     type: String,
     default: Date.now
   },
+  image: {
+    type: String
+  },
   comments: [
     {
       body: {

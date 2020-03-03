@@ -1,10 +1,15 @@
 const express = require("express");
 
+const path = require("path");
+
 const server = express.Router();
 const News = require("../models/News.model");
 
 const ensureAuth = require("../helpers/ensureAuth");
 const isAdmin = require("../helpers/isAdmin");
+const imageUploader = require("../helpers/uploadImageHandler");
+
+const Resize = require("../helpers/imageResizer");
 
 // Get the list
 server.get("/", async (req, res) => {
@@ -27,25 +32,45 @@ server.get("/:id", async (req, res) => {
 });
 
 // Create a new record
-server.post("/", ensureAuth, isAdmin, (req, res) => {
-  try {
-    let { title, body, date, comments } = req.body;
+server.post(
+  "/",
+  ensureAuth,
+  isAdmin,
+  imageUploader.single("image"),
+  async (req, res) => {
+    try {
+      if (!req.file) {
+        res.status(401).json({ message: "Please provide an image" });
+      }
 
-    let newsItem = new News({
-      title,
-      body,
-      date,
-      comments
-    });
+      let image = await saveImage(req.file.buffer);
 
-    newsItem.save().then(record => {
-      res.send(record);
-      res.sendStatus(201);
-    });
-  } catch {
-    throwError();
+      let { title, body, date, comments } = req.body;
+
+      let newsItem = new News({
+        title,
+        body,
+        date,
+        image,
+        comments
+      });
+
+      newsItem.save().then(record => {
+        res.send(record);
+        res.sendStatus(201);
+      });
+    } catch {
+      throwError();
+    }
   }
-});
+);
+
+let saveImage = async (imageBuffer) => {
+  const imagesPath = path.join(__dirname, "/public/images-upload");
+  const resizer = new Resize(imagesPath);
+
+  return await resizer.saveFile(imageBuffer);
+}
 
 // Edit the record
 server.put("/:id", ensureAuth, isAdmin, (req, res) => {

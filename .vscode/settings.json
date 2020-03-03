@@ -3,10 +3,13 @@
         "deutsland",
         "dt",
         "dtpedia",
+        "image",
         "page",
         "pedia",
         "resave",
+        "resizer",
         "sama",
-        "submodules"
+        "submodules",
+        "uploader"
     ]
 }
