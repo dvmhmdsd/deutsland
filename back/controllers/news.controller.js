@@ -3,6 +3,9 @@ const express = require("express");
 const server = express.Router();
 const News = require("../models/News.model");
 
+const ensureAuth = require("../helpers/ensureAuth");
+const isAdmin = require("../helpers/isAdmin");
+
 // Get the list
 server.get("/", async (req, res) => {
   try {
@@ -24,7 +27,7 @@ server.get("/:id", async (req, res) => {
 });
 
 // Create a new record
-server.post("/", (req, res) => {
+server.post("/", ensureAuth, isAdmin, (req, res) => {
   try {
     let { title, body, date, comments } = req.body;
 
@@ -45,7 +48,7 @@ server.post("/", (req, res) => {
 });
 
 // Edit the record
-server.put("/:id", (req, res) => {
+server.put("/:id", ensureAuth, isAdmin, (req, res) => {
   try {
     let id = req.params.id;
 
@@ -60,7 +63,7 @@ server.put("/:id", (req, res) => {
 });
 
 // Delete the record
-server.delete("/:id", (req, res) => {
+server.delete("/:id", ensureAuth, isAdmin, (req, res) => {
   try {
     let id = req.params.id;
 

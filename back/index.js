@@ -23,19 +23,28 @@ app.use(
     secret: SECRET_KEY,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true }
+    // cookie: { secure: true }
   })
 );
 
 // Init the passport auth
+require("./config/passport")(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Set the routes
-app.get("/", (req, res) => res.send("Good morning sunshine!"));
+app.get("*", (req, res, next) => {
+  // get the authentication state of the user
+  res.locals.user = req.user || null;
+
+  next();
+});
 
 const newsController = require("./controllers/news.controller");
 app.use("/api/news", newsController);
+
+const userController = require("./controllers/user.controller");
+app.use("/api/users", userController);
 
 // Connect to port 5000
 const PORT = process.env.PORT || 5000;
