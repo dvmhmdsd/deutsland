@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
+const cors = require("cors");
 
 const app = express();
 
@@ -16,6 +17,9 @@ mongoose
 // Parse the body
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Allow cors
+app.use(cors());
 
 // Add the session
 app.use(

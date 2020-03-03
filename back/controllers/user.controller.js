@@ -74,7 +74,7 @@ server.post("/login", (request, response, next) => {
     request.logIn(user, err => {
       if (err) return response.json({ message: err });
 
-      return response.status(200).json({ success: "User logged in" });
+      return response.status(200).json({ success: "User logged in", user: request.user });
     })
   })(request, response, next);
 });
