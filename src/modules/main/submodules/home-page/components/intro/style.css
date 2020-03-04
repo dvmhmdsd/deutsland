@@ -1,36 +1,18 @@
-.container {
-  position: relative;
-}
- video {
-  position: relative;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
-}
-.overlay {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  z-index: 1;
-}
-.overlay h2{
-    color: aliceblue;
-}
-.detpedia{
-    margin-top: -6px;
-    background-color:brown;
-    padding: .5rem;
-}
-.detpedia p{
-    display: inline-block;
-    color: cornsilk;
 
+.detpedia {
+  margin-top: -6px;
+  background-color: #eaab00;
+  padding: 1rem;
 }
-.detpedia button{
-    float: right;
-    border: 3px solid white;
-    border-radius: 20px;
-    padding: 5px;
-    color: brown;
-    width: 150px;
+.detpedia p {
+  display: inline-block;
+  color: cornsilk;
+}
+.detpedia button {
+  float: right;
+  border: 3px solid white;
+  border-radius: 20px;
+  padding: 5px;
+  color: #eaab00;
+  width: 150px;
 }

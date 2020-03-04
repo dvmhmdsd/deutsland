@@ -1,0 +1,11 @@
+.distribution {
+  background-color: rgb(221, 213, 213);
+  padding: 40px;
+  margin-bottom: 100px;
+}
+section .info h3{
+    margin-bottom: 40px;
+}
+section img {
+  width: 100%;
+}

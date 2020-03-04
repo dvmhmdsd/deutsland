@@ -1,0 +1,12 @@
+.partners .carousel {
+  width: 50%;
+  background-color: grey;
+  height: 400px;
+}
+.carouselItem {
+  width: 100%;
+  padding-left: 100px;
+}
+.space{
+    height: 200px;
+}

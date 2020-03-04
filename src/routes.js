@@ -20,10 +20,6 @@ export default [
         component: CareerItemPage
     },
     {
-        path: '/admin/careers',
-        component: CareersAdminPage
-    },
-    {
         path: '/careers',
         component: CareersListPage
     },
@@ -32,16 +28,8 @@ export default [
         component: ContactPage
     },
     {
-        path: '/admin/messages',
-        component: MessagesPage
-    },
-    {
         path: '/dtpedia/:id/:slug',
         component: DtPediaPage
-    },
-    {
-        path: '/admin/dtpedia',
-        component: DtPediaAdminPage
     },
     {
         path: '/',
@@ -52,7 +40,7 @@ export default [
         component: HistoryPage
     },
     {
-        path: '/about-us',
+        path: '/company',
         component: AboutPage
     },
     {
@@ -60,19 +48,36 @@ export default [
         component: EventPage
     },
     {
-        path: '/admin/news',
-        component: NewsAdminPage
-    },
-    {
-        path: '/admin/login',
-        component: LoginPage
-    },
-    {
-        path: '/admin/register',
-        component: RegisterPage
-    },
-    {
-        path: '/admin/users',
-        component: UsersListPage
+        path: '/admin',
+        group: [
+            {
+                path: '/users',
+                component: UsersListPage
+            },
+            {
+                path: '/register',
+                component: RegisterPage
+            },
+            {
+                path: '/login',
+                component: LoginPage
+            },
+            {
+                path: '/news',
+                component: NewsAdminPage
+            },
+            {
+                path: '/dtpedia',
+                component: DtPediaAdminPage
+            },
+            {
+                path: '/messages',
+                component: MessagesPage
+            },
+            {
+                path: '/careers',
+                component: CareersAdminPage
+            },
+        ]
     }
 ]

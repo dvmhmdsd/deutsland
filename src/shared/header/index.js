@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 
+import { Link } from 'react-router-dom';
+
 export default class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             Navbar
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,34 +24,44 @@ export default class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <a className="nav-link" href="#">
-                  Home <span className="sr-only">(current)</span>
-                </a>
+                <Link className="nav-link" to="/">
+                  Home 
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/company">
                   Company
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/projects">
                   Projects
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  ProjctsPreview B
+                  Projects Preview B
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/history">
                   History
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Soultations
+                  Solutions
                 </a>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/careers">
+                  Careers
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/contact-us">
+                  Contact
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
