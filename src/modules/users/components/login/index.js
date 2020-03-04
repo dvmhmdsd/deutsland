@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import loginUser from "modules/users/services/loginUser";
 
 import "./style.css";
-import logoutUser from "../../services/logoutUser";
 
 export default class LoginPage extends Component {
   state = {
@@ -52,19 +51,12 @@ export default class LoginPage extends Component {
 
   };
 
-  logOut = async () => {
-    await logoutUser();
-
-
-  }
-
   render() {
     let { email, password, isLoading, success, error } = this.state;
     return (
       <section className="login-page">
         <div className="login-form">
           <h1 className="text-center h3 mb-5"> Login to the dashboard </h1>
-          <button onClick={this.logOut}>out</button>
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Email address</label>
