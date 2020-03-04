@@ -7,7 +7,7 @@ export default async data => {
   );
 
   // Save to localStorage
-  localStorage.setItem("user", response.data.user);
+  localStorage.setItem("user", JSON.stringify(response.data.user));
 
   return response;
 };
