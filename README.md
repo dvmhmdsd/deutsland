@@ -79,3 +79,31 @@
         ├── layout
         └── sidebar
 ```
+
+## Style Guide
+
+Here's the style guide used on this project for the front-end.
+
+1. **Font-Sizes**
+
+- `Main`: 16px
+
+- `Sections Heading`: 1.2rem
+
+2. **Colors**
+
+- `Main`: #CB6828
+
+- `Text`: #3D3D3D
+
+- `Secondary`: #3b3a3a
+
+3. **Break points**
+
+We'll use bootstrap breakpoints:
+
+- `Desktop`: > 992px
+
+- `Tab`: < 992px && > 576px
+
+- `Mobile`: < 576px
