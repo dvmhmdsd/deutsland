@@ -1,0 +1,8 @@
+    .counters{
+        display: flex;
+        justify-content: space-around;
+    }
+    .counters h2{
+        text-align: center;
+    }
+    

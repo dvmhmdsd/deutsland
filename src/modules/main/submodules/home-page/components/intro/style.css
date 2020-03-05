@@ -1,8 +1,16 @@
-
+.overlay button{
+  width: 200px;
+  border: 2px solid white;
+  background-color: transparent;
+  padding: 10px;
+  color: white;
+  text-align: center;
+}
 .detpedia {
   margin-top: -6px;
   background-color: #eaab00;
   padding: 1rem;
+  font-size: 1.3rem;
 }
 .detpedia p {
   display: inline-block;
@@ -16,3 +24,4 @@
   color: #eaab00;
   width: 150px;
 }
+
