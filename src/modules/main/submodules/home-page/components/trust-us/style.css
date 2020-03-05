@@ -1,17 +1,8 @@
 .trust-us {
     position: relative;
 }
-.overlay button{
-    position: absolute;
-    width: 200px;
-    border: 2px solid white;
-    background-color: transparent;
-    padding: 10px;
-    color: white;
-    text-align: center;
-    left: 35px;
-  }
-  .overlay p{
+.overlay p{
       color: white;
       text-align: center;
+      position: absolute;
   }

@@ -13,10 +13,12 @@ export default class VideoBg extends Component {
         <video id="video" width="100%" height="100%">
           <source src={video} type="video/mp4" />
         </video>
-        <div className="overlay">
-          <h2>{title}</h2>
-          {paragraph && <p> {paragraph} </p>}
-          {buttonLabel && <button>{buttonLabel}</button>}
+        <div className="overlay text-center d-flex justify-content-center align-items-center">
+          <div className="ovarlay-container">
+            <h2>{title}</h2>
+            {paragraph && <p> {paragraph} </p>}
+            {buttonLabel && <button>{buttonLabel}</button>}
+          </div>
         </div>
       </div>
     );
