@@ -1,0 +1,42 @@
+import React, { Component } from "react";
+
+import "./style.css";
+
+import { Link } from "react-router-dom";
+
+import adminRoutes from "admin-routes.js";
+
+export default class AdminSidebar extends Component {
+  state = {
+    isAdmin: true
+  };
+  
+  componentDidMount() {
+    if (localStorage.getItem("user")) {
+      let user = JSON.parse(localStorage.getItem("user"));
+
+      this.setState({
+        isAdmin: user.type === "admin"
+      });
+    }
+  }
+
+  render() {
+    return (
+      <aside className="adminSidebar">
+        <h1> Admin Dashboard </h1>
+        <ul className="list-unstyled mt-2">
+          {adminRoutes.map((adRoute, index) => {
+            if (adRoute.label && this.state.isAdmin) {
+              return (
+                <li key={index} className="sidebarItem">
+                  <Link to={`/admin${adRoute.path}`}> {adRoute.label} </Link>
+                </li>
+              );
+            }
+          })}
+        </ul>
+      </aside>
+    );
+  }
+}

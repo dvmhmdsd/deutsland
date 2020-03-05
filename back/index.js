@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const cors = require("cors");
+const path = require("path")
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 // Allow cors
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, "public")));
+
 // Add the session
 app.use(
   session({
@@ -30,6 +33,8 @@ app.use(
     // cookie: { secure: true }
   })
 );
+
+
 
 // Init the passport auth
 require("./config/passport")(passport);

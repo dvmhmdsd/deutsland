@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async data => {
   let response = await axios.post(
-    "http://localhost:5000/api/users/login",
+    "/users/login",
     data
   );
 

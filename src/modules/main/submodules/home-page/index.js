@@ -5,6 +5,7 @@ import Distribution from "./components/distribution";
 import Partners from "./components/partners/index";
 import TrustUs from "./components/trust-us";
 import Counters from "./components/counters";
+import News from "../../../news/components/slider";
 
 export default class HomePage extends Component {
   render() {
@@ -15,6 +16,7 @@ export default class HomePage extends Component {
           <Distribution />
           <Partners />
           <TrustUs />
+          <News />
           <Counters/>
         </Layout>
       </>

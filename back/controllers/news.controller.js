@@ -12,7 +12,7 @@ const imageUploader = require("../helpers/uploadImageHandler");
 const Resize = require("../helpers/imageResizer");
 
 // Get the list
-server.get("/", async (req, res) => {
+server.get("/list", async (req, res) => {
   try {
     let newsList = await News.find({});
     res.send(newsList);

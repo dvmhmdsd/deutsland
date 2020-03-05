@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Background from "../../../../../../assets/partners/partners-bg.png";
+import Background from "assets/partners/partners-bg.png";
 import Carousel from "react-bootstrap/Carousel";
 import "./style.css";
-import slide1 from "../../../../../../assets/partners/angus-circle.png";
-import slide2 from "../../../../../../assets/partners/autro-circle.png";
-import slide3 from "../../../../../../assets/partners/emi-circle.png";
+import slide1 from "assets/partners/angus-circle.png";
+import slide2 from "assets/partners/autro-circle.png";
+import slide3 from "assets/partners/emi-circle.png";
 
 export default class Partners extends Component {
   state = {
@@ -20,7 +20,7 @@ export default class Partners extends Component {
   };
   render() {
     const sectionStyle = {
-      backgroundImage: "url(" + Background + ")",
+      backgroundImage: "url(" + Background + ")"
     };
     return (
       <div className="partners" style={sectionStyle}>
@@ -32,11 +32,7 @@ export default class Partners extends Component {
           >
             <Carousel.Item className="carouselItem">
               <h3>First slide label</h3>
-              <img
-                className="slid1"
-                src={slide1}
-                alt="First slide"
-              />
+              <img className="slid1" src={slide1} alt="First slide" />
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </Carousel.Item>
             <Carousel.Item className="carouselItem">
@@ -53,20 +49,19 @@ export default class Partners extends Component {
             </Carousel.Item>
           </Carousel>
         </section>
-        <section className="space">
-        </section>
+        <section className="space"></section>
         <section className="keyClients">
-            <div className="row">
-                <div className="col">
-                    <div className="item">
-                        {/* <img src={}/>
+          <div className="row">
+            <div className="col">
+              <div className="item">
+                {/* <img src={}/>
                         <img src={}/>
                         <img src={}/> */}
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </section>
-        </div>
+      </div>
     );
   }
 }

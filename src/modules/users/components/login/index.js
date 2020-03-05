@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import loginUser from "modules/users/services/loginUser";
+import login from "modules/users/services/login.service";
 
 import "./style.css";
 
@@ -30,7 +30,7 @@ export default class LoginPage extends Component {
 
     let response;
     try {
-      response = await loginUser({ email, password });
+      response = await login({ email, password });
 
       this.setState({
         isLoading: false,
