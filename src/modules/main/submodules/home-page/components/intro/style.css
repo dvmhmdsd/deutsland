@@ -1,0 +1,18 @@
+
+.detpedia {
+  margin-top: -6px;
+  background-color: #eaab00;
+  padding: 1rem;
+}
+.detpedia p {
+  display: inline-block;
+  color: cornsilk;
+}
+.detpedia button {
+  float: right;
+  border: 3px solid white;
+  border-radius: 20px;
+  padding: 5px;
+  color: #eaab00;
+  width: 150px;
+}
