@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
 import routes from "./routes";
 import LoginPage from "./modules/users/components/login";
@@ -35,7 +40,7 @@ export default class App extends Component {
                   />
                 );
               } else {
-                return <Redirect key={index} to="/admin/login" />
+                return <Redirect key={index} to="/admin/login" />;
               }
             } else {
               return (

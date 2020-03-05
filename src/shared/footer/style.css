@@ -1,0 +1,11 @@
+footer{
+    background-color: rgb(32, 31, 31);
+    color: white;
+    height: 400px;
+    padding: 20px;
+}
+hr{
+    background-color: #eaab00;
+    width: 50%;
+    left: 70%;
+}
