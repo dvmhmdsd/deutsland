@@ -5,12 +5,26 @@ import AdminSidebar from "../admin-sidebar";
 import "./style.css";
 
 export default class AdminLayout extends Component {
+  state = {
+    isSidebarVisible: true
+  };
+
+  toggleSidebar = () => {
+    this.setState({ isSidebarVisible: !this.state.isSidebarVisible });
+  };
+
   render() {
     return (
       <>
-        <AdminHeader />
+        <AdminHeader
+          toggleSidebar={this.toggleSidebar}
+          visible={this.state.isSidebarVisible}
+        />
         <main>{this.props.children}</main>
-        <AdminSidebar />
+        <AdminSidebar
+          toggleSidebar={this.toggleSidebar}
+          visible={this.state.isSidebarVisible}
+        />
       </>
     );
   }

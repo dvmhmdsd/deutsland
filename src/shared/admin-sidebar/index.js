@@ -35,7 +35,7 @@ export default class AdminSidebar extends Component {
 
   render() {
     return (
-      <aside className="adminSidebar">
+      <aside className="adminSidebar" style={{left: !this.props.visible && "-245px"}}>
         <h1> Admin Dashboard </h1>
         <ul className="list-unstyled mt-2">{this.renderAdminRoutes()}</ul>
       </aside>

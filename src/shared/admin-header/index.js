@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSignOutAlt,
+  faBars,
+  faTimes
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./style.css";
 
@@ -24,15 +28,23 @@ export default class AdminHeader extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg">
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <button className="btn btn-link text-muted" onClick={this.logout}>
-                Logout <FontAwesomeIcon icon={faSignOutAlt} />
-              </button>
-            </li>
-          </ul>
-        </div>
+        <button
+          className="btn text-muted nav-item d-md-none"
+          style={{marginLeft: this.props.visible && "245px"}}
+          onClick={this.props.toggleSidebar}
+        >
+          <FontAwesomeIcon
+            size="lg"
+            icon={this.props.visible ? faTimes : faBars}
+          />
+        </button>
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <button className="btn btn-link text-muted" onClick={this.logout}>
+              Logout <FontAwesomeIcon icon={faSignOutAlt} />
+            </button>
+          </li>
+        </ul>
       </nav>
     );
   }
