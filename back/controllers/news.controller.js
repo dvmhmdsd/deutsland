@@ -1,16 +1,10 @@
 const express = require("express");
 
-const path = require("path");
-
 const server = express.Router();
 const News = require("../models/News.model");
 
 const ensureAuth = require("../helpers/ensureAuth");
 const isAdmin = require("../helpers/isAdmin");
-const imageUploader = require("../helpers/uploadImageHandler");
-
-const Resize = require("../helpers/imageResizer");
-
 // Get the list
 server.get("/list", async (req, res) => {
   try {
@@ -36,50 +30,31 @@ server.post(
   "/",
   ensureAuth,
   isAdmin,
-  imageUploader.single("image"),
   async (req, res) => {
-    try {
-      if (!req.file) {
-        res.status(401).json({ message: "Please provide an image" });
-      }
+    let { title, body, image, date, comments } = req.body;
 
-      let image = await saveImage(req.file.buffer);
+    let newsItem = new News({
+      title,
+      body,
+      date,
+      image,
+      comments
+    });
 
-      let { title, body, date, comments } = req.body;
-
-      let newsItem = new News({
-        title,
-        body,
-        date,
-        image,
-        comments
-      });
-
-      newsItem.save().then(record => {
-        res.send(record);
-        res.sendStatus(201);
-      });
-    } catch {
-      throwError();
-    }
+    newsItem.save().then(record => {
+      res.send(record);
+    });
   }
 );
-
-let saveImage = async (imageBuffer) => {
-  const imagesPath = path.join(__dirname, "/public/images-upload");
-  const resizer = new Resize(imagesPath);
-
-  return await resizer.saveFile(imageBuffer);
-}
 
 // Edit the record
 server.put("/:id", ensureAuth, isAdmin, (req, res) => {
   try {
     let id = req.params.id;
 
-    let { title, body, date } = req.body;
+    let { title, body, date, image } = req.body;
 
-    News.findByIdAndUpdate(id, { title, body, date }).then(() => {
+    News.findByIdAndUpdate(id, { title, body, date, image }).then(() => {
       res.sendStatus(204);
     });
   } catch {

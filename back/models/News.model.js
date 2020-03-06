@@ -6,19 +6,26 @@ const NewsSchema = new mongoose.Schema({
     required: true
   },
   body: {
-    type: String
+    type: String,
+    required: true
   },
   date: {
     type: String,
-    default: Date.now
+    default: Date.now,
+    required: true
   },
   image: {
     type: String
   },
   comments: [
     {
+      name: {
+        type: String,
+        required: true
+      },
       body: {
-        type: String
+        type: String,
+        required: true
       }
     }
   ]

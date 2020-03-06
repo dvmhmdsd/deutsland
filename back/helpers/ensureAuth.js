@@ -1,5 +1,5 @@
 function ensureAuth(request, response, next) {
-  if (request.isAuthenticated()) next();
+  if (request.user) next();
   else response.sendStatus(401);
 }
 
