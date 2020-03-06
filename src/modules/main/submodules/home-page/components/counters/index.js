@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import "./style.css";
-import $ from 'jquery'
+import $ from "jquery";
+import ReactWOW from "react-wow";
 
 export default class Counters extends Component {
   counters = [
     {
-      number: 100,
+      number: 900,
       name: "Awords Won"
     },
     {
-      number: 100,
+      number: 300,
       name: "Awords Won"
     },
     {
-      number: 100,
+      number: 200,
       name: "Awords Won"
     },
     {
-      number: 100,
+      number: 600,
       name: "Awords Won"
     }
   ];
@@ -60,11 +61,14 @@ export default class Counters extends Component {
         {this.counters.map(counterItem => {
           return (
             <div>
-              <h2
-                className="counter"
-                data-count={counterItem.number}
-              >50</h2>
-              <p>{counterItem.name}</p>
+              <ReactWOW
+                animation="slideInUp"
+                data-wow-duration="10s"
+                data-wow-delay="50s"
+              >
+                <h2 className="counter" data-count={counterItem.number}></h2>
+                <p>{counterItem.name}</p>
+              </ReactWOW>
             </div>
           );
         })}
