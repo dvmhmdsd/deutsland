@@ -55,9 +55,9 @@ export default class LoginPage extends Component {
     let { email, password, isLoading, success, error } = this.state;
     return (
       <section className="login-page">
-        <div className="login-form">
+        <div className="login-form-box">
           <h1 className="text-center h3 mb-5"> Login to the dashboard </h1>
-          <form onSubmit={this.handleSubmit}>
+          <form className="login-form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Email address</label>
               <input

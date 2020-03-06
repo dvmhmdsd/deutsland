@@ -10,7 +10,7 @@ export default class AdminSidebar extends Component {
   state = {
     isAdmin: true
   };
-  
+
   componentDidMount() {
     if (localStorage.getItem("user")) {
       let user = JSON.parse(localStorage.getItem("user"));
@@ -21,21 +21,23 @@ export default class AdminSidebar extends Component {
     }
   }
 
+  renderAdminRoutes = () => {
+    return adminRoutes.map((adRoute, index) => {
+      if (adRoute.label && this.state.isAdmin) {
+        return (
+          <li key={index} className="sidebarItem">
+            <Link to={`/admin${adRoute.path}`}> {adRoute.label} </Link>
+          </li>
+        );
+      }
+    });
+  };
+
   render() {
     return (
       <aside className="adminSidebar">
         <h1> Admin Dashboard </h1>
-        <ul className="list-unstyled mt-2">
-          {adminRoutes.map((adRoute, index) => {
-            if (adRoute.label && this.state.isAdmin) {
-              return (
-                <li key={index} className="sidebarItem">
-                  <Link to={`/admin${adRoute.path}`}> {adRoute.label} </Link>
-                </li>
-              );
-            }
-          })}
-        </ul>
+        <ul className="list-unstyled mt-2">{this.renderAdminRoutes()}</ul>
       </aside>
     );
   }

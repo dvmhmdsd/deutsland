@@ -17,6 +17,10 @@
   margin-bottom: 14px;
 }
 
+.adminSidebar ul {
+  border-top: 2px solid #ccc;
+}
+
 .adminSidebar .sidebarItem {
   border-bottom: 1px solid #ccc;
   text-align: center;

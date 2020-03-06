@@ -2,14 +2,14 @@ import axios from "axios";
 
 export default async () => {
   if (localStorage.getItem("user")) return true;
+  else return false;
+  // try {
+  //   let response = await axios.get("/users/isLoggedIn");
 
-  try {
-    let response = await axios.get("/users/isLoggedIn");
+  //   if (response.data == "OK") return true;
+  //   else return false;
 
-    if (response.data == "OK") return true;
-    else return false;
-
-  } catch {
-    return false;
-  }
+  // } catch {
+  //   return false;
+  // }
 };

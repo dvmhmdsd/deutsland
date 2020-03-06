@@ -26,26 +26,21 @@ server.get("/:id", async (req, res) => {
 });
 
 // Create a new record
-server.post(
-  "/",
-  ensureAuth,
-  isAdmin,
-  async (req, res) => {
-    let { title, body, image, date, comments } = req.body;
+server.post("/", ensureAuth, isAdmin, async (req, res) => {
+  let { title, body, image, date, comments } = req.body;
 
-    let newsItem = new News({
-      title,
-      body,
-      date,
-      image,
-      comments
-    });
+  let newsItem = new News({
+    title,
+    body,
+    date,
+    image,
+    comments
+  });
 
-    newsItem.save().then(record => {
-      res.send(record);
-    });
-  }
-);
+  newsItem.save().then(record => {
+    res.send(record);
+  });
+});
 
 // Edit the record
 server.put("/:id", ensureAuth, isAdmin, (req, res) => {
@@ -64,15 +59,15 @@ server.put("/:id", ensureAuth, isAdmin, (req, res) => {
 
 // Delete the record
 server.delete("/:id", ensureAuth, isAdmin, (req, res) => {
-  try {
-    let id = req.params.id;
-
-    News.findOneAndDelete(id).then(() => {
-      res.sendStatus(204);
+  let id = req.params.id;
+  
+  News.findByIdAndRemove(id)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch(() => {
+      throwError();
     });
-  } catch {
-    throwError();
-  }
 });
 
 let throwError = () => {

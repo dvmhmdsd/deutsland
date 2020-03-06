@@ -3,7 +3,7 @@
   background-color: #ecfbfa;
 }
 
-.login-form {
+.login-form-box {
   min-height: 89vh;
   padding: 8rem 1.5rem;
   background-color: #fff;
@@ -11,12 +11,12 @@
   border-radius: 5px;
 }
 
-form {
+.login-form {
   margin: auto;
 }
 
 @media (min-width: 991px) {
-  form {
+  .login-form {
     max-width: 40%;
     margin: auto;
   }

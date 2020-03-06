@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import routes from "./routes";
 import adminRoutes from "./admin-routes";
 
-import isUserLoggedIn from "modules/users/services/auth.service";
+import "./App.css"
 
 export default class App extends Component {
   render() {
