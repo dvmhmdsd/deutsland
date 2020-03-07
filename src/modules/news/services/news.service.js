@@ -6,6 +6,12 @@ export let getNews = async () => {
   return response;
 };
 
+export let getSingleNews = async (id) => {
+  let response = await axios.get(`/news/${id}`);
+
+  return response;
+};
+
 export let addNews = async data => {
   let response = await axios.post("/news", data);
 

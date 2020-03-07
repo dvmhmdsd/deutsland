@@ -20,7 +20,7 @@ export default class AdminLayout extends Component {
           toggleSidebar={this.toggleSidebar}
           visible={this.state.isSidebarVisible}
         />
-        <main>{this.props.children}</main>
+        <main className="admin-main">{this.props.children}</main>
         <AdminSidebar
           toggleSidebar={this.toggleSidebar}
           visible={this.state.isSidebarVisible}

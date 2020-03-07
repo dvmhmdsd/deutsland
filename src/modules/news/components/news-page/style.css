@@ -1,0 +1,25 @@
+.news-page-main {
+  margin-top: 5rem;
+}
+
+.news-page-header {
+    height: 50vh;
+}
+
+.news-page-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.news-page-body {
+    padding: 5rem 0;
+}
+
+.news-page-loading {
+    margin-top: 7rem
+}
