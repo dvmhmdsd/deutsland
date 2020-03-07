@@ -10,7 +10,7 @@ export default class VideoBg extends Component {
     console.log(this.props);
     return (
       <div className="video-container">
-        <video id="video" width="100%" height="100%">
+        <video id="video" width="100%" height="100%" autoplay muted>
           <source src={video} type="video/mp4" />
         </video>
         <div className="overlay text-center d-flex justify-content-center align-items-center">
