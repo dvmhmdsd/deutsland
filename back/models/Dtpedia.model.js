@@ -18,4 +18,4 @@ const DtpediaSchema = new mongoose.Schema({
   }
 });
 
-module.exports = DtpediaSchema = mongoose.model("News", DtpediaSchema);
+module.exports = Dtpedia = mongoose.model("Dtpedia", DtpediaSchema);

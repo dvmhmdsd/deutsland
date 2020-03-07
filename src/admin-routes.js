@@ -10,11 +10,13 @@ export default [
   {
     path: "/users",
     label: "Users",
-    component: UsersListPage
+    component: UsersListPage,
+    adminOnly: true
   },
   {
     path: "/register",
-    component: RegisterPage
+    component: RegisterPage,
+    adminOnly: true
   },
   {
     path: "/login",

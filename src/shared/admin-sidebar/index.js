@@ -22,20 +22,33 @@ export default class AdminSidebar extends Component {
   }
 
   renderAdminRoutes = () => {
-    return adminRoutes.forEach((adRoute, index) => {
-      if (adRoute.label && this.state.isAdmin) {
-        return (
-          <li key={index} className="sidebarItem">
-            <Link to={`/admin${adRoute.path}`}> {adRoute.label} </Link>
-          </li>
-        );
-      }
+    return adminRoutes.map((adRoute, index) => {
+      if (adRoute.label) {
+        if (!adRoute.adminOnly) {
+          return (
+            <li key={index} className="sidebarItem">
+              <Link to={`/admin${adRoute.path}`}> {adRoute.label} </Link>
+            </li>
+          );
+        } else {
+          if (this.state.isAdmin) {
+            return (
+              <li key={index} className="sidebarItem">
+                <Link to={`/admin${adRoute.path}`}> {adRoute.label} </Link>
+              </li>
+            );
+          } else return ""
+        }
+      } else return ""
     });
   };
 
   render() {
     return (
-      <aside className="adminSidebar" style={{left: !this.props.visible && "-245px"}}>
+      <aside
+        className="adminSidebar"
+        style={{ left: !this.props.visible && "-245px" }}
+      >
         <h1> Admin Dashboard </h1>
         <ul className="list-unstyled mt-2">{this.renderAdminRoutes()}</ul>
       </aside>

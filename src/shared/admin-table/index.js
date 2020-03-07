@@ -108,7 +108,7 @@ export default class AdminTable extends Component {
 
     let { id, title, body, date, image } = this.state;
 
-    updateNews(id, { title, body, date, image }).then(() => {
+    this.props.updateRecord(id, { title, body, date, image }).then(() => {
       this.setState({ isSubmitting: false, isSubmitted: true });
 
       this.props.updateParentState();
@@ -210,7 +210,11 @@ export default class AdminTable extends Component {
                         </div>
                       )}
 
-                      <button type="submit" disabled={this.state.isImageUploading} className="btn btn-primary">
+                      <button
+                        type="submit"
+                        disabled={this.state.isImageUploading}
+                        className="btn btn-primary"
+                      >
                         {this.state.isSubmitting ? "Submitting ..." : "Save"}
                       </button>
                     </form>

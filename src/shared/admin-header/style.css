@@ -1,3 +1,7 @@
 .navbar {
   border-bottom: 2px solid #eee;
 }
+
+.navbar .navbar-nav {
+  flex-direction: row;
+}
