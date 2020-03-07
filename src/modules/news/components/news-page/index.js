@@ -43,6 +43,7 @@ export default class NewsPage extends Component {
                 </div>
               </section>
             </main>
+            {/* TODO: Add Comments */}
           </Layout>
         ) : (
           <p className="text-center news-page-loading"> Loading ... </p>

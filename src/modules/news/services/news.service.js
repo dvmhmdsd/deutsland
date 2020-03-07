@@ -28,3 +28,9 @@ export let deleteNews = async id => {
   if (window.confirm("Are you sure you want to delete this item ?"))
     return await axios.delete(`/news/${id}`);
 };
+
+export let commentToNews = async (newsId, data) => {
+  let response = await axios.post(`/news/${newsId}/comment`, data);
+
+  return response;
+};

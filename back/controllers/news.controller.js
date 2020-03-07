@@ -73,12 +73,14 @@ server.delete("/:id", ensureAuth, isAdmin, (req, res) => {
 server.post("/:id/comment", (req, res) => {
   let id = req.params.id;
   let { name, body } = req.body;
-  let comment = {name, body}
-  News.findOneAndUpdate(id, { $push: { comments: comment } }).then(() => {
-    res.sendStatus(200);
-  }).catch(() => {
-    throwError();
-  });
+  let comment = { name, body };
+  News.findOneAndUpdate(id, { $push: { comments: comment } })
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch(() => {
+      throwError();
+    });
 });
 
 let throwError = () => {
