@@ -83,6 +83,15 @@ server.post("/:id/comment", (req, res) => {
     });
 });
 
+server.delete("/comment/:id", ensureAuth, isAdmin, (req, res) => {
+  let id = req.params.id;
+
+  News.findOneAndUpdate({"comments._id": id}, { $pull: { 'comments': {  _id: id } } }).then((comment, err) => {
+    if (err) res.sendStatus(401)
+    res.sendStatus(200)
+  })
+})
+
 let throwError = () => {
   throw new Error("An error occurred in the db");
 };

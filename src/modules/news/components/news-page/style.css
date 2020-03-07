@@ -1,5 +1,6 @@
 .news-page-main {
   margin-top: 5rem;
+  background-color: #f1f5f8;
 }
 
 .news-page-header {
@@ -22,4 +23,30 @@
 
 .news-page-loading {
     margin-top: 7rem
+}
+
+.comments-list .comment-item {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 50%;
+    position: relative;
+}
+
+.comment-item .delete-comment {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.comment-item .delete-comment:hover {
+    color: darkred;
+}
+
+.comment-item:hover .delete-comment {
+    display: inline;
+    visibility: visible;
 }

@@ -34,3 +34,10 @@ export let commentToNews = async (newsId, data) => {
 
   return response;
 };
+
+export let deleteNewsComment = async (commentId) => {
+  let response = await axios.delete(`/news/comment/${commentId}`);
+
+  return response;
+};
+
