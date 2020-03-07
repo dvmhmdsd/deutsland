@@ -60,7 +60,7 @@ server.put("/:id", ensureAuth, isAdmin, (req, res) => {
 // Delete the record
 server.delete("/:id", ensureAuth, isAdmin, (req, res) => {
   let id = req.params.id;
-  
+
   News.findByIdAndRemove(id)
     .then(() => {
       res.sendStatus(200);
@@ -68,6 +68,15 @@ server.delete("/:id", ensureAuth, isAdmin, (req, res) => {
     .catch(() => {
       throwError();
     });
+});
+
+server.post("/:id/comment", (req, res) => {
+  let id = req.params.id;
+  let { name, body } = req.body;
+  let comment = {name, body}
+  News.findOneAndUpdate(id, { $push: { comments: comment } }).then(() => {
+    res.sendStatus(200);
+  });
 });
 
 let throwError = () => {
