@@ -1,7 +1,8 @@
 .slider-3d {
   position: relative;
   perspective: 1000px;
-  padding: 8rem 0;
+  padding-top: 8rem;
+  padding-bottom: 14rem;
 }
 
 .slider-box {
