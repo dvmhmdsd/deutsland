@@ -88,7 +88,7 @@ Here's the style guide used on this project for the front-end.
 
 - `Main`: 16px
 
-- `Sections Heading`: 1.2rem
+- `Sections Heading`: 3.5rem
 
 2. **Colors**
 
