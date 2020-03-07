@@ -19,10 +19,10 @@ export default class NewsPage extends Component {
 
   render() {
     return (
-      <Layout>
-        <main className="news-page-main">
-          {this.state.newsItem ? (
-            <>
+      <>
+        {this.state.newsItem ? (
+          <Layout>
+            <main className="news-page-main">
               <header
                 className="news-page-header"
                 style={{
@@ -42,12 +42,12 @@ export default class NewsPage extends Component {
                   <p className="text-muted"> {this.state.newsItem.body} </p>
                 </div>
               </section>
-            </>
-          ) : (
-            <p className="text-center news-page-loading"> Loading ... </p>
-          )}
-        </main>
-      </Layout>
+            </main>
+          </Layout>
+        ) : (
+          <p className="text-center news-page-loading"> Loading ... </p>
+        )}
+      </>
     );
   }
 }
