@@ -1,19 +1,19 @@
 .partners .carousel-container {
   width: 50%;
   background-color: grey;
-  /* height: 400px; */
 }
 .carouselItem {
   width: 100%;
   padding: 50px;
   text-align: center;
-  color: #fff;
 }
 .carouselItem p {
   margin-top: 2rem;
+  color: #fff;
 }
 .carouselItem h3 {
   text-align: center;
+  color: #fff;
 }
 .carouselItem img {
   max-width: 50%;

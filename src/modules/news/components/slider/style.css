@@ -13,6 +13,10 @@
     margin-right: 6rem;
 }
 
+.news-overlay p {
+    color: #fff;
+}
+
 .newsCarouselItem .news-overlay a {
     color: #fff;
     text-decoration: none;

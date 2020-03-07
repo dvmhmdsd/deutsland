@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./style.css";
 
@@ -10,9 +10,9 @@ export default class Header extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
-          <Link className="navbar-brand" to="/">
+          <NavLink className="navbar-brand" to="/">
             <img className="logo" src={logo} alt="Our Logo" />
-          </Link>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"
@@ -30,9 +30,9 @@ export default class Header extends Component {
                 if (route.label) {
                   return (
                     <li key={index} className="nav-item" color="#eaab00">
-                      <Link className="nav-link" to={route.path}>
+                      <NavLink className="nav-link" to={route.path}>
                         {route.label}
-                      </Link>
+                      </NavLink>
                     </li>
                   );
                 } else return ""
