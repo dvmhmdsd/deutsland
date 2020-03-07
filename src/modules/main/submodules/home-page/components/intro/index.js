@@ -4,7 +4,6 @@ import VideoBg from "../../../../../../shared/bg-video";
 
 export default class Intro extends Component {
   render() {
-    console.log("intro");
     return (
       <div className="intro">
         <VideoBg title="Water mist" buttonLabel="Read More"  />

@@ -28,7 +28,7 @@ export default class Counters extends Component {
     $(window).scroll(function() {
       if ($(".counters") && $(".counters").offset()) {
         var oTop = $(".counters").offset().top - window.innerHeight;
-        if (a == 0 && $(window).scrollTop() > oTop) {
+        if (a === 0 && $(window).scrollTop() > oTop) {
           $(".counter").each(function() {
             var $this = $(this),
               countTo = $this.attr("data-count");
@@ -38,7 +38,7 @@ export default class Counters extends Component {
               {
                 countNum: countTo
               },
-  
+
               {
                 duration: 2000,
                 easing: "swing",
@@ -60,15 +60,17 @@ export default class Counters extends Component {
   render() {
     return (
       <div className="counters">
-        {this.counters.map(counterItem => {
+        {this.counters.map((counterItem, index) => {
           return (
-            <div>
+            <div key={index}>
               <ReactWOW
                 animation="slideInUp"
                 data-wow-duration="10s"
                 data-wow-delay="50s"
               >
-                <h2 className="counter" data-count={counterItem.number}></h2>
+                <h2 className="counter" data-count={counterItem.number}>
+                  dummy content for accessibility
+                </h2>
                 <p>{counterItem.name}</p>
               </ReactWOW>
             </div>

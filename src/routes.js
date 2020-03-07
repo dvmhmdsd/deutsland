@@ -13,28 +13,33 @@ export default [
     component: CareerItemPage
   },
   {
+    path: "/",
+    component: HomePage,
+    label: "Home"
+  },
+  {
+    path: "/company",
+    component: AboutPage,
+    label: "Company"
+  },
+  {
+    path: "/history",
+    component: HistoryPage,
+    label: "History"
+  },
+  {
     path: "/careers",
-    component: CareersListPage
+    component: CareersListPage,
+    label: "Careers"
   },
   {
     path: "/contact-us",
-    component: ContactPage
+    component: ContactPage,
+    label: "Contact"
   },
   {
     path: "/dtpedia/:id/:slug",
     component: DtPediaPage
-  },
-  {
-    path: "/",
-    component: HomePage
-  },
-  {
-    path: "/history",
-    component: HistoryPage
-  },
-  {
-    path: "/company",
-    component: AboutPage
   },
   {
     path: "/news/:id",

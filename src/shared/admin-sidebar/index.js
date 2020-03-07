@@ -22,7 +22,7 @@ export default class AdminSidebar extends Component {
   }
 
   renderAdminRoutes = () => {
-    return adminRoutes.map((adRoute, index) => {
+    return adminRoutes.forEach((adRoute, index) => {
       if (adRoute.label && this.state.isAdmin) {
         return (
           <li key={index} className="sidebarItem">

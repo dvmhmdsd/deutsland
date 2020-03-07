@@ -188,7 +188,7 @@ export default class AdminTable extends Component {
                             src={this.state.image}
                             className="d-block"
                             width="100%"
-                            alt="Image Preview"
+                            alt="Preview"
                           />
                           <span
                             onClick={this.removeImage}
