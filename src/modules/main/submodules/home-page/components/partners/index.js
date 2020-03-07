@@ -29,6 +29,8 @@ export default class Partners extends Component {
             activeIndex={this.state.index}
             direction={this.state.direction}
             onSelect={this.handleSelect}
+            controls={false}
+            indicators={false}
           >
             <Carousel.Item className="carouselItem">
               <h3>First slide label</h3>
