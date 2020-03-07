@@ -2,10 +2,15 @@ footer{
     background-color: rgb(32, 31, 31);
     color: white;
     height: 400px;
-    padding: 20px;
+    padding: 40px;
+    line-height: 35px;
+    font-size: 17px;
 }
 hr{
     background-color: #eaab00;
-    width: 15%;
+    width: 30%;
     margin-left: 0px;
+}
+.item .icon{
+    margin-right: 17px;
 }

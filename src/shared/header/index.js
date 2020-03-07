@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-
 import { Link } from 'react-router-dom';
-
+import logo from "../../assets/logo.png";
+import "./style.css";
 export default class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Navbar
+            <img className="logo" src={logo} />
           </Link>
           <button
             className="navbar-toggler"
@@ -23,7 +23,7 @@ export default class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item active">
+              <li className="nav-item active" color="#eaab00">
                 <Link className="nav-link" to="/">
                   Home 
                 </Link>
