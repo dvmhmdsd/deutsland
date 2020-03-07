@@ -26,15 +26,16 @@ export default class Header extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
-            {routes.map((route, index) => {
+              {routes.map((route, index) => {
                 if (route.label) {
-                  return <li key={index} className="nav-item active" color="#eaab00">
-                    <Link className="nav-link" to={route.path}>
-                      {route.label}
-                    </Link>
-                  </li>;
-                }
-                return ""
+                  return (
+                    <li key={index} className="nav-item" color="#eaab00">
+                      <Link className="nav-link" to={route.path}>
+                        {route.label}
+                      </Link>
+                    </li>
+                  );
+                } else return ""
               })}
             </ul>
           </div>
