@@ -9,7 +9,7 @@ export default class VideoBg extends Component {
     let { title, buttonLabel, paragraph } = this.props;
     return (
       <div className="video-container">
-        <video id="video" width="100%" height="100%" autoPlay muted>
+        <video id="video" width="100%" height="100%" autoPlay muted loop>
           <source src={video} type="video/mp4" />
         </video>
         <div className="overlay text-center d-flex justify-content-center align-items-center">
