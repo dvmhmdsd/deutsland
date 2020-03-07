@@ -76,6 +76,8 @@ server.post("/:id/comment", (req, res) => {
   let comment = {name, body}
   News.findOneAndUpdate(id, { $push: { comments: comment } }).then(() => {
     res.sendStatus(200);
+  }).catch(() => {
+    throwError();
   });
 });
 
