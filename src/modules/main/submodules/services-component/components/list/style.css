@@ -12,37 +12,44 @@
 }
 
 .service-item {
-  border: 2px solid;
   position: absolute;
-  padding: 4rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
   width: 40%;
-  opacity: 0.6;
   color: #000;
-  background-color: #fff;
   transition: transform 0.5s ease-out;
 }
 
 .slider-front {
   transform: translate3d(0, -74px, 0);
-  opacity: 1;
+  background-color: #fff;
 }
 
 .front-right {
   transform: translate3d(410px, -100px, -100px);
+  background-color: #fff;
 }
 
 .front-left {
   transform: translate3d(-410px, -100px, -100px);
+  background-color: #fff;
 }
 
 .back-right {
   transform: translate3d(420px, -240px, -1000px);
+  opacity: 0.5;
 }
 
 .back-left {
-    transform: translate3d(-420px, -240px, -1000px);
+  transform: translate3d(-420px, -240px, -1000px);
+  opacity: 0.5;
 }
 
 .slider-back {
-    transform: translate3d(0, -270px, -1100px);
+  transform: translate3d(0, -270px, -1100px);
+  opacity: 0.5;
+}
+
+.service-heading {
+  margin-left: 2.3rem;
 }

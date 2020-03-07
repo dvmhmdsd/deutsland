@@ -22,7 +22,7 @@ export default class News extends Component {
   render() {
     return (
       <section className="section container">
-        <h2 className="news-heading text-center"> News & Events </h2>
+        <h2 className="section-heading text-center"> News & Events </h2>
         <Carousel
           direction={this.state.direction}
           controls="false"

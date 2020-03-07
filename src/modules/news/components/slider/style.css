@@ -3,11 +3,6 @@
     height: 30rem;
 }
 
-.news-heading {
-    font-size: 3.5rem;
-    margin-bottom: 7rem;
-}
-
 .newsCarouselItem .news-overlay {
     padding: 2rem 2rem;
     height: 100%;
