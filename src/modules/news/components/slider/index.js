@@ -25,8 +25,7 @@ export default class News extends Component {
         <h2 className="section-heading text-center"> News & Events </h2>
         <Carousel
           direction={this.state.direction}
-          controls="false"
-          indicators="false"
+          indicators={false}
         >
           {this.state.news.length > 0 &&
             this.state.news.map((newsItem, index) => (
