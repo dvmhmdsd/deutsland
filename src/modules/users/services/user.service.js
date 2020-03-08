@@ -1,28 +1,25 @@
 import axios from "axios";
 
-let addUser = async user => {
-  let response = await axios.post(
-    "http://localhost:5000/api/users/register",
-    user
-  );
+export let addUser = async user => {
+  let response = await axios.post("/users/register", user);
 
   return response;
 };
 
-let deleteUser = async id => {
-  let response = await axios.delete(`http://localhost:5000/api/users/${id}`);
+export let updateUser = async (id, user) => {
+  let response = await axios.post(`/users/${id}`, user);
 
   return response;
 };
 
-let getUsers = async id => {
-  let response = await axios.get("http://localhost:5000/api/users/list");
+export let deleteUser = async id => {
+  let response = await axios.delete(`/users/${id}`);
 
   return response;
 };
 
-export default {
-  addUser,
-  deleteUser,
-  getUsers
+export let getUsers = async () => {
+  let response = await axios.get("/users/list");
+
+  return response;
 };

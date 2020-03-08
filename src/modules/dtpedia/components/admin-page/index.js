@@ -90,7 +90,7 @@ export default class NewsAdminPage extends Component {
               updateParentState={this.updateStateWithDtpedia}
               deleteRecord={this.deleteRecord}
               updateRecord={this.updateRecord}
-              acceptsImage={false}
+              acceptsImage={true}
             />
           ) : (
             <p className="text-center">No Items Yet</p>
@@ -99,7 +99,7 @@ export default class NewsAdminPage extends Component {
             save={this.saveDtpedia}
             updateParentState={() => this.updateStateWithDtpedia()}
             data={dtpediaData}
-            acceptsImage={false}
+            acceptsImage={true}
           />
         </AdminLayout>
       </>

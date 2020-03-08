@@ -41,7 +41,7 @@ export default class ServicesList extends Component {
         <div className="container">
           <h2 className="text-center mb-5 section-heading"> Services </h2>
           <article className="slider-3d">
-            <div className="slider-box d-flex justify-content-center">
+            <div className="slider-box d-lg-flex justify-content-center">
               <section className={`service-item ${classes[0]}`}>
                 <h3 className="service-heading"> Design </h3>
                 <div className="d-flex">

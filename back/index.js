@@ -49,6 +49,12 @@ app.get("*", (req, res, next) => {
   next();
 });
 
+const careersController = require("./controllers/careers.controller");
+app.use("/api/messages", careersController);
+
+const messageController = require("./controllers/messages.controller");
+app.use("/api/messages", messageController);
+
 const dtpediaController = require("./controllers/dtpedia.controller");
 app.use("/api/dtpedia", dtpediaController);
 
