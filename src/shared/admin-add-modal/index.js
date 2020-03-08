@@ -119,7 +119,9 @@ export default class AdminModal extends Component {
                       rows={3}
                     />
                   </div>
-                  {!this.state.image && !this.state.isImageUploading ? (
+                  {this.props.acceptsImage &&
+                  !this.state.image &&
+                  !this.state.isImageUploading ? (
                     <div className="form-group">
                       <label htmlFor="image">Upload Image</label>
                       <input

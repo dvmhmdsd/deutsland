@@ -180,7 +180,8 @@ export default class AdminTable extends Component {
                         />
                       </div>
 
-                      {this.state.isImageUploading ? (
+                      {this.props.acceptsImage &&
+                      this.state.isImageUploading ? (
                         <p> Waiting for image uploading ... </p>
                       ) : this.state.isImageUploaded || this.state.image ? (
                         <section className="img-preview">

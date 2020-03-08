@@ -52,7 +52,7 @@ app.get("*", (req, res, next) => {
 const careersController = require("./controllers/careers.controller");
 app.use("/api/messages", careersController);
 
-const messageController = require("./controllers/message.controller");
+const messageController = require("./controllers/messages.controller");
 app.use("/api/messages", messageController);
 
 const dtpediaController = require("./controllers/dtpedia.controller");

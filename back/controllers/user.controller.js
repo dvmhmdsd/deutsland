@@ -29,8 +29,7 @@ server.get("/list", ensureAuth, isAdmin, async (request, response) => {
   response.send(usersArray);
 });
 
-// TODO: Add authorization middleware
-server.post("/register", async (request, response) => {
+server.post("/register", ensureAuth, isAdmin, async (request, response) => {
   let { name, email, password, type } = request.body;
 
   let user = new User({
@@ -54,6 +53,33 @@ server.post("/register", async (request, response) => {
   // Save the user
   user.save().then(() => {
     response.sendStatus(201);
+  });
+});
+
+server.put("/:id", ensureAuth, isAdmin, async (request, response) => {
+  let { name, email, password, type } = request.body;
+  let id = req.params.id;
+  let user = new User({
+    name,
+    email,
+    password,
+    type
+  });
+
+  // Hash the password before save
+  let salt, hash;
+  try {
+    salt = await bcrypt.genSalt(10);
+    hash = await bcrypt.hash(user.password, salt);
+  } catch (err) {
+    throw err;
+  }
+
+  user.password = hash;
+
+  // Save the user
+  User.findByIdAndUpdate(id, user).then(() => {
+    response.sendStatus(200);
   });
 });
 
