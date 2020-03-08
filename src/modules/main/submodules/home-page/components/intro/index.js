@@ -8,7 +8,7 @@ export default class Intro extends Component {
     return (
       <div className="intro">
         <VideoBg title="Water mist" buttonLabel="Read More"  />
-        <div className="detpedia">
+        <div className="dtpedia">
           <div className="container">
             <p>
               Get a free quote now or ask us a question, it's free, simple and

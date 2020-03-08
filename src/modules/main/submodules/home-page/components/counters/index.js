@@ -18,7 +18,7 @@ export default class Counters extends Component {
       name: "Awords Won"
     },
     {
-      number: 600,
+      number: 100,
       name: "Awords Won"
     }
   ];

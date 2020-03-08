@@ -1,8 +1,10 @@
-    .counters{
-        display: flex;
-        justify-content: space-around;
-    }
-    .counters h2{
-        text-align: center;
-    }
-    
+.counters {
+  display: flex;
+  justify-content: space-around;
+  background-color: gray;
+  margin-top: -6px;
+  padding: 20px;
+}
+.counters h2 {
+  text-align: center;
+}
