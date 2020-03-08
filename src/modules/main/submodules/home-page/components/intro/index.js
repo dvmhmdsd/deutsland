@@ -15,7 +15,7 @@ export default class Intro extends Component {
               Get a free quote now or ask us a question, it's free, simple and
               fast. We will be happy to answer you
             </p>
-            <Link className="dtpedia-link" to="/dtpedia">DTpedia</Link>
+            <Link className="dtpedia-link btn btn-sm-block" to="/dtpedia">DTpedia</Link>
           </div>
         </div>
       </div>

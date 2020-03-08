@@ -68,10 +68,14 @@ export default class Counters extends Component {
                 data-wow-duration="10s"
                 data-wow-delay="50s"
               >
-                <h2 className="counter" data-count={counterItem.number}>
-                  dummy content for accessibility
-                </h2>
-                <p>{counterItem.name}</p>
+                <div calassName="row">
+                  <div calassName="col-md-6">
+                    <h2 className="counter" data-count={counterItem.number}>
+                      dummy content for accessibility
+                    </h2>
+                    <p>{counterItem.name}</p>
+                  </div>
+                </div>
               </ReactWOW>
             </div>
           );

@@ -11,7 +11,7 @@ export default class Footer extends Component {
       <footer>
         <div className="container">
           <div className="row">
-            <div className="col-sm">
+            <div className="col-lg-4 col-sm-12">
               <ReactWOW animation='zoomIn' data-wow-duration="2s" data-wow-delay="10s">
                 <div className="item">
                   <h3 className="wow slideInLeft"> Abou Us</h3>
@@ -25,7 +25,7 @@ export default class Footer extends Component {
                 </div>
               </ReactWOW>
             </div>
-            <div className="col-sm">
+            <div className="col-lg-4 col-sm-12">
               <div className="item">
                 <ReactWOW animation='zoomIn' data-wow-duration="2s" data-wow-delay="20s">
                 <h3>Contact Us</h3>
@@ -44,7 +44,7 @@ export default class Footer extends Component {
                 </ReactWOW>
               </div>
             </div>
-            <div className="col-sm">
+            <div className=" col-lg-4 col-sm-12">
               <div className="item">
                 <ReactWOW animation='zoomIn' data-wow-duration="2s" data-wow-delay="10s">
                 <h3>Information</h3>
