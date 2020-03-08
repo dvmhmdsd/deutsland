@@ -49,6 +49,9 @@ app.get("*", (req, res, next) => {
   next();
 });
 
+const dtpediaController = require("./controllers/dtpedia.controller");
+app.use("/api/dtpedia", dtpediaController);
+
 const newsController = require("./controllers/news.controller");
 app.use("/api/news", newsController);
 

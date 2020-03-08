@@ -6,6 +6,12 @@ export let getNews = async () => {
   return response;
 };
 
+export let getSingleNews = async (id) => {
+  let response = await axios.get(`/news/${id}`);
+
+  return response;
+};
+
 export let addNews = async data => {
   let response = await axios.post("/news", data);
 
@@ -22,3 +28,16 @@ export let deleteNews = async id => {
   if (window.confirm("Are you sure you want to delete this item ?"))
     return await axios.delete(`/news/${id}`);
 };
+
+export let commentToNews = async (newsId, data) => {
+  let response = await axios.post(`/news/${newsId}/comment`, data);
+
+  return response;
+};
+
+export let deleteNewsComment = async (commentId) => {
+  let response = await axios.delete(`/news/comment/${commentId}`);
+
+  return response;
+};
+

@@ -60,7 +60,7 @@ server.put("/:id", ensureAuth, isAdmin, (req, res) => {
 // Delete the record
 server.delete("/:id", ensureAuth, isAdmin, (req, res) => {
   let id = req.params.id;
-  
+
   News.findByIdAndRemove(id)
     .then(() => {
       res.sendStatus(200);
@@ -69,6 +69,28 @@ server.delete("/:id", ensureAuth, isAdmin, (req, res) => {
       throwError();
     });
 });
+
+server.post("/:id/comment", (req, res) => {
+  let id = req.params.id;
+  let { name, body } = req.body;
+  let comment = { name, body };
+  News.findOneAndUpdate(id, { $push: { comments: comment } })
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch(() => {
+      throwError();
+    });
+});
+
+server.delete("/comment/:id", ensureAuth, isAdmin, (req, res) => {
+  let id = req.params.id;
+
+  News.findOneAndUpdate({"comments._id": id}, { $pull: { 'comments': {  _id: id } } }).then((comment, err) => {
+    if (err) res.sendStatus(401)
+    res.sendStatus(200)
+  })
+})
 
 let throwError = () => {
   throw new Error("An error occurred in the db");

@@ -6,22 +6,35 @@
   color: white;
   text-align: center;
 }
-.detpedia {
+.dtpedia {
   margin-top: -6px;
-  background-color: #eaab00;
+  background-color: #CB6828;
   padding: 1rem;
   font-size: 1.3rem;
+  text-align: center;
 }
-.detpedia p {
+.dtpedia p {
   display: inline-block;
   color: cornsilk;
+  margin-bottom: 1rem;
 }
-.detpedia button {
-  float: right;
+
+@media (min-width: 1280px) {
+  .dtpedia p {
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+}
+
+.dtpedia .dtpedia-link {
   border: 3px solid white;
   border-radius: 20px;
-  padding: 5px;
-  color: #eaab00;
+  padding: 5px 20px;
+  color: #CB6828;
+  background-color: #fff;
+  text-align: center;
+  text-decoration: none;
   width: 150px;
+  font-weight: bold;
 }
 

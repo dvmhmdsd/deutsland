@@ -56,9 +56,7 @@ export default class NewsAdminPage extends Component {
   };
 
   updateRecord = (id, data) => {
-    updateNews(id, data).then(() => {
-      this.updateStateWithNews();
-    });
+    return updateNews(id, data);
   };
 
   saveNews = data => {
@@ -92,6 +90,7 @@ export default class NewsAdminPage extends Component {
               updateParentState={this.updateStateWithNews}
               deleteRecord={this.deleteRecord}
               updateRecord={this.updateRecord}
+              acceptsImage={true}
             />
           ) : (
             <p className="text-center">No Items Yet</p>
@@ -100,6 +99,7 @@ export default class NewsAdminPage extends Component {
             save={this.saveNews}
             updateParentState={() => this.updateStateWithNews()}
             data={newsData}
+            acceptsImage={true}
           />
         </AdminLayout>
       </>

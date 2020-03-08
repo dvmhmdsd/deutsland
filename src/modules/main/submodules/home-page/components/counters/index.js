@@ -26,47 +26,51 @@ export default class Counters extends Component {
   componentDidMount() {
     var a = 0;
     $(window).scroll(function() {
-      var oTop = $(".counters").offset().top - window.innerHeight;
-      if (a == 0 && $(window).scrollTop() > oTop) {
-        $(".counter").each(function() {
-          var $this = $(this),
-            countTo = $this.attr("data-count");
-          $({
-            countNum: $this.text()
-          }).animate(
-            {
-              countNum: countTo
-            },
-
-            {
-              duration: 2000,
-              easing: "swing",
-              step: function() {
-                $this.text(Math.floor(this.countNum));
+      if ($(".counters") && $(".counters").offset()) {
+        var oTop = $(".counters").offset().top - window.innerHeight;
+        if (a === 0 && $(window).scrollTop() > oTop) {
+          $(".counter").each(function() {
+            var $this = $(this),
+              countTo = $this.attr("data-count");
+            $({
+              countNum: $this.text()
+            }).animate(
+              {
+                countNum: countTo
               },
-              complete: function() {
-                $this.text(this.countNum);
-                //alert('finished');
+
+              {
+                duration: 2000,
+                easing: "swing",
+                step: function() {
+                  $this.text(Math.floor(this.countNum));
+                },
+                complete: function() {
+                  $this.text(this.countNum);
+                  //alert('finished');
+                }
               }
-            }
-          );
-        });
-        a = 1;
+            );
+          });
+          a = 1;
+        }
       }
     });
   }
   render() {
     return (
       <div className="counters">
-        {this.counters.map(counterItem => {
+        {this.counters.map((counterItem, index) => {
           return (
-            <div>
+            <div key={index}>
               <ReactWOW
                 animation="slideInUp"
                 data-wow-duration="10s"
                 data-wow-delay="50s"
               >
-                <h2 className="counter" data-count={counterItem.number}></h2>
+                <h2 className="counter" data-count={counterItem.number}>
+                  dummy content for accessibility
+                </h2>
                 <p>{counterItem.name}</p>
               </ReactWOW>
             </div>
