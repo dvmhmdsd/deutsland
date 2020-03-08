@@ -1,8 +1,11 @@
 .trust-us {
-    position: relative;
+  position: relative;
 }
-.overlay p{
-      color: white;
-      text-align: center;
-      position: absolute;
-  }
+.overlay p {
+  color: white;
+  text-align: center;
+  position: absolute;
+}
+.overlay h4 {
+  color: white;
+}

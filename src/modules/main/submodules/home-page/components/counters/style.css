@@ -1,10 +1,13 @@
 .counters {
-  display: flex;
-  justify-content: space-around;
-  background-color: gray;
+  background-color: #FFF;
+  margin: 40px;
   margin-top: -6px;
   padding: 20px;
-}
-.counters h2 {
   text-align: center;
+  color: #3D3D3D;
+}
+@media(max-width: 991px){
+  .counters{
+    text-align: center;
+  }
 }

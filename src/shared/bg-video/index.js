@@ -6,7 +6,7 @@ import "./style.css";
 
 export default class VideoBg extends Component {
   render() {
-    let { title, buttonLabel, paragraph } = this.props;
+    let { title, buttonLabel, paragraph, copyrights } = this.props;
     return (
       <div className="video-container">
         <video id="video" width="100%" height="100%" autoPlay muted loop>
@@ -17,6 +17,8 @@ export default class VideoBg extends Component {
             <h2>{title}</h2>
             {paragraph && <p> {paragraph} </p>}
             {buttonLabel && <button>{buttonLabel}</button>}
+            {copyrights && <h4>{copyrights}</h4>}
+
           </div>
         </div>
       </div>

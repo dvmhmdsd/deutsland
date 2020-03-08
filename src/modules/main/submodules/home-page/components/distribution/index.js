@@ -8,7 +8,7 @@ export default class Distribution extends Component {
       <section className="distribution">
         <div className="container">
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-lg-6">
               <div className="content">
                 <h3>We are worldwide</h3>
                 <p>
@@ -27,7 +27,7 @@ export default class Distribution extends Component {
                 </p>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-lg-6">
               <div className="map">
                 <img src={map} alt="map" />
               </div>

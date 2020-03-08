@@ -60,26 +60,26 @@ export default class Counters extends Component {
   render() {
     return (
       <div className="counters">
-        {this.counters.map((counterItem, index) => {
-          return (
-            <div key={index}>
-              <ReactWOW
-                animation="slideInUp"
-                data-wow-duration="10s"
-                data-wow-delay="50s"
-              >
-                <div calassName="row">
-                  <div calassName="col-md-6">
+        <div>
+          <ReactWOW
+            animation="slideInUp"
+            data-wow-duration="10s"
+            data-wow-delay="50s"
+          >
+            <div className="row">
+              {this.counters.map((counterItem, index) => {
+                return (
+                  <div key={index} className="col-lg-3 col-md-6 col-sm-6">
                     <h2 className="counter" data-count={counterItem.number}>
                       dummy content for accessibility
                     </h2>
                     <p>{counterItem.name}</p>
                   </div>
-                </div>
-              </ReactWOW>
+                );
+              })}
             </div>
-          );
-        })}
+          </ReactWOW>
+        </div>
       </div>
     );
   }
