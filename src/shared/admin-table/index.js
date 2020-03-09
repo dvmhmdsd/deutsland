@@ -220,7 +220,7 @@ export default class AdminTable extends Component {
                             </div>
                             <div className="form-group col-6">
                               <label htmlFor="name">Type</label>
-                              <select class="form-control" value={this.state.type} onChange={this.handleChange}>
+                              <select className="form-control" value={this.state.type} onChange={this.handleChange}>
                                 <option value="admin">Admin</option>
                                 <option value="data entry">Data Entry</option>
                               </select>

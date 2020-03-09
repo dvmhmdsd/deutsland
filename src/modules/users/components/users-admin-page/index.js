@@ -4,7 +4,6 @@ import isUserLoggedIn from "modules/users/services/auth.service";
 import {
   getUsers,
   deleteUser,
-  addUser,
   updateUser
 } from "../../services/user.service";
 

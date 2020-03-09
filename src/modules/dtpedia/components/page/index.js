@@ -5,7 +5,7 @@ import Layout from "shared/layout";
 import "./style.css";
 import { getSingleDtpedia, getDtpedia } from "../../services/dtpedia.service";
 
-import { NavLink, BrowserRouter as Router } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default class DtPediaPage extends Component {
   state = {
