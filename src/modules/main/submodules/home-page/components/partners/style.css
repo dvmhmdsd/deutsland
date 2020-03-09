@@ -7,6 +7,11 @@
   padding: 50px;
   text-align: center;
 }
+@media (max-width: 576px) {
+  .partners .carousel-container {
+    width: 100%;
+  }
+}
 .carouselItem p {
   margin-top: 2rem;
   color: #fff;

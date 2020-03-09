@@ -1,8 +1,13 @@
-    .counters{
-        display: flex;
-        justify-content: space-around;
-    }
-    .counters h2{
-        text-align: center;
-    }
-    
+.counters {
+  background-color: #FFF;
+  margin: 40px;
+  margin-top: -6px;
+  padding: 20px;
+  text-align: center;
+  color: #3D3D3D;
+}
+@media(max-width: 991px){
+  .counters{
+    text-align: center;
+  }
+}

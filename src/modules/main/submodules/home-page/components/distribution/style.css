@@ -3,9 +3,64 @@
   padding: 40px;
   margin-bottom: 100px;
 }
-section .info h3{
-    margin-bottom: 40px;
+section .content h3 {
+  margin-bottom: 40px;
 }
 .distribution img {
   width: 100%;
+  position: relative;
+}
+.bransh-style {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: #cb6828;
+  position: absolute;
+}
+.bransh-position1 {
+  left: 55px;
+}
+.bransh-position2 {
+  left: 115px;
+  top: 12px;
+}
+.bransh-position3 {
+  left: 62px;
+  top: 193px;
+}
+.bransh-position4 {
+  left: 172px;
+  top: 197px;
+}
+.bransh-position5 {
+  left: 105px;
+  top: 206px;
+}
+.bransh-position6 {
+  top: 286px;
+  right: 110px;
+}
+.bransh-position7 {
+  right: 177px;
+  top: 246px;
+}
+.bransh-position8 {
+  right: 82px;
+  top: 346px;
+}
+.bransh-position9 {
+  right: 240px;
+  top: 300px;
+}
+.bransh-position10 {
+  right: 163px;
+  top: 279px;
+}
+.bransh-position11 {
+  top: 278px;
+  right: 326px;
+}
+.bransh-position12{
+  right: 10px;
 }

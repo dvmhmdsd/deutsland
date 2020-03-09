@@ -12,6 +12,13 @@
     color: #fff;
     margin-right: 6rem;
 }
+@media(max-width: 991px){
+    .newsCarouselItem .news-overlay{
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+  }
 
 .news-overlay p {
     color: #fff;
