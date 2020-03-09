@@ -23,7 +23,7 @@ export default class NewsAdminPage extends Component {
     isLoading: true
   };
 
-  tableHeadings = ["Title", "Date"];
+  tableHeadings = ["title", "date"];
 
   constructor() {
     super();
