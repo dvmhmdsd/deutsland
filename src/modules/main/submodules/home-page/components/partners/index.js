@@ -29,10 +29,7 @@ export default class Partners extends Component {
             activeIndex={this.state.index}
             direction={this.state.direction}
             onSelect={this.handleSelect}
-<<<<<<< HEAD
             controls={true}
-=======
->>>>>>> 64e59d4d4f5b3a03cf6b63f0cf87fad59cda11a7
             indicators={false}
           >
             <Carousel.Item className="carouselItem">
