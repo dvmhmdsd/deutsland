@@ -3,7 +3,7 @@ import RegisterPage from "modules/users/components/register";
 import UsersListPage from "modules/users/components/users-admin-page";
 import NewsAdminPage from "modules/news/components/news-admin-page";
 import DtPediaAdminPage from "modules/dtpedia/components/admin-page";
-import MessagesPage from "modules/contact/components/admin-messages-page";
+import MessagesPage from "modules/contact/components/messages-admin-page";
 import CareersAdminPage from "modules/careers/components/career-admin-page";
 import DashboardHome from "modules/main/submodules/admin-page";
 

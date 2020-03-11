@@ -91,6 +91,7 @@ export default class NewsAdminPage extends Component {
               deleteRecord={this.deleteRecord}
               updateRecord={this.updateRecord}
               acceptsImage={true}
+              isEditable={true}
             />
           ) : (
             <p className="text-center">No Items Yet</p>

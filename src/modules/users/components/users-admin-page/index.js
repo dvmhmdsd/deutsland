@@ -86,6 +86,7 @@ export default class UsersListPage extends Component {
               updateRecord={this.updateRecord}
               acceptsImage={false}
               isUsersTable={true}
+              isEditable={true}
             />
           ) : (
             <p className="text-center">No Items Yet</p>

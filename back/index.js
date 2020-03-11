@@ -50,7 +50,7 @@ app.get("*", (req, res, next) => {
 });
 
 const careersController = require("./controllers/careers.controller");
-app.use("/api/messages", careersController);
+app.use("/api/careers", careersController);
 
 const messageController = require("./controllers/messages.controller");
 app.use("/api/messages", messageController);
