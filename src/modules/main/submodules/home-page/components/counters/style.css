@@ -1,10 +1,11 @@
 .counters {
   background-color: #FFF;
-  margin: 40px;
+  /* margin: 40px; */
   margin-top: -6px;
   padding: 20px;
   text-align: center;
   color: #3D3D3D;
+  position: relative;
 }
 @media(max-width: 991px){
   .counters{
