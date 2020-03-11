@@ -17,9 +17,9 @@ server.get("/list", ensureAuth, async (req, res) => {
 
 // Create a new record
 server.post("/", ensureAuth, async (req, res) => {
-  let { link, image } = req.body;
+  let { link, image, name } = req.body;
 
-  let clientItem = new Client({ link, image });
+  let clientItem = new Client({ link, image, name });
 
   clientItem.save().then(record => {
     res.send(record);

@@ -49,6 +49,9 @@ app.get("*", (req, res, next) => {
   next();
 });
 
+const clientsController = require("./controllers/clients.controller");
+app.use("/api/clients", clientsController);
+
 const careersController = require("./controllers/careers.controller");
 app.use("/api/careers", careersController);
 

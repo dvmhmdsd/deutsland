@@ -20,6 +20,7 @@ export default class AdminTable extends Component {
     image: "",
     id: "",
     name: " ",
+    link: "",
     type: " ",
     password: " ",
     email: " ",
@@ -63,12 +64,12 @@ export default class AdminTable extends Component {
             >
               <FontAwesomeIcon icon={faEdit} />
             </button>
-          ) : (
+          ) : this.props.isDetailed ? (
             <button
               className="btn btn-secondary mr-2"
               data-toggle="modal"
               data-target="#editModal"
-              title="Edit Item"
+              title="Show Details"
               onClick={() =>
                 this.setState({
                   body: item.body
@@ -77,6 +78,8 @@ export default class AdminTable extends Component {
             >
               <FontAwesomeIcon icon={faEye} />
             </button>
+          ) : (
+            ""
           )}
 
           <button
@@ -261,28 +264,57 @@ export default class AdminTable extends Component {
                           </>
                         ) : (
                           <>
-                            <div className="form-group">
-                              <label htmlFor="title">Title</label>
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="title"
-                                name="title"
-                                value={this.state.title}
-                                onChange={this.handleChange}
-                              />
-                            </div>
-                            <div className="form-group">
-                              <label htmlFor="body">Body</label>
-                              <textarea
-                                className="form-control"
-                                id="body"
-                                rows={3}
-                                name="body"
-                                value={this.state.body}
-                                onChange={this.handleChange}
-                              />
-                            </div>
+                            {this.props.isClientTable ? (
+                              <>
+                                <div className="form-group">
+                                  <label htmlFor="name">Name</label>
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id="name"
+                                    name="name"
+                                    value={this.state.name}
+                                    onChange={this.handleChange}
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="link">Link</label>
+                                  <input
+                                    type="url"
+                                    className="form-control"
+                                    id="link"
+                                    name="link"
+                                    value={this.state.link}
+                                    onChange={this.handleChange}
+                                  />
+                                </div>
+                              </>
+                            ) : (
+                              <>
+                                <div className="form-group">
+                                  <label htmlFor="title">Title</label>
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    id="title"
+                                    name="title"
+                                    value={this.state.title}
+                                    onChange={this.handleChange}
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="body">Body</label>
+                                  <textarea
+                                    className="form-control"
+                                    id="body"
+                                    rows={3}
+                                    name="body"
+                                    value={this.state.body}
+                                    onChange={this.handleChange}
+                                  />
+                                </div>
+                              </>
+                            )}
 
                             {this.props.acceptsImage &&
                             this.state.isImageUploading ? (
