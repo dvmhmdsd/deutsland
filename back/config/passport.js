@@ -1,4 +1,3 @@
-const bcrypt = require("bcryptjs");
 const User = require("../models/User.model");
 
 const LocalStrategy = require("passport-local").Strategy;
@@ -43,14 +42,10 @@ let authenticateUser = async (request, email, password, done) => {
   if (!user) {
     return done(null, false, { message: "Wrong Email" });
   }
+  if (password === user.password) {
+    return done(null, user);
+  } else {
+    return done(null, false, { message: "Wrong password" });
 
-  bcrypt.compare(password, user.password, (error, isMatch) => {
-    if (error) throw error;
-
-    if (isMatch) {
-      return done(null, user);
-    } else {
-      return done(null, false, { message: "Wrong password" });
-    }
-  });
+  }
 };

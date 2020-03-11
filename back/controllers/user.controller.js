@@ -9,27 +9,17 @@ const User = require("../models/User.model");
 
 const server = express.Router();
 
-server.get("/list", ensureAuth, isAdmin, async (request, response) => {
+server.get("/list", async (request, response) => {
   let usersList;
   try {
     usersList = await User.find({});
+    response.send(usersList);
   } catch (error) {
     throw error;
   }
-
-  // Remove password from list
-  let usersArray = [];
-  usersList.map(user => {
-    let { id, name, email, type } = user;
-
-    usersArray.push({ id, name, email, type });
-  });
-
-  // Send the list
-  response.send(usersArray);
 });
 
-server.post("/register", ensureAuth, isAdmin, async (request, response) => {
+server.post("/register", async (request, response) => {
   let { name, email, password, type } = request.body;
 
   let user = new User({
@@ -38,17 +28,6 @@ server.post("/register", ensureAuth, isAdmin, async (request, response) => {
     password,
     type
   });
-
-  // Hash the password before save
-  let salt, hash;
-  try {
-    salt = await bcrypt.genSalt(10);
-    hash = await bcrypt.hash(user.password, salt);
-  } catch (err) {
-    throw err;
-  }
-
-  user.password = hash;
 
   // Save the user
   user.save().then(() => {
@@ -58,27 +37,10 @@ server.post("/register", ensureAuth, isAdmin, async (request, response) => {
 
 server.put("/:id", ensureAuth, isAdmin, async (request, response) => {
   let { name, email, password, type } = request.body;
-  let id = req.params.id;
-  let user = new User({
-    name,
-    email,
-    password,
-    type
-  });
-
-  // Hash the password before save
-  let salt, hash;
-  try {
-    salt = await bcrypt.genSalt(10);
-    hash = await bcrypt.hash(user.password, salt);
-  } catch (err) {
-    throw err;
-  }
-
-  user.password = hash;
+  let id = request.params.id;
 
   // Save the user
-  User.findByIdAndUpdate(id, user).then(() => {
+  User.findByIdAndUpdate(id, { name, email, password, type }).then(() => {
     response.sendStatus(200);
   });
 });

@@ -18,7 +18,35 @@ export default class ServicesList extends Component {
       "slider-back",
       "back-left",
       "front-left"
-    ]
+    ],
+    hover: false
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", e => {
+      if (this.isComponentInViewport()) {
+        this.slide();
+      } else {
+        this.isInterval = false;
+        clearInterval(this.slideInterval);
+      }
+    });
+  }
+
+  isComponentInViewport = () => {
+    return (
+      window.pageYOffset >= this.servicesItems.offsetTop - 350 &&
+      window.pageYOffset <= 1260
+    );
+  };
+
+  slide = () => {
+    if (!this.isInterval) {
+      this.isInterval = true;
+      this.slideInterval = setInterval(() => {
+        this.setState({ classes: this.slideArray(this.state.classes) });
+      }, 3000);
+    }
   };
 
   slideArray = classesArray => {
@@ -28,19 +56,24 @@ export default class ServicesList extends Component {
     return classesArray;
   };
 
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ classes: this.slideArray(this.state.classes) });
-    }, 4000);
+  componentWillUnmount() {
+    window.removeEventListener("scroll");
   }
 
   render() {
     let { classes } = this.state;
     return (
-      <section className="section">
+      <section ref={el => (this.servicesItems = el)} className="section">
         <div className="container">
           <h2 className="text-center mb-5 section-heading"> Services </h2>
-          <article className="slider-3d">
+          <article
+            onMouseEnter={() => {
+              clearInterval(this.slideInterval);
+              this.isInterval = false;
+            }}
+            onMouseLeave={() => {this.slide()}}
+            className="slider-3d"
+          >
             <div className="slider-box d-lg-flex justify-content-center">
               <section className={`service-item ${classes[0]}`}>
                 <h3 className="service-heading"> Design </h3>

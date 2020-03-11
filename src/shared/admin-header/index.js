@@ -7,7 +7,7 @@ import {
   faTimes,
   faGlobe
 } from "@fortawesome/free-solid-svg-icons";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./style.css";
 
@@ -18,20 +18,16 @@ export default class AdminHeader extends Component {
     redirect: null
   };
   logout = () => {
-    logout()
-      .then(() => {
-        this.setState({ redirect: "/admin/login" });
-      })
-      .then(() => {
-        window.location.href = "/admin/login";
-      });
+    logout().then(() => {
+      window.location.href = "/admin/login";
+    });
   };
 
   render() {
     return (
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar admin-header navbar-expand-lg">
         <button
-          className="btn text-muted nav-item d-md-none"
+          className="btn text-muted nav-item d-lg-none"
           style={{ marginLeft: this.props.visible && "245px" }}
           onClick={this.props.toggleSidebar}
         >
@@ -41,8 +37,15 @@ export default class AdminHeader extends Component {
           />
         </button>
         <ul className="navbar-nav ml-auto">
+          <li className="nav-item text-muted pt-1">
+            {JSON.parse(localStorage.getItem("user")).name}
+          </li>
           <li className="nav-item">
-            <Link title="Go to website" to="/" className="btn btn-link text-muted" >
+            <Link
+              title="Go to website"
+              to="/"
+              className="btn btn-link text-muted"
+            >
               <FontAwesomeIcon size="lg" icon={faGlobe} />
             </Link>
           </li>

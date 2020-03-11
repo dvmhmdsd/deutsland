@@ -7,7 +7,9 @@ export let addUser = async user => {
 };
 
 export let updateUser = async (id, user) => {
-  let response = await axios.post(`/users/${id}`, user);
+  let response = await axios.put(`/users/${id}`, user);
+
+  localStorage.setItem("user", JSON.stringify(user));
 
   return response;
 };
