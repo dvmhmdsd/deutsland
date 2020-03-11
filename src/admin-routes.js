@@ -5,8 +5,14 @@ import NewsAdminPage from "modules/news/components/news-admin-page";
 import DtPediaAdminPage from "modules/dtpedia/components/admin-page";
 import MessagesPage from "modules/contact/components/admin-messages-page";
 import CareersAdminPage from "modules/careers/components/career-admin-page";
+import DashboardHome from "modules/main/submodules/admin-page";
 
 export default [
+  {
+    path: "/",
+    label: "Home",
+    component: DashboardHome
+  },
   {
     path: "/users",
     label: "Users",
