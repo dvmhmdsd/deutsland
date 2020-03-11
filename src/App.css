@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Basic";
+  src: local("Basic"), url(./assets/fonts/Basic-Regular.ttf) format("truetype");
+}
+
 body {
-  color: #3D3D3D;
+  color: #3d3d3d;
+  font-family: "Basic", "sans-serif" !important;
 }
 
 .heading {
@@ -14,5 +20,4 @@ body {
 .section-heading {
   font-size: 3.5rem;
   margin-bottom: 7rem;
-  color: #3D3D3D;
 }

@@ -18,30 +18,17 @@ export default class ServicesList extends Component {
       "slider-back",
       "back-left",
       "front-left"
-    ]
-  };
-
-  slideArray = classesArray => {
-    let classItem = classesArray.shift();
-    classesArray.push(classItem);
-
-    return classesArray;
+    ],
+    hover: false
   };
 
   componentDidMount() {
-    let slideInterval;
     window.addEventListener("scroll", e => {
       if (this.isComponentInViewport()) {
-        if (!this.isInterval) {
-          this.isInterval = true;
-          slideInterval = setInterval(() => {
-            console.log("slide");
-            this.setState({ classes: this.slideArray(this.state.classes) });
-          }, 3000);
-        }
+        this.slide();
       } else {
         this.isInterval = false;
-        clearInterval(slideInterval);
+        clearInterval(this.slideInterval);
       }
     });
   }
@@ -51,6 +38,22 @@ export default class ServicesList extends Component {
       window.pageYOffset >= this.servicesItems.offsetTop - 350 &&
       window.pageYOffset <= 1260
     );
+  };
+
+  slide = () => {
+    if (!this.isInterval) {
+      this.isInterval = true;
+      this.slideInterval = setInterval(() => {
+        this.setState({ classes: this.slideArray(this.state.classes) });
+      }, 3000);
+    }
+  };
+
+  slideArray = classesArray => {
+    let classItem = classesArray.shift();
+    classesArray.push(classItem);
+
+    return classesArray;
   };
 
   componentWillUnmount() {
@@ -63,7 +66,14 @@ export default class ServicesList extends Component {
       <section ref={el => (this.servicesItems = el)} className="section">
         <div className="container">
           <h2 className="text-center mb-5 section-heading"> Services </h2>
-          <article className="slider-3d">
+          <article
+            onMouseEnter={() => {
+              clearInterval(this.slideInterval);
+              this.isInterval = false;
+            }}
+            onMouseLeave={() => {this.slide()}}
+            className="slider-3d"
+          >
             <div className="slider-box d-lg-flex justify-content-center">
               <section className={`service-item ${classes[0]}`}>
                 <h3 className="service-heading"> Design </h3>
