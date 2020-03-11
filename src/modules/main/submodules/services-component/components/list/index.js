@@ -29,15 +29,38 @@ export default class ServicesList extends Component {
   };
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState({ classes: this.slideArray(this.state.classes) });
-    }, 4000);
+    let slideInterval;
+    window.addEventListener("scroll", e => {
+      if (this.isComponentInViewport()) {
+        if (!this.isInterval) {
+          this.isInterval = true;
+          slideInterval = setInterval(() => {
+            console.log("slide");
+            this.setState({ classes: this.slideArray(this.state.classes) });
+          }, 3000);
+        }
+      } else {
+        this.isInterval = false;
+        clearInterval(slideInterval);
+      }
+    });
+  }
+
+  isComponentInViewport = () => {
+    return (
+      window.pageYOffset >= this.servicesItems.offsetTop - 350 &&
+      window.pageYOffset <= 1260
+    );
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll");
   }
 
   render() {
     let { classes } = this.state;
     return (
-      <section className="section">
+      <section ref={el => (this.servicesItems = el)} className="section">
         <div className="container">
           <h2 className="text-center mb-5 section-heading"> Services </h2>
           <article className="slider-3d">
