@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import { faEnvelopeOpen } from "@fortawesome/free-solid-svg-icons";
-import { faPhoneAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMapMarkerAlt,
+  faEnvelopeOpen,
+  faPhoneAlt
+} from "@fortawesome/free-solid-svg-icons";
 import ReactWOW from "react-wow";
 
 import "./style.css";
@@ -42,17 +44,23 @@ export default class Footer extends Component {
                 >
                   <h3>Contact Us</h3>
                   <hr />
-                  <FontAwesomeIcon className="icon" icon={faEnvelopeOpen} />
-                  <span> info@construction.com</span>
-                  <br />
-                  <FontAwesomeIcon className="icon" icon={faPhoneAlt} />
-                  <span>(+2) 0109 835 4184</span>
-                  <br />
-                  <FontAwesomeIcon className="icon" icon={faMapMarkerAlt} />
-                  <span>
-                    PO Box 16122, Collins Street West, Victoria 8007, United
-                    States
-                  </span>
+                  <section className="contact-item">
+                    <FontAwesomeIcon className="icon" icon={faEnvelopeOpen} />
+                    <a href="mailto:info@construction.com">
+                      info@construction.com
+                    </a>
+                  </section>
+                  <section className="contact-item">
+                    <FontAwesomeIcon className="icon" icon={faPhoneAlt} />
+                    <a href="tel:+201098354184">(+2) 0109 835 4184</a>
+                  </section>
+                  <section className="contact-item">
+                    <FontAwesomeIcon className="icon" icon={faMapMarkerAlt} />
+                    <span>
+                      PO Box 16122, Collins Street West, Victoria 8007, United
+                      States
+                    </span>
+                  </section>
                 </ReactWOW>
               </div>
             </article>

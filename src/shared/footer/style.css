@@ -2,15 +2,29 @@ footer {
   background-color: rgb(32, 31, 31);
   color: white;
   padding: 40px;
-  margin-top: 30px;
   line-height: 35px;
   font-size: 17px;
 }
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: blanchedalmond;
+}
+
 hr {
   background-color: #cb6828;
   width: 30%;
   margin-left: 0px;
 }
+
+.item {
+  margin-bottom: 1rem;
+}
+
 .item .icon {
   margin-right: 17px;
 }
