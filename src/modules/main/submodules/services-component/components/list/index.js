@@ -19,18 +19,24 @@ export default class ServicesList extends Component {
       "back-left",
       "front-left"
     ],
-    hover: false
+    width: window.innerWidth
   };
 
   componentDidMount() {
-    window.addEventListener("scroll", e => {
-      if (this.isComponentInViewport()) {
-        this.slide();
-      } else {
-        this.isInterval = false;
-        clearInterval(this.slideInterval);
-      }
-    });
+    window.addEventListener("scroll", this.scrollHandler);
+  }
+
+  scrollHandler = e => {
+    if (this.isComponentInViewport() && !this.isMobile()) {
+      this.slide();
+    } else {
+      this.isInterval = false;
+      clearInterval(this.slideInterval);
+    }
+  }
+
+  isMobile = () => {
+    return this.state.width <= 991
   }
 
   isComponentInViewport = () => {
@@ -57,7 +63,7 @@ export default class ServicesList extends Component {
   };
 
   componentWillUnmount() {
-    window.removeEventListener("scroll");
+    window.removeEventListener("scroll", this.scrollHandler);
   }
 
   render() {
@@ -77,7 +83,7 @@ export default class ServicesList extends Component {
             <div className="slider-box d-lg-flex justify-content-center">
               <section className={`service-item ${classes[0]}`}>
                 <h3 className="service-heading"> Design </h3>
-                <div className="d-flex">
+                <div className="d-flex service-body">
                   <img
                     src={serviceImage1}
                     alt="service Item thumbnail"
@@ -93,7 +99,7 @@ export default class ServicesList extends Component {
 
               <section className={`service-item ${classes[1]}`}>
                 <h3 className="service-heading"> Engineering </h3>
-                <div className="d-flex">
+                <div className="d-flex service-body">
                   <img
                     src={serviceImage2}
                     alt="service Item thumbnail"
@@ -109,7 +115,7 @@ export default class ServicesList extends Component {
 
               <section className={`service-item ${classes[2]}`}>
                 <h3 className="service-heading"> Installation </h3>
-                <div className="d-flex">
+                <div className="d-flex service-body">
                   <img
                     src={serviceImage3}
                     alt="service Item thumbnail"
@@ -125,7 +131,7 @@ export default class ServicesList extends Component {
 
               <section className={`service-item ${classes[3]}`}>
                 <h3 className="service-heading">After Sales</h3>
-                <div className="d-flex">
+                <div className="d-flex service-body">
                   <img
                     src={serviceImage4}
                     alt="service Item thumbnail"
@@ -141,7 +147,7 @@ export default class ServicesList extends Component {
 
               <section className={`service-item ${classes[4]}`}>
                 <h3 className="service-heading"> Testing & Commissioning </h3>
-                <div className="d-flex">
+                <div className="d-flex service-body">
                   <img
                     src={serviceImage5}
                     alt="service Item thumbnail"
@@ -157,7 +163,7 @@ export default class ServicesList extends Component {
 
               <section className={`service-item ${classes[5]}`}>
                 <h3 className="service-heading"> Project Management </h3>
-                <div className="d-flex">
+                <div className="d-flex service-body">
                   <img
                     src={serviceImage6}
                     alt="service Item thumbnail"

@@ -41,6 +41,7 @@ export default class News extends Component {
                         {newsItem.title}
                       </Link>
                     </h3>
+                    <small className="text-muted"> {newsItem.date} </small>
                     <p>{newsItem.body}</p>
                   </div>
                 </Carousel.Item>

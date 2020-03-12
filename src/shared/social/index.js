@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faFacebook,
-//   faTwitter,
-//   faLinkedIn
-// } from "@fortawesome/free-brands-svg-icons";
-
-import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebook,
+  faTwitter,
+  faLinkedin
+} from "@fortawesome/free-brands-svg-icons";
 
 import "./style.css";
 export default class SocialMedia extends Component {
   state = {
     social: [
-      { icon: faMapMarkerAlt, link: "https://facebook.com" },
-      { icon: faMapMarkerAlt, link: "https://twitter.com" },
-      { icon: faMapMarkerAlt, link: "https://linkedin.com" }
+      { icon: faFacebook, link: "https://facebook.com" },
+      { icon: faTwitter, link: "https://twitter.com" },
+      { icon: faLinkedin, link: "https://linkedin.com" }
     ]
   };
   render() {

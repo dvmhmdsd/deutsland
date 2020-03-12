@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./style.css";
-import map from "../../../../../../assets/map.gif";
+
+import map from "assets/map.gif";
+
+import ReactWOW from "react-wow";
 
 export default class Distribution extends Component {
   render() {
@@ -28,9 +31,15 @@ export default class Distribution extends Component {
               </div>
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12">
-              <div className="map">
-                <img src={map} alt="map" />
-              </div>
+              <ReactWOW
+                animation="zoomIn"
+                data-wow-duration="2s"
+                data-wow-delay="10s"
+              >
+                <div className="map">
+                  <img src={map} alt="map" />
+                </div>
+              </ReactWOW>
             </div>
           </div>
         </div>
