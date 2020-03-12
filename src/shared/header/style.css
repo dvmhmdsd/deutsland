@@ -2,6 +2,7 @@
   width: 226px;
   height: 64px;
 }
+
 @media (max-width: 991px) {
   nav.navbar ul.navbar-nav {
     flex-direction: column;
@@ -14,6 +15,20 @@ nav ul li.nav-item {
   transition: padding 0.2s;
 }
 
-nav ul li.nav-item:hover {
-  padding-left: 17px;
+nav ul.navbar-nav li.nav-item a.nav-link {
+  transition: all 0.2s;
+}
+
+nav ul.navbar-nav li.nav-item a.nav-link.active {
+  color: #CB6828;
+}
+
+nav ul.navbar-nav li.nav-item a.nav-link:hover {
+  color: #CB6828;
+}
+
+@media (max-width: 992px) {
+  nav ul li.nav-item a:hover {
+    padding-left: 17px;
+  }
 }

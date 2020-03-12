@@ -46,7 +46,9 @@ export default class MessagesPage extends Component {
     return (
       <>
         <AdminLayout>
-          <h2> Messages </h2>
+          <div className="heading">
+            <h2> Messages </h2>
+          </div>
 
           {isLoading ? (
             <p className="text-center"> Loading ... </p>

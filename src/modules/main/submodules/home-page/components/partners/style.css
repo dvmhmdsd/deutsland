@@ -1,29 +1,34 @@
-.partners .carousel-container {
-  width: 50%;
+.carousel-container {
   background-color: grey;
 }
+
 .carouselItem {
   width: 100%;
   padding: 50px;
   text-align: center;
 }
-@media (max-width: 576px) {
-  .partners .carousel-container {
-    width: 100%;
-  }
-}
+
 .carouselItem p {
   margin-top: 2rem;
   color: #fff;
 }
+
 .carouselItem h3 {
   text-align: center;
   color: #fff;
 }
+
 .carouselItem img {
   max-width: 50%;
   height: auto;
 }
-.space {
-  height: 200px;
+
+@media (min-width: 991px) {
+  .carousel-container {
+    width: 50%;
+  }
+
+  .keyClients {
+    margin-left: auto;
+  }
 }

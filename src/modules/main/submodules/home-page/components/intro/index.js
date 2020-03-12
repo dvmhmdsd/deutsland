@@ -8,7 +8,7 @@ export default class Intro extends Component {
   render() {
     return (
       <div className="intro">
-        <VideoBg title="Water Mist" buttonLabel="Read More"  />
+        <VideoBg title="Water Mist" buttonLabel="Read More" buttonLink="/water-mist"  />
         <div className="dtpedia">
           <div className="container">
             <p>

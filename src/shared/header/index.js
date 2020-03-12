@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png";
 import "./style.css";
 
 import routes from "routes.js";
+import SocialMedia from "../social";
 
 export default class Header extends Component {
   render() {
@@ -29,7 +30,7 @@ export default class Header extends Component {
               {routes.map((route, index) => {
                 if (route.label) {
                   return (
-                    <li key={index} className="nav-item" color="#eaab00">
+                    <li key={index} className="nav-item">
                       <NavLink className="nav-link" to={route.path}>
                         {route.label}
                       </NavLink>
@@ -38,6 +39,8 @@ export default class Header extends Component {
                 } else return ""
               })}
             </ul>
+
+            <SocialMedia />
           </div>
         </div>
       </nav>

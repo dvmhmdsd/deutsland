@@ -1,10 +1,16 @@
-.overlay button{
+.overlay .vid-btn{
   width: 200px;
   border: 2px solid white;
   background-color: transparent;
-  padding: 10px;
+  padding: 10px 20px;
   color: white;
   text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.overlay .vid-btn:hover {
+  background-color: #fff;
+  color: #3d3d3d;
 }
 .dtpedia {
   margin-top: -6px;

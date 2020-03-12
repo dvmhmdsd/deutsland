@@ -1,11 +1,22 @@
 import React, { Component } from "react";
-import video from "../../assets/vid.mp4";
+
+import video from "assets/vid.mp4";
+
 import "./style.css";
+
 import ReactWOW from "react-wow";
+import { Link } from "react-router-dom";
 
 export default class VideoBg extends Component {
   render() {
-    let { title, buttonLabel, paragraph, copyrights, animated } = this.props;
+    let {
+      title,
+      buttonLabel,
+      buttonLink,
+      paragraph,
+      copyrights,
+      animated
+    } = this.props;
     return (
       <div className="video-container">
         <video id="video" width="100%" height="100%" autoPlay muted loop>
@@ -31,7 +42,7 @@ export default class VideoBg extends Component {
             <div className="ovarlay-container">
               <h2>{title}</h2>
               {paragraph && <p> {paragraph} </p>}
-              {buttonLabel && <button>{buttonLabel}</button>}
+              {buttonLabel && <Link className="vid-btn" to={buttonLink}>{buttonLabel}</Link>}
               {copyrights && <h4>{copyrights}</h4>}
             </div>
           </div>
