@@ -6,9 +6,18 @@ import "./style.css";
 import routes from "routes.js";
 
 export default class Header extends Component {
+  componentDidMount() {
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset >= 300) {
+        this.headerElement.classList.add("navbar--scrolled")
+      } else  {
+        this.headerElement.classList.remove("navbar--scrolled")
+      }
+    })
+  }
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav ref={el => this.headerElement = el} className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div className="container">
           <NavLink className="navbar-brand" to="/">
             <img className="logo" src={logo} alt="Our Logo" />

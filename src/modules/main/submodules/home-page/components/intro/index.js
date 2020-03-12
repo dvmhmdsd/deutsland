@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import "./style.css";
 import VideoBg from "shared/bg-video";
 
+import video from "assets/waterMist.mp4";
+
 import {Link} from "react-router-dom";
 
 export default class Intro extends Component {
   render() {
     return (
       <div className="intro">
-        <VideoBg title="Water Mist" buttonLabel="Read More"  />
+        <VideoBg title="Water Mist" buttonLabel="Read More" video={video}  />
         <div className="dtpedia">
           <div className="container">
             <p>

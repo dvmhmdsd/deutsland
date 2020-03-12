@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import video from "../../assets/vid.mp4";
+
 import "./style.css";
 import ReactWOW from "react-wow";
 
 export default class VideoBg extends Component {
   render() {
-    let { title, buttonLabel, paragraph, copyrights, animated } = this.props;
+    let { title, buttonLabel, paragraph, copyrights, animated, video} = this.props;
     return (
       <div className="video-container">
         <video id="video" width="100%" height="100%" autoPlay muted loop>
