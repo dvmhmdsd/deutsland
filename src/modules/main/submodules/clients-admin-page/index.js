@@ -2,11 +2,10 @@ import React, { Component } from "react";
 
 import isUserLoggedIn from "modules/users/services/auth.service";
 import {
-  getNews,
-  deleteNews,
-  addNews,
-  updateNews
-} from "../../services/news.service";
+  getClients,
+  deleteClient,
+  addClient
+} from "../../services/clients.service";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -17,17 +16,17 @@ import AddItemModal from "shared/admin-add-modal";
 
 import "./style.css";
 
-export default class NewsAdminPage extends Component {
+export default class ClientsAdminPage extends Component {
   state = {
-    newsData: null,
+    clientsData: null,
     isLoading: true
   };
 
-  tableHeadings = ["title", "date"];
+  tableHeadings = ["name"];
 
   constructor() {
     super();
-    this.updateStateWithNews = this.updateStateWithNews.bind(this);
+    this.updateStateWithClients = this.updateStateWithClients.bind(this);
   }
 
   async componentDidMount() {
@@ -37,40 +36,36 @@ export default class NewsAdminPage extends Component {
       }
     });
 
-    this.updateStateWithNews();
+    this.updateStateWithClients();
   }
 
-  async updateStateWithNews() {
-    let news = await getNews();
+  async updateStateWithClients() {
+    let { data: clients } = await getClients();
 
     this.setState({
-      newsData: news.data,
+      clientsData: clients,
       isLoading: false
     });
   }
 
   deleteRecord = id => {
-    deleteNews(id).then(() => {
-      this.updateStateWithNews();
+    deleteClient(id).then(() => {
+      this.updateStateWithClients();
     });
   };
 
-  updateRecord = (id, data) => {
-    return updateNews(id, data);
-  };
-
-  saveNews = data => {
-    return addNews(data);
+  saveClient = data => {
+    return addClient(data);
   };
 
   render() {
-    let { newsData, isLoading } = this.state;
+    let { clientsData, isLoading } = this.state;
 
     return (
       <>
         <AdminLayout>
           <div className="d-flex justify-content-between heading">
-            <h2> News </h2>
+            <h2> Clients </h2>
             <button
               data-toggle="modal"
               data-target="#addModal"
@@ -82,25 +77,26 @@ export default class NewsAdminPage extends Component {
           </div>
           {isLoading ? (
             <p className="text-center"> Loading ... </p>
-          ) : newsData.length > 0 ? (
+          ) : clientsData.length > 0 ? (
             <AdminTable
               className="table-striped text-center"
               headers={this.tableHeadings}
-              body={newsData}
-              updateParentState={this.updateStateWithNews}
+              body={clientsData}
+              updateParentState={this.updateStateWithClients}
               deleteRecord={this.deleteRecord}
-              updateRecord={this.updateRecord}
-              acceptsImage={true}
-              isEditable={true}
+              isEditable={false}
+              isDetailed={false}
+              isClientTable={true}
             />
           ) : (
             <p className="text-center">No Items Yet</p>
           )}
           <AddItemModal
-            save={this.saveNews}
-            updateParentState={() => this.updateStateWithNews()}
-            data={newsData}
+            save={this.saveClient}
+            updateParentState={() => this.updateStateWithClients()}
+            data={clientsData}
             acceptsImage={true}
+            isClient={true}
           />
         </AdminLayout>
       </>

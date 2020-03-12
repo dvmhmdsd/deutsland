@@ -1,28 +1,27 @@
 const express = require("express");
 const server = express.Router();
 
-const Message = require("../models/Message.model");
+const Client = require("../models/Client.model");
 
 const ensureAuth = require("../helpers/ensureAuth");
 
 // Get the list
 server.get("/list", ensureAuth, async (req, res) => {
   try {
-    let messageList = await Message.find({});
-    res.send(messageList);
+    let clientsList = await Client.find({});
+    res.send(clientsList);
   } catch {
     throwError();
   }
 });
 
 // Create a new record
-server.post("/", async (req, res) => {
-  console.log("post message")
-  let { name, email, phone, body } = req.body;
+server.post("/", ensureAuth, async (req, res) => {
+  let { link, image, name } = req.body;
 
-  let messageItem = new Message({ name, email, phone, body });
+  let clientItem = new Client({ link, image, name });
 
-  messageItem.save().then(record => {
+  clientItem.save().then(record => {
     res.send(record);
   });
 });
@@ -31,7 +30,7 @@ server.post("/", async (req, res) => {
 server.delete("/:id", ensureAuth, (req, res) => {
   let id = req.params.id;
 
-  Message.findByIdAndRemove(id)
+  Client.findByIdAndRemove(id)
     .then(() => {
       res.sendStatus(200);
     })

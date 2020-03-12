@@ -5,6 +5,7 @@
 
 body {
   color: #3d3d3d !important;
+  overflow-x: hidden;
   font-family: "Basic", "sans-serif" !important;
   background-color: #f8f9fa !important;
 }

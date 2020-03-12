@@ -39,7 +39,7 @@ export default class LoginPage extends Component {
       });
 
       setTimeout(() => {
-        this.props.history.push("/admin/messages");
+        this.props.history.push("/admin");
       }, 2000);
     } catch (err) {
       this.setState({
