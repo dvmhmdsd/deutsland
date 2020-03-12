@@ -7,6 +7,7 @@ import TrustUs from "./components/trust-us";
 import Counters from "./components/counters";
 import News from "modules/news/components/slider";
 import ServicesList from "../services-component/components/list";
+import Approvals from "./components/approvals";
 
 export default class HomePage extends Component {
   render() {
@@ -19,7 +20,8 @@ export default class HomePage extends Component {
           <Partners />
           <TrustUs />
           <News />
-          <Counters/>
+          <Approvals />
+          <Counters />
         </Layout>
       </>
     );
