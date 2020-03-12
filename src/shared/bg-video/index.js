@@ -30,9 +30,9 @@ export default class VideoBg extends Component {
           >
             <div className="overlay text-center d-flex justify-content-center align-items-center">
               <div className="overlay-container">
-                <h2>{title}</h2>
-                {paragraph && <p> {paragraph} </p>}
-                {buttonLabel && <button>{buttonLabel}</button>}
+                <h2 className="mb-5">{title}</h2>
+                {paragraph && <p className="mb-5"> {paragraph} </p>}
+                {buttonLabel && <Link className="vid-btn" to={buttonLink}>{buttonLabel}</Link>}
                 {copyrights && <p>{copyrights}</p>}
               </div>
             </div>
@@ -40,8 +40,8 @@ export default class VideoBg extends Component {
         ) : (
           <div className="overlay text-center d-flex justify-content-center align-items-center">
             <div className="ovarlay-container">
-              <h2>{title}</h2>
-              {paragraph && <p> {paragraph} </p>}
+            <h2 className="mb-5">{title}</h2>
+              {paragraph && <p className="mb-5"> {paragraph} </p>}
               {buttonLabel && <Link className="vid-btn" to={buttonLink}>{buttonLabel}</Link>}
               {copyrights && <h4>{copyrights}</h4>}
             </div>
