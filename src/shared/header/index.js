@@ -31,7 +31,7 @@ export default class Header extends Component {
                 if (route.label) {
                   return (
                     <li key={index} className="nav-item">
-                      <NavLink className="nav-link" to={route.path}>
+                      <NavLink className="nav-link" to={route.path} exact>
                         {route.label}
                       </NavLink>
                     </li>

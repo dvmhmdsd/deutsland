@@ -6,9 +6,9 @@ export default class History extends Component {
   render() {
     return (
       <Layout>
-        <div className="history">
+        <div className="history py-5">
           <h2>History</h2>
-          <div className="history-timline">
+          <div className="history-timeline">
             <div className="timeline-container left">
               <div className="history-content">
                 <h3>2017</h3>
@@ -19,6 +19,7 @@ export default class History extends Component {
                   habeo iusto primis ea eam.
                 </p>
               </div>
+              <span className="after"></span>
             </div>
             <div className="timeline-container right">
               <div className="history-content">
@@ -30,6 +31,7 @@ export default class History extends Component {
                   habeo iusto primis ea eam.
                 </p>
               </div>
+              <span className="after"></span>
             </div>
             <div className="timeline-container left">
               <div className="history-content">
@@ -41,6 +43,7 @@ export default class History extends Component {
                   habeo iusto primis ea eam.
                 </p>
               </div>
+              <span className="after"></span>
             </div>
             <div className="timeline-container right">
               <div className="history-content">
@@ -52,6 +55,7 @@ export default class History extends Component {
                   habeo iusto primis ea eam.
                 </p>
               </div>
+              <span className="after"></span>
             </div>
             <div className="timeline-container left">
               <div className="history-content">
@@ -63,6 +67,7 @@ export default class History extends Component {
                   habeo iusto primis ea eam.
                 </p>
               </div>
+              <span className="after"></span>
             </div>
             <div className="timeline-container right">
               <div className="history-content">
@@ -74,6 +79,7 @@ export default class History extends Component {
                   habeo iusto primis ea eam.
                 </p>
               </div>
+              <span className="after"></span>
             </div>
           </div>
         </div>
