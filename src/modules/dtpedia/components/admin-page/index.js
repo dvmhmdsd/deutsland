@@ -20,7 +20,8 @@ import "./style.css";
 export default class NewsAdminPage extends Component {
   state = {
     dtpediaData: null,
-    isLoading: true
+    isLoading: true,
+    isFailed: false
   };
 
   tableHeadings = ["title", "date"];
@@ -41,12 +42,16 @@ export default class NewsAdminPage extends Component {
   }
 
   async updateStateWithDtpedia() {
-    let dtpedia = await getDtpedia();
+    try {
+      let dtpedia = await getDtpedia();
 
-    this.setState({
-      dtpediaData: dtpedia.data,
-      isLoading: false
-    });
+      this.setState({
+        dtpediaData: dtpedia.data,
+        isLoading: false
+      });
+    } catch {
+      this.setState({ isLoading: false, isFailed: true });
+    }
   }
 
   deleteRecord = id => {
@@ -64,7 +69,7 @@ export default class NewsAdminPage extends Component {
   };
 
   render() {
-    let { dtpediaData, isLoading } = this.state;
+    let { dtpediaData, isLoading, isFailed } = this.state;
 
     return (
       <>
@@ -82,6 +87,10 @@ export default class NewsAdminPage extends Component {
           </div>
           {isLoading ? (
             <p className="text-center"> Loading ... </p>
+          ) : isFailed ? (
+            <p className="text-center">
+              An error occurred, please try again later
+            </p>
           ) : dtpediaData.length > 0 ? (
             <AdminTable
               className="table-striped text-center"

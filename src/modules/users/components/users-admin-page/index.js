@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 
 import isUserLoggedIn from "modules/users/services/auth.service";
-import {
-  getUsers,
-  deleteUser,
-  updateUser
-} from "../../services/user.service";
+import { getUsers, deleteUser, updateUser } from "../../services/user.service";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +15,8 @@ import "./style.css";
 export default class UsersListPage extends Component {
   state = {
     usersData: null,
-    isLoading: true
+    isLoading: true,
+    isFailed: false
   };
 
   tableHeadings = ["name", "email", "type"];
@@ -40,12 +37,16 @@ export default class UsersListPage extends Component {
   }
 
   async updateStateWithUsers() {
-    let users = await getUsers();
+    try {
+      let users = await getUsers();
 
-    this.setState({
-      usersData: users.data,
-      isLoading: false
-    });
+      this.setState({
+        usersData: users.data,
+        isLoading: false
+      });
+    } catch {
+      this.setState({ isLoading: false, isFailed: true });
+    }
   }
 
   deleteRecord = id => {
@@ -59,7 +60,7 @@ export default class UsersListPage extends Component {
   };
 
   render() {
-    let { usersData, isLoading } = this.state;
+    let { usersData, isLoading, isFailed } = this.state;
 
     return (
       <>
@@ -76,6 +77,8 @@ export default class UsersListPage extends Component {
           </div>
           {isLoading ? (
             <p className="text-center"> Loading ... </p>
+          ) : isFailed ? (
+            <p className="text-center"> An error occurred, please try again later </p>
           ) : usersData.length > 0 ? (
             <AdminTable
               className="table-striped text-center"

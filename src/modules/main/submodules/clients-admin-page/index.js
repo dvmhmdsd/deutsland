@@ -19,7 +19,8 @@ import "./style.css";
 export default class ClientsAdminPage extends Component {
   state = {
     clientsData: null,
-    isLoading: true
+    isLoading: true,
+    isFailed: false
   };
 
   tableHeadings = ["name"];
@@ -40,12 +41,16 @@ export default class ClientsAdminPage extends Component {
   }
 
   async updateStateWithClients() {
-    let { data: clients } = await getClients();
+    try {
+      let { data: clients } = await getClients();
 
-    this.setState({
-      clientsData: clients,
-      isLoading: false
-    });
+      this.setState({
+        clientsData: clients,
+        isLoading: false
+      });
+    } catch {
+      this.setState({ isLoading: false, isFailed: true });
+    }
   }
 
   deleteRecord = id => {
@@ -59,7 +64,7 @@ export default class ClientsAdminPage extends Component {
   };
 
   render() {
-    let { clientsData, isLoading } = this.state;
+    let { clientsData, isLoading, isFailed } = this.state;
 
     return (
       <>
@@ -77,6 +82,10 @@ export default class ClientsAdminPage extends Component {
           </div>
           {isLoading ? (
             <p className="text-center"> Loading ... </p>
+          ) : isFailed ? (
+            <p className="text-center">
+              An error occurred, please try again later
+            </p>
           ) : clientsData.length > 0 ? (
             <AdminTable
               className="table-striped text-center"
