@@ -21,7 +21,8 @@ server.post("/", ensureAuth, async (req, res) => {
 
   let clientItem = new Client({ link, image, name });
 
-  clientItem.save().then(record => {
+  clientItem.save().then((record, err) => {
+    if (err) res.json({message: "An error occurred, please try again later"})
     res.send(record);
   });
 });
