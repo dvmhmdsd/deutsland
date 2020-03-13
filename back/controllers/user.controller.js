@@ -22,21 +22,23 @@ server.get("/list", async (request, response) => {
 server.post("/register", async (request, response) => {
   let { name, email, password, type } = request.body;
 
-  User.find({email}).then((usr, err) => {
-    res.status(400).json({ message: "User already exists" });
-    return;
-  })
+  User.find({ email }).then((usr, err) => {
+    if (usr) {
+      console.log("user existed")
+      return res.status(400).json({ message: "User already exists" });
+    } else {
+      let user = new User({
+        name,
+        email,
+        password,
+        type
+      });
 
-  let user = new User({
-    name,
-    email,
-    password,
-    type
-  });
-
-  // Save the user
-  user.save().then(() => {
-    response.sendStatus(201);
+      // Save the user
+      user.save().then(() => {
+        response.sendStatus(201);
+      });
+    }
   });
 });
 

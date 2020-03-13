@@ -14,7 +14,8 @@ export default class RegisterPage extends Component {
     password: "",
     email: "",
     isSubmitting: false,
-    isSubmitted: false
+    success: false,
+    errMsg: null
   };
 
   async componentDidMount() {
@@ -32,11 +33,32 @@ export default class RegisterPage extends Component {
 
     this.setState({ isSubmitting: true });
 
-    addUser({ name, type, email, password }).then(() => {
-      this.setState({ isSubmitting: false, isSubmitted: true });
+    addUser({ name, type, email, password })
+      .then(res => {
+        if (res.status === 400) {
+          this.setState({ isSubmitting: false, errMsg: res.data.message });
+          return;
+        }
+        this.setState({ isSubmitting: false, success: true });
 
-      setTimeout(() => this.setState({isSubmitted: false}), 2000);
-    });
+        setTimeout(() => this.setState({ success: false }), 2000);
+      })
+      .catch(err => {
+        if (err.response.status === 500) {
+          this.setState({
+            isSubmitting: false,
+            errMsg:
+              "An error occurred, please try again later, or contact support."
+          });
+          setTimeout(() => this.setState({ errMsg: null }), 2000);
+        } else if (err.response.status === 400) {
+          this.setState({
+            isSubmitting: false,
+            errMsg: "User already exists."
+          });
+          setTimeout(() => this.setState({ errMsg: null }), 2000);
+        }
+      });
   };
 
   handleChange = e => {
@@ -52,8 +74,16 @@ export default class RegisterPage extends Component {
           <h2> Add new user </h2>
         </div>
 
-        {this.state.isSubmitted ? (
-          <p className="alert alert-success">Item Saved Successfully</p>
+        {this.state.success ? (
+          <div className="d-flex justify-content-center">
+            <p className="text-center alert alert-success w-50">Item Saved Successfully</p>
+          </div>
+        ) : this.state.errMsg ? (
+          <div className="d-flex justify-content-center">
+            <p className="text-center alert alert-danger w-50">
+              {this.state.errMsg}
+            </p>
+          </div>
         ) : (
           <form className="register-form" onSubmit={this.saveUser}>
             <div className="form-group">
