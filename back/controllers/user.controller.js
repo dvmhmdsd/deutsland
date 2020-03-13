@@ -22,6 +22,11 @@ server.get("/list", async (request, response) => {
 server.post("/register", async (request, response) => {
   let { name, email, password, type } = request.body;
 
+  User.find({email}).then((usr, err) => {
+    res.status(400).json({ message: "User already exists" });
+    return;
+  })
+
   let user = new User({
     name,
     email,
