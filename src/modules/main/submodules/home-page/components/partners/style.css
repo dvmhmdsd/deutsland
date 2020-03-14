@@ -1,5 +1,5 @@
 .carousel-container {
-  background-color: grey;
+  background-color: #f8f9fa;
 }
 
 .carouselItem {
@@ -10,12 +10,7 @@
 
 .carouselItem p {
   margin-top: 2rem;
-  color: #fff;
-}
-
-.carouselItem h3 {
-  text-align: center;
-  color: #fff;
+  color: #333;
 }
 
 .carouselItem img {

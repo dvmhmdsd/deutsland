@@ -18,7 +18,7 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <nav ref={el => this.headerElement = el} className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav ref={el => this.headerElement = el} className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
           <NavLink className="navbar-brand" to="/">
             <img className="logo" src={logo} alt="Our Logo" />

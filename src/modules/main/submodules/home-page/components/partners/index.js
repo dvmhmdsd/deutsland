@@ -4,7 +4,8 @@ import Carousel from "react-bootstrap/Carousel";
 
 import "./style.css";
 
-import Background from "assets/partners/partners-bg.png";
+import Background from "assets/building.jpeg";
+
 import slide1 from "assets/partners/angus-circle.png";
 import slide2 from "assets/partners/autro-circle.png";
 import slide3 from "assets/partners/emi-circle.png";
@@ -46,7 +47,10 @@ export default class Partners extends Component {
   };
   render() {
     const sectionStyle = {
-      backgroundImage: "url(" + Background + ")"
+      backgroundImage: "url(" + Background + ")",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundAttachment: "fixed"
     };
     return (
       <div className="partners section" style={sectionStyle}>
@@ -70,7 +74,7 @@ export default class Partners extends Component {
           </Carousel>
         </section>
 
-        {this.state.clients && (
+        {this.state.clients && this.state.clients.length > 0 && (
           <Carousel className="keyClients carousel-container">
             <Carousel
               activeIndex={this.state.index}

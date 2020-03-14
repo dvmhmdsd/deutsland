@@ -1,10 +1,5 @@
 import React, { Component } from "react";
 
-<<<<<<< HEAD
-import video from "assets/vid.mp4";
-
-=======
->>>>>>> 30fafa390e40100e65ee8f82509f1244506157c8
 import "./style.css";
 
 import ReactWOW from "react-wow";
@@ -12,18 +7,15 @@ import { Link } from "react-router-dom";
 
 export default class VideoBg extends Component {
   render() {
-<<<<<<< HEAD
     let {
       title,
       buttonLabel,
       buttonLink,
       paragraph,
       copyrights,
-      animated
+      animated,
+      video
     } = this.props;
-=======
-    let { title, buttonLabel, paragraph, copyrights, animated, video} = this.props;
->>>>>>> 30fafa390e40100e65ee8f82509f1244506157c8
     return (
       <div className="video-container">
         <video id="video" width="100%" autoPlay muted loop>
