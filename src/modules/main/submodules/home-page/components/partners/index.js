@@ -54,7 +54,8 @@ export default class Partners extends Component {
     };
     return (
       <div className="partners" style={sectionStyle}>
-        <section className="carousel-container">
+        <section className="carousel-container py-5">
+          <h2 className="text-center">Our partners</h2>
           <Carousel
             activeIndex={this.state.index}
             direction={this.state.direction}
@@ -75,7 +76,8 @@ export default class Partners extends Component {
         </section>
 
         {this.state.clients && this.state.clients.length > 0 && (
-          <Carousel className="keyClients carousel-container">
+          <section className="keyClients carousel-container py-5">
+            <h2 className="text-center">Key clients</h2>
             <Carousel
               activeIndex={this.state.index}
               direction={this.state.direction}
@@ -95,7 +97,7 @@ export default class Partners extends Component {
                 );
               })}
             </Carousel>
-          </Carousel>
+          </section>
         )}
       </div>
     );
