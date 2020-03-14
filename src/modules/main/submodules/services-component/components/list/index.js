@@ -28,16 +28,16 @@ export default class ServicesList extends Component {
 
   scrollHandler = e => {
     if (this.isComponentInViewport() && !this.isMobile()) {
-      setTimeout(() => this.slide(), 1000)
+      setTimeout(() => this.slide(), 1000);
     } else {
       this.isInterval = false;
       clearInterval(this.slideInterval);
     }
-  }
+  };
 
   isMobile = () => {
-    return this.state.width <= 991
-  }
+    return this.state.width <= 991;
+  };
 
   isComponentInViewport = () => {
     return (
@@ -75,9 +75,12 @@ export default class ServicesList extends Component {
           <article
             onMouseEnter={() => {
               clearInterval(this.slideInterval);
+              this.slideInterval = null;
               this.isInterval = false;
             }}
-            onMouseLeave={() => {this.slide()}}
+            onMouseLeave={() => {
+              this.slide();
+            }}
             className="slider-3d"
           >
             <div className="slider-box d-lg-flex justify-content-center">

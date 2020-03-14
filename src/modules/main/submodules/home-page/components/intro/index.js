@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import VideoBg from "shared/bg-video";
 
-import video from "assets/waterMist.mp4";
 import bg from "assets/building-bg.gif";
 
 import { Link } from "react-router-dom";
