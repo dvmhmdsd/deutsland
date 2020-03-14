@@ -53,7 +53,7 @@ export default class Partners extends Component {
       backgroundAttachment: "fixed"
     };
     return (
-      <div className="partners section" style={sectionStyle}>
+      <div className="partners" style={sectionStyle}>
         <section className="carousel-container">
           <Carousel
             activeIndex={this.state.index}
