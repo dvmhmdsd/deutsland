@@ -7,6 +7,10 @@ nav.navbar {
   background-color: #fff;
 }
 
+.navbar.navbar--scrolled{
+  background-color: white;
+}
+
 @media (max-width: 991px) {
   nav.navbar ul.navbar-nav {
     flex-direction: column;
