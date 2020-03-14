@@ -6,35 +6,34 @@ const News = require("../models/News.model");
 const ensureAuth = require("../helpers/ensureAuth");
 const isAdmin = require("../helpers/isAdmin");
 
-const redis = require("redis");
+// const redis = require("redis");
 
-const redisClient = redis.createClient();
+// const redisClient = redis.createClient(6379);
 
-redisClient.on("error", err => {
-  console.log(err);
-});
+// redisClient.on("error", err => {
+//   console.log(err);
+// });
 
 // Get the list
 server.get("/list", async (req, res) => {
-  let newsList;
-
   try {
-    newsList = await getFromCache("news");
-    if (!newsList) {
-      newsList = await News.find({});
-
-      redisClient.setex("news", 3600, newsList);
-    }
+    let newsList;
+    newsList = await News.find({});
 
     res.json(newsList);
+    // newsList = await getFromCache("news");
+    // if (!newsList) {
+
+    //   redisClient.setex("news", 3600, newsList);
+    // }
   } catch {
     throwError();
   }
 });
 
-let getFromCache = query => {
-  return redisClient.get(query);
-};
+// let getFromCache = query => {
+//   return redisClient.get(query);
+// };
 
 // Get single news
 server.get("/:id", async (req, res) => {
