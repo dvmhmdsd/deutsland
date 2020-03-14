@@ -4,7 +4,8 @@
 }
 
 nav.navbar {
-  background-color: #fff;
+  background-color: transparent;
+  transition: all 0.2s;
 }
 
 .navbar.navbar--scrolled{
@@ -14,7 +15,7 @@ nav.navbar {
 @media (max-width: 991px) {
   nav.navbar ul.navbar-nav {
     flex-direction: column;
-    height: 100 vh;
+    height: 100vh;
   }
 }
 nav ul li.nav-item {
@@ -24,7 +25,12 @@ nav ul li.nav-item {
 }
 
 nav ul.navbar-nav li.nav-item a.nav-link {
+  color: #fff;
   transition: all 0.2s;
+}
+
+nav.navbar--scrolled ul.navbar-nav li.nav-item a.nav-link {
+  color: #333;
 }
 
 nav ul.navbar-nav li.nav-item a.nav-link.active {

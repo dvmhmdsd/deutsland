@@ -9,7 +9,7 @@ import SocialMedia from "../social";
 export default class Header extends Component {
   componentDidMount() {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset >= 300) {
+      if (window.pageYOffset >= 70) {
         this.headerElement.classList.add("navbar--scrolled")
       } else  {
         this.headerElement.classList.remove("navbar--scrolled")
