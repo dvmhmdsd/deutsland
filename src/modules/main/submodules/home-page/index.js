@@ -13,7 +13,7 @@ export default class HomePage extends Component {
   render() {
     return (
       <>
-        <Layout>
+        <Layout inHome={true}>
           <Intro />
           <ServicesList />
           <Distribution />

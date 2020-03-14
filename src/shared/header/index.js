@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "assets/logo.png";
 import "./style.css";
 
 import routes from "routes.js";
@@ -8,6 +8,11 @@ import SocialMedia from "../social";
 
 export default class Header extends Component {
   componentDidMount() {
+    if (!this.props.inHome) {
+      this.headerElement.classList.add("navbar--scrolled");
+      return;
+    }
+
     window.addEventListener("scroll", () => {
       if (this.headerElement) {
         if (window.pageYOffset >= 70) {
@@ -16,7 +21,8 @@ export default class Header extends Component {
           this.headerElement.classList.remove("navbar--scrolled")
         }
       }
-    })
+    });
+
   }
   render() {
     return (
