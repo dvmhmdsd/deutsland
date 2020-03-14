@@ -1,0 +1,17 @@
+.general-info{
+    margin-top: 92px;
+    font-family: 'Open Sans', sans-serif;
+    color: #757575;
+}
+.general-info h2{
+    margin: 55px 0;
+    font-weight: bold;
+}
+.general-info p{
+    font-size: 15px;
+    font-weight: lighter;
+}
+.general-info span{
+    display: block;
+    margin: 20px 0;
+}
