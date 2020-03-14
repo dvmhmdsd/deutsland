@@ -8,7 +8,7 @@ import ReactWOW from "react-wow";
 export default class Distribution extends Component {
   render() {
     return (
-      <section className="distribution">
+      <section className="distribution section">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12">
