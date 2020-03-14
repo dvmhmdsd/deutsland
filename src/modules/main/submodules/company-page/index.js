@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+
+import Layout from "shared/layout";
+import GeneralInfo from "./components/general-info";
 
 export default class AboutPage extends Component {
   render() {
-    return (
-      <>
-        <p> About page is ready. </p>
-      </>
-    )
+    return <Layout>
+      <GeneralInfo />
+    </Layout>;
   }
 }

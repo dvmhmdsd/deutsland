@@ -28,7 +28,7 @@ export default class ServicesList extends Component {
 
   scrollHandler = e => {
     if (this.isComponentInViewport() && !this.isMobile()) {
-      this.slide();
+      setTimeout(() => this.slide(), 1000)
     } else {
       this.isInterval = false;
       clearInterval(this.slideInterval);

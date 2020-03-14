@@ -33,7 +33,7 @@ export default class Approvals extends Component {
 
   render() {
     return (
-      <section className="approvals">
+      <section className="approvals section">
         <div className="container d-flex">{this.renderApprovalsList()}</div>
       </section>
     );

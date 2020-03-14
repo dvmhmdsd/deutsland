@@ -9,7 +9,7 @@ import SocialMedia from "../social";
 export default class Header extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
           <NavLink className="navbar-brand" to="/">
             <img className="logo" src={logo} alt="Our Logo" />

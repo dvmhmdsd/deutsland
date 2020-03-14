@@ -5,15 +5,36 @@ const News = require("../models/News.model");
 
 const ensureAuth = require("../helpers/ensureAuth");
 const isAdmin = require("../helpers/isAdmin");
+
+const redis = require("redis");
+
+const redisClient = redis.createClient();
+
+redisClient.on("error", err => {
+  console.log(err);
+});
+
 // Get the list
 server.get("/list", async (req, res) => {
+  let newsList;
+
   try {
-    let newsList = await News.find({});
-    res.send(newsList);
+    newsList = await getFromCache("news");
+    if (!newsList) {
+      newsList = await News.find({});
+
+      redisClient.setex("news", 3600, newsList);
+    }
+
+    res.json(newsList);
   } catch {
     throwError();
   }
 });
+
+let getFromCache = query => {
+  return redisClient.get(query);
+};
 
 // Get single news
 server.get("/:id", async (req, res) => {
@@ -86,11 +107,14 @@ server.post("/:id/comment", (req, res) => {
 server.delete("/comment/:id", ensureAuth, isAdmin, (req, res) => {
   let id = req.params.id;
 
-  News.findOneAndUpdate({"comments._id": id}, { $pull: { 'comments': {  _id: id } } }).then((comment, err) => {
-    if (err) res.sendStatus(401)
-    res.sendStatus(200)
-  })
-})
+  News.findOneAndUpdate(
+    { "comments._id": id },
+    { $pull: { comments: { _id: id } } }
+  ).then((comment, err) => {
+    if (err) res.sendStatus(401);
+    res.sendStatus(200);
+  });
+});
 
 let throwError = () => {
   throw new Error("An error occurred in the db");

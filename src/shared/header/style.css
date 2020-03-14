@@ -3,6 +3,10 @@
   height: 64px;
 }
 
+nav.navbar {
+  background-color: #fff;
+}
+
 @media (max-width: 991px) {
   nav.navbar ul.navbar-nav {
     flex-direction: column;
