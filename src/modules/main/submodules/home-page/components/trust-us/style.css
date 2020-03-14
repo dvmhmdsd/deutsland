@@ -1,10 +1,27 @@
+@font-face {
+  font-family: "Niconne";
+  src: local("Niconne"), url(../../../../../../assets/fonts/Niconne/Niconne-Regular.ttf) format("truetype");
+}
+
 .trust-us {
   position: relative;
+  margin-top: 2rem;
 }
+
+.trust-content .overlay {
+  padding: 7rem 0;
+}
+
 .overlay p {
   color: white;
   text-align: center;
 }
 .overlay h4 {
   color: white;
+}
+
+.overlay .trust-author {
+  color: #CB6828;
+  font-family: "Niconne", "sans-serif";
+  font-size: 2rem;
 }

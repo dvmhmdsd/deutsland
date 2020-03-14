@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Basic";
-  src: local("Basic"), url(./assets/fonts/Basic-Regular.ttf) format("truetype");
+  src: local("Basic"), url(./assets/fonts/Basic/Basic-Regular.ttf) format("truetype");
 }
 
 body {
