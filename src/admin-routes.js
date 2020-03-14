@@ -6,7 +6,7 @@ import DtPediaAdminPage from "modules/dtpedia/components/admin-page";
 import MessagesPage from "modules/contact/components/messages-admin-page";
 import CareersAdminPage from "modules/careers/components/career-admin-page";
 import DashboardHome from "modules/main/submodules/admin-home-page";
-import ClientsAdminPage from "./modules/main/submodules/clients-admin-page";
+import ClientsAdminPage from "modules/main/submodules/clients-admin-page";
 
 export default [
   {

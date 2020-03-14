@@ -4,9 +4,10 @@ export default class BrandList extends Component {
     Brands: [
         {
             title: "our Mission",
-            image : <img src=""/>,
             paragraph: "To promote a seamless and positive experience with excellence and innovation.",
-            
+            items : [
+
+            ]
 
 
         }
