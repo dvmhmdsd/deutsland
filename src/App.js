@@ -15,7 +15,7 @@ export default class App extends Component {
           {adminRoutes.map((adRoute, index) => {
             return (
               <Route
-                key={index}
+                key={`adRoute${index}`}
                 exact
                 path={`/admin${adRoute.path}`}
                 component={adRoute.component}
@@ -25,7 +25,7 @@ export default class App extends Component {
           {routes.map((route, index) => {
             return (
               <Route
-                key={index}
+                key={`route${index}`}
                 exact
                 path={route.path}
                 component={route.component}

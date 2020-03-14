@@ -18,12 +18,11 @@
   font-size: 60px;
   font-weight: lighter;
 }
-.ovarlay-container{
+.overlay-container{
   width: 50%;
 }
 
 .overlay p {
   margin: auto;
-  width: 50%;
 }
 

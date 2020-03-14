@@ -1,0 +1,29 @@
+.carousel-container {
+  background-color: #f8f9fa;
+}
+
+.carouselItem {
+  width: 100%;
+  padding: 50px;
+  text-align: center;
+}
+
+.carouselItem p {
+  margin-top: 2rem;
+  color: #333;
+}
+
+.carouselItem img {
+  max-width: 50%;
+  height: auto;
+}
+
+@media (min-width: 991px) {
+  .carousel-container {
+    width: 50%;
+  }
+
+  .keyClients {
+    margin-left: auto;
+  }
+}

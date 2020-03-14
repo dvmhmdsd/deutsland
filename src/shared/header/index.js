@@ -4,11 +4,12 @@ import logo from "../../assets/logo.png";
 import "./style.css";
 
 import routes from "routes.js";
+import SocialMedia from "../social";
 
 export default class Header extends Component {
   componentDidMount() {
     window.addEventListener("scroll", () => {
-      if (window.pageYOffset >= 300) {
+      if (window.pageYOffset >= 70) {
         this.headerElement.classList.add("navbar--scrolled")
       } else  {
         this.headerElement.classList.remove("navbar--scrolled")
@@ -17,7 +18,7 @@ export default class Header extends Component {
   }
   render() {
     return (
-      <nav ref={el => this.headerElement = el} className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <nav ref={el => this.headerElement = el} className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container">
           <NavLink className="navbar-brand" to="/">
             <img className="logo" src={logo} alt="Our Logo" />
@@ -38,8 +39,8 @@ export default class Header extends Component {
               {routes.map((route, index) => {
                 if (route.label) {
                   return (
-                    <li key={index} className="nav-item" color="#eaab00">
-                      <NavLink className="nav-link" to={route.path}>
+                    <li key={index} className="nav-item">
+                      <NavLink className="nav-link" to={route.path} exact>
                         {route.label}
                       </NavLink>
                     </li>
@@ -47,6 +48,8 @@ export default class Header extends Component {
                 } else return ""
               })}
             </ul>
+
+            <SocialMedia />
           </div>
         </div>
       </nav>

@@ -1,5 +1,6 @@
 .navbar.admin-header {
   border-bottom: 2px solid #eee;
+  z-index: 99;
 }
 
 .navbar.admin-header .navbar-nav {

@@ -20,7 +20,8 @@ import "./style.css";
 export default class NewsAdminPage extends Component {
   state = {
     newsData: null,
-    isLoading: true
+    isLoading: true,
+    isFailed: false
   };
 
   tableHeadings = ["title", "date"];
@@ -41,12 +42,16 @@ export default class NewsAdminPage extends Component {
   }
 
   async updateStateWithNews() {
-    let news = await getNews();
+    try {
+      let news = await getNews();
 
-    this.setState({
-      newsData: news.data,
-      isLoading: false
-    });
+      this.setState({
+        newsData: news.data,
+        isLoading: false
+      });
+    } catch {
+      this.setState({ isLoading: false, isFailed: true });
+    }
   }
 
   deleteRecord = id => {
@@ -64,7 +69,7 @@ export default class NewsAdminPage extends Component {
   };
 
   render() {
-    let { newsData, isLoading } = this.state;
+    let { newsData, isLoading, isFailed } = this.state;
 
     return (
       <>
@@ -82,6 +87,10 @@ export default class NewsAdminPage extends Component {
           </div>
           {isLoading ? (
             <p className="text-center"> Loading ... </p>
+          ) : isFailed ? (
+            <p className="text-center">
+              An error occurred, please try again later
+            </p>
           ) : newsData.length > 0 ? (
             <AdminTable
               className="table-striped text-center"

@@ -96,91 +96,14 @@ export default class AdminModal extends Component {
             <div className="modal-body">
               {!this.state.isSubmitted ? (
                 <form encType="multipart/form-data" onSubmit={this.saveItem}>
-                  {this.props.isClient ? (
-                    <>
-                      <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input
-                          type="text"
-                          name="name"
-                          className="form-control"
-                          value={this.state.name}
-                          onChange={this.handleChange}
-                          id="name"
-                          placeholder="Add new client"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="link">Link</label>
-                        <input
-                          type="url"
-                          name="link"
-                          className="form-control"
-                          value={this.state.link}
-                          onChange={this.handleChange}
-                          id="link"
-                          placeholder="Add link"
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="form-group">
-                        <label htmlFor="title">Title</label>
-                        <input
-                          type="text"
-                          name="title"
-                          className="form-control"
-                          value={this.state.title}
-                          onChange={this.handleChange}
-                          id="title"
-                          placeholder="Add News Title"
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="body">Body</label>
-                        <textarea
-                          name="body"
-                          className="form-control"
-                          onChange={this.handleChange}
-                          value={this.state.body}
-                          id="body"
-                          rows={3}
-                        />
-                      </div>
-                    </>
-                  )}
+                  {this.props.isClient
+                    ? this.renderClientForm()
+                    : this.renderRegularForm()}
                   {this.props.acceptsImage &&
                   !this.state.image &&
-                  !this.state.isImageUploading ? (
-                    <div className="form-group">
-                      <label htmlFor="image">Upload Image</label>
-                      <input
-                        type="file"
-                        onChange={this.handleImageInputChange}
-                        className="form-control-file"
-                        id="image"
-                        accept="image/*"
-                      />
-                    </div>
-                  ) : (
-                    this.state.image && (
-                      <section className="img-preview">
-                        <img
-                          src={this.state.image}
-                          className="d-block"
-                          width="100%"
-                          alt="Preview"
-                        />
-                        <span
-                          onClick={this.removeImage}
-                          className="preview-dismiss"
-                        >
-                          <FontAwesomeIcon icon={faTimes} />
-                        </span>
-                      </section>
-                    )
-                  )}
+                  !this.state.isImageUploading
+                    ? this.renderImageForm()
+                    : this.state.image && this.renderImagePreview()}
                   {this.state.isImageUploading ? (
                     <p>Wait for image to upload ...</p>
                   ) : (
@@ -199,7 +122,6 @@ export default class AdminModal extends Component {
                 </form>
               ) : (
                 <p className="alert alert-success">
-                  {" "}
                   Form Submitted successfully, you can close the modal.
                 </p>
               )}
@@ -209,4 +131,88 @@ export default class AdminModal extends Component {
       </div>
     );
   }
+
+  renderRegularForm = () => (
+    <>
+      <div className="form-group">
+        <label htmlFor="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          className="form-control"
+          value={this.state.title}
+          onChange={this.handleChange}
+          id="title"
+          placeholder="Add News Title"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="body">Body</label>
+        <textarea
+          name="body"
+          className="form-control"
+          onChange={this.handleChange}
+          value={this.state.body}
+          id="body"
+          rows={3}
+        />
+      </div>
+    </>
+  );
+
+  renderClientForm = () => (
+    <>
+      <div className="form-group">
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          className="form-control"
+          value={this.state.name}
+          onChange={this.handleChange}
+          id="name"
+          placeholder="Add new client"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="link">Link</label>
+        <input
+          type="url"
+          name="link"
+          className="form-control"
+          value={this.state.link}
+          onChange={this.handleChange}
+          id="link"
+          placeholder="Add link"
+        />
+      </div>
+    </>
+  );
+
+  renderImageForm = () => (
+    <div className="form-group">
+      <label htmlFor="image">Upload Image</label>
+      <input
+        type="file"
+        onChange={this.handleImageInputChange}
+        className="form-control-file"
+        id="image"
+        accept="image/*"
+      />
+    </div>
+  );
+
+  renderImagePreview = () => (
+    <section className="img-preview">
+      <img
+        src={this.state.image}
+        className="d-block"
+        width="100%"
+        alt="Preview"
+      />
+      <span onClick={this.removeImage} className="preview-dismiss">
+        <FontAwesomeIcon icon={faTimes} />
+      </span>
+    </section>
+  );
 }

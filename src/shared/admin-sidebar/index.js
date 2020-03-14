@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./style.css";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import adminRoutes from "admin-routes.js";
 
@@ -27,14 +27,14 @@ export default class AdminSidebar extends Component {
         if (!adRoute.adminOnly) {
           return (
             <li key={index} className="sidebarItem">
-              <Link to={`/admin${adRoute.path}`}> {adRoute.label} </Link>
+              <NavLink exact to={`/admin${adRoute.path}`}> {adRoute.label} </NavLink>
             </li>
           );
         } else {
           if (this.state.isAdmin) {
             return (
               <li key={index} className="sidebarItem">
-                <Link to={`/admin${adRoute.path}`}> {adRoute.label} </Link>
+                <NavLink exact to={`/admin${adRoute.path}`}> {adRoute.label} </NavLink>
               </li>
             );
           } else return ""

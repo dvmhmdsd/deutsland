@@ -12,13 +12,17 @@ const { URI, SECRET_KEY } = require("./config/config-keys");
 
 // Connect to the DB
 mongoose
-  .connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
   .then(() => console.log("Connected to DB"))
   .catch(err => console.log(err));
 
 // Parse the body
-app.use(express.json({limit: '50mb'}));
-app.use(express.urlencoded({limit: '50mb'}));
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ limit: "50mb" }));
 
 // Allow cors
 app.use(cors());
