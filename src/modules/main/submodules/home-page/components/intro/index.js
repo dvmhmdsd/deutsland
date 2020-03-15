@@ -21,10 +21,9 @@ export default class Intro extends Component {
           <div className="overlay text-center d-flex justify-content-center align-items-center">
             <div className="overlay-container">
               <h2 className="mb-5">Water Mist</h2>
-              
-                <Link className="vid-btn" to="/water-mist">
-                  Read More
-                </Link>
+              <Link className="vid-btn" to="/water-mist">
+                Read More
+              </Link>
             </div>
           </div>
         </section>
