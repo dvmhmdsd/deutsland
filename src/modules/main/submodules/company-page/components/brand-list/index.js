@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BrandItem from "../brand-item";
-import image1 from "assets/news/proud .jpg";
+import image1 from "assets/news/Proud .jpg";
 export default class BrandList extends Component {
   state = {
     Brands: [

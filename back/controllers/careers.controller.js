@@ -16,14 +16,14 @@ server.get("/list", async (req, res) => {
 });
 
 // Get single news
-server.get("/:id", async (req, res) => {
-  try {
-    let careerItem = await Career.findById(req.params.id);
-    res.send(careerItem);
-  } catch {
-    throwError();
-  }
-});
+// server.get("/:id", async (req, res) => {
+//   try {
+//     let careerItem = await Career.findById(req.params.id);
+//     res.send(careerItem);
+//   } catch {
+//     throwError();
+//   }
+// });
 
 // Create a new record
 server.post("/", ensureAuth, async (req, res) => {
