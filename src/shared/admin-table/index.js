@@ -8,22 +8,25 @@ import {
   faEye
 } from "@fortawesome/free-solid-svg-icons";
 
-import { uploadImage } from "modules/news/services/uploadImage.service";
+import { uploadImage } from "shared/services/uploadImage.service";
+import types from "globals/project-types";
+import countries from "globals/countries";
 
 import "./style.css";
 
 export default class AdminTable extends Component {
   state = {
-    title: " ",
-    body: " ",
+    title: "",
+    body: "",
     date: "",
     image: "",
     id: "",
-    name: " ",
+    name: "",
     link: "",
-    type: " ",
-    password: " ",
-    email: " ",
+    type: "",
+    country: "",
+    password: "",
+    email: "",
     isSubmitting: false,
     isSubmitted: false,
     isImageUploading: false,
@@ -61,7 +64,7 @@ export default class AdminTable extends Component {
     ));
   };
 
-  renderEditBtn = (item) => (
+  renderEditBtn = item => (
     <button
       className="btn btn-secondary mr-2"
       data-toggle="modal"
@@ -84,7 +87,7 @@ export default class AdminTable extends Component {
     </button>
   );
 
-  renderShowBtn = (item) => (
+  renderShowBtn = item => (
     <button
       className="btn btn-secondary mr-2"
       data-toggle="modal"
@@ -147,13 +150,15 @@ export default class AdminTable extends Component {
     this.setState({ isSubmitting: true });
 
     let {
-      id,
       title,
       body,
       date,
       image,
+      id,
       name,
+      link,
       type,
+      country,
       password,
       email
     } = this.state;
@@ -161,9 +166,13 @@ export default class AdminTable extends Component {
     this.props
       .updateRecord(
         id,
-        !this.props.isUsersTable
-          ? { title, body, date, image }
-          : { name, type, password, email }
+        this.props.isUsersTable
+          ? { name, type, password, email }
+          : this.props.isClientTable
+          ? { title, link, image }
+          : this.props.isProjectTable
+          ? { title, body, type, country, image }
+          : { title, body, date, image }
       )
       .then(() => {
         this.setState({ isSubmitting: false, isSubmitted: true });
@@ -228,6 +237,8 @@ export default class AdminTable extends Component {
                 <>
                   {this.props.isClientTable
                     ? this.renderClientForm()
+                    : this.props.isProjectTable
+                    ? this.renderProjectForm()
                     : this.renderRegularForm()}
 
                   {this.props.acceptsImage && this.state.isImageUploading ? (
@@ -254,6 +265,48 @@ export default class AdminTable extends Component {
     </div>
   );
 
+  renderProjectForm = () => (
+    <>
+      {this.renderRegularForm()}
+      <div className="row">
+        <div className="form-group col-6">
+          <label htmlFor="type">Type</label>
+          <select
+            id="type"
+            className="form-control"
+            name="type"
+            value={this.state.type}
+            onChange={this.handleChange}
+          >
+            <option value="" disabled selected>
+              Choose a type
+            </option>
+            {types.map(type => (
+              <option value={type}> {type} </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group col-6">
+          <label htmlFor="country">Country</label>
+          <select
+            id="country"
+            name="country"
+            className="form-control"
+            value={this.state.country}
+            onChange={this.handleChange}
+          >
+            <option value="" disabled selected>
+              Choose country
+            </option>
+            {countries.map(country => (
+              <option value={country}> {country} </option>
+            ))}
+          </select>
+        </div>
+      </div>
+    </>
+  );
+
   renderImagePreview = () => (
     <section className="img-preview">
       <img
@@ -277,6 +330,7 @@ export default class AdminTable extends Component {
         className="form-control-file"
         id="image"
         accept="image/*"
+        name="image"
       />
     </div>
   );
@@ -348,6 +402,7 @@ export default class AdminTable extends Component {
           <label htmlFor="name">Type</label>
           <select
             className="form-control"
+            name="type"
             value={this.state.type}
             onChange={this.handleChange}
           >

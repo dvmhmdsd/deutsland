@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import logo from "assets/logo.png";
 import "./style.css";
 
-import routes from "routes.js";
+import routes from "globals/routes.js";
 import SocialMedia from "../social";
 
 export default class Header extends Component {
