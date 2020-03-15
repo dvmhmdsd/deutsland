@@ -1,0 +1,22 @@
+.type-filters {
+  overflow: auto;
+}
+
+.type-filters li {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem;
+  color: #fff;
+  border-radius: 20px;
+  margin: 0.5rem;
+  transition: all 0.2s;
+}
+
+.type-filters li:hover,
+.type-filters li.active {
+  background-color: #cb6828;
+  cursor: pointer;
+}
+
+.filters select {
+  cursor: pointer;
+}
