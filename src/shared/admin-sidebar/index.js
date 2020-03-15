@@ -4,7 +4,7 @@ import "./style.css";
 
 import { NavLink } from "react-router-dom";
 
-import adminRoutes from "admin-routes.js";
+import adminRoutes from "globals/admin-routes.js";
 
 export default class AdminSidebar extends Component {
   state = {

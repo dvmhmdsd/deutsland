@@ -3,7 +3,9 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-import { uploadImage } from "modules/news/services/uploadImage.service";
+import { uploadImage } from "shared/services/uploadImage.service";
+import types from "globals/project-types";
+import countries from "globals/countries";
 
 export default class AdminModal extends Component {
   state = {
@@ -11,6 +13,13 @@ export default class AdminModal extends Component {
     body: "",
     date: "",
     image: "",
+    id: "",
+    name: "",
+    link: "",
+    type: "",
+    country: "",
+    password: "",
+    email: "",
     isImageUploading: false,
     isSubmitting: false,
     isSubmitted: false
@@ -98,6 +107,8 @@ export default class AdminModal extends Component {
                 <form encType="multipart/form-data" onSubmit={this.saveItem}>
                   {this.props.isClient
                     ? this.renderClientForm()
+                    : this.props.isProject
+                    ? this.renderProjectForm()
                     : this.renderRegularForm()}
                   {this.props.acceptsImage &&
                   !this.state.image &&
@@ -189,6 +200,48 @@ export default class AdminModal extends Component {
     </>
   );
 
+  renderProjectForm = () => (
+    <>
+      {this.renderRegularForm()}
+      <div className="row">
+        <div className="form-group col-6">
+          <label htmlFor="type">Type</label>
+          <select
+            id="type"
+            className="form-control"
+            name="type"
+            value={this.state.type}
+            onChange={this.handleChange}
+          >
+            <option value="" disabled selected>
+              Choose a type
+            </option>
+            {types.map(type => (
+              <option value={type}> {type} </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group col-6">
+          <label htmlFor="country">Country</label>
+          <select
+            id="country"
+            name="country"
+            className="form-control"
+            value={this.state.country}
+            onChange={this.handleChange}
+          >
+            <option value="" disabled selected>
+              Choose country
+            </option>
+            {countries.map(country => (
+              <option value={country}> {country} </option>
+            ))}
+          </select>
+        </div>
+      </div>
+    </>
+  );
+
   renderImageForm = () => (
     <div className="form-group">
       <label htmlFor="image">Upload Image</label>
@@ -197,6 +250,7 @@ export default class AdminModal extends Component {
         onChange={this.handleImageInputChange}
         className="form-control-file"
         id="image"
+        name="image"
         accept="image/*"
       />
     </div>

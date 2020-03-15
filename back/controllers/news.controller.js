@@ -19,7 +19,6 @@ server.get("/list", async (req, res) => {
   try {
     let newsList;
     newsList = await News.find({});
-    console.log(newsList)
 
     res.send(newsList);
     // newsList = await getFromCache("news");
