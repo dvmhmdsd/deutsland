@@ -17,7 +17,6 @@ server.get("/list", ensureAuth, async (req, res) => {
 
 // Create a new record
 server.post("/", async (req, res) => {
-  console.log("post message")
   let { name, email, phone, body } = req.body;
 
   let messageItem = new Message({ name, email, phone, body });

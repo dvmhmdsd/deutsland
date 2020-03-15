@@ -59,6 +59,7 @@ export default class MessagesPage extends Component {
               body={messagesData}
               deleteRecord={this.deleteRecord}
               isEditable={false}
+              isDetailed={true}
             />
           ) : (
             <p className="text-center">No Items Yet</p>
