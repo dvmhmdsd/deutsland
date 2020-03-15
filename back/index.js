@@ -53,6 +53,9 @@ app.get("*", (req, res, next) => {
   next();
 });
 
+const projectsController = require("./controllers/projects.controller");
+app.use("/api/projects", projectsController);
+
 const clientsController = require("./controllers/clients.controller");
 app.use("/api/clients", clientsController);
 
