@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 
 export default class GeneralInfo extends Component {
   render() {
@@ -16,6 +18,7 @@ export default class GeneralInfo extends Component {
             litora torquent per conubia nostra, per inceptos himenaeos. enim
             maximus varius vitae in tortor. Class aptent taciti socio
             <span>
+              <FontAwesomeIcon className="icon" icon={faQuoteRight} />
               It is better to lead from behind and to put others in front,
               especially when you celebrate victory when nice things occur.
             </span>
