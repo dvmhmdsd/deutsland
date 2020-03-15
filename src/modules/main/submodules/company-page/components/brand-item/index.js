@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class BrandItem extends Component {
   render() {
-      let {image, title, body, items} = this.props;
     return (
       <>
-        
+        <div className="brand-item">
+          <h2>{this.props.Brands.title}</h2>
+        </div>
       </>
-    )
+    );
   }
 }

@@ -6,7 +6,7 @@ export default class Layout extends Component {
     render() {
         return (
             <div>
-                <Header/>
+                <Header inHome={this.props.inHome} />
                 {this.props.children}
                 <Footer/>
             </div>
