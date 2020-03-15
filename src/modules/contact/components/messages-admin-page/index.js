@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import isUserLoggedIn from "modules/users/services/auth.service";
-import { getMessages } from "../../services/messages.service";
+import { getMessages, deleteMessage } from "../../services/messages.service";
 
 import AdminLayout from "shared/admin-layout";
 import AdminTable from "shared/admin-table";
@@ -39,6 +39,12 @@ export default class MessagesPage extends Component {
       isLoading: false
     });
   }
+
+  deleteRecord = id => {
+    deleteMessage(id).then(() => {
+      this.updateStateWithNews();
+    });
+  };
 
   render() {
     let { messagesData, isLoading } = this.state;

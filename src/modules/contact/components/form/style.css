@@ -1,0 +1,15 @@
+.contact-form {
+    padding: 0 4rem 0 0;
+}
+
+.contact-submit {
+    background-color: rgba(203, 104, 40, 0.8);
+    color: #fff;
+    border: 0;
+    border-radius: 20px;
+    padding: 0.3rem 0.5rem;
+}
+
+.contact-submit:hover {
+    background-color: #CB6828;
+}

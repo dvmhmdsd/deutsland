@@ -6,13 +6,13 @@ export let getMessages = async () => {
   return response;
 };
 
-export let addMessage = async data => {
+export let sendMessage = async data => {
   let response = await axios.post("/messages", data);
 
   return response;
 };
 
-export let deleteMessages = async id => {
+export let deleteMessage = async id => {
   if (window.confirm("Are you sure you want to delete this item ?"))
     return await axios.delete(`/messages/${id}`);
 };

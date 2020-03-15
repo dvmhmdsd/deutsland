@@ -17,7 +17,8 @@ export default class ProjectsPage extends Component {
       if (this.filteredProjects) return this.filteredProjects[0];
     },
     isFailed: false,
-    isLoading: true
+    isLoading: true,
+    heading: null
   };
 
   async componentDidMount() {
@@ -42,7 +43,8 @@ export default class ProjectsPage extends Component {
 
     this.setState({
       filteredProjects,
-      activeProject: filteredProjects[0]
+      activeProject: filteredProjects[0],
+      heading: type
     });
   };
 
@@ -76,6 +78,7 @@ export default class ProjectsPage extends Component {
               </p>
             ) : (
               <>
+                <h1> Protected by Deutschland </h1>
                 <ProjectFilters
                   filterByType={this.filterByType}
                   filterByCountry={this.filterByCountry}
@@ -83,11 +86,14 @@ export default class ProjectsPage extends Component {
 
                 {this.state.filteredProjects &&
                 this.state.filteredProjects.length > 0 ? (
+                  <>
+                  {this.state.heading && <h2> {this.state.heading.toUpperCase()} </h2>}
                   <ProjectGallery
                     activeProject={this.state.activeProject}
                     projects={this.state.filteredProjects}
                     select={this.activateProject}
                   />
+                  </>
                 ) : (
                   <p className="text-center mt-5"> No Items ! </p>
                 )}

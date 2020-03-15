@@ -1,0 +1,16 @@
+.info li {
+    margin-bottom: 0.4rem;
+}
+
+.info a {
+    color: #3d3d3d;
+}
+
+.info a:hover {
+    text-decoration: none;
+    color: #CB6828;
+}
+
+.info .icon {
+    color: #CB6828;
+}

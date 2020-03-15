@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import Header from '../header'
 import Footer from '../footer'
 
+import "./style.css"
+
 export default class Layout extends Component {
     render() {
         return (
             <div>
                 <Header inHome={this.props.inHome} />
-                {this.props.children}
+                <main className="main-content">{this.props.children}</main>
                 <Footer/>
             </div>
         )

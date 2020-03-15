@@ -1,0 +1,10 @@
+.main-contact {
+    padding: 2rem;
+    width: 100%;
+    background-color: #f8f9fa;
+}
+
+.main-contact hr {
+    color: #CB6828;
+    margin-bottom: 2rem;
+}
