@@ -1,0 +1,14 @@
+.item-page img {
+  max-width: 30%;
+  margin-bottom: 50px;
+  float: left;
+}
+
+.item-page button {
+  background-color: #cb6828;
+  color: white;
+  border: solid 2px #cb6828;
+  border-radius: 20px;
+  width: 100px;
+  padding: 5px;
+}
