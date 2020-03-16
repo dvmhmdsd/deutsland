@@ -27,8 +27,6 @@ app.use(express.urlencoded({ limit: "50mb" }));
 // Allow cors
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "public")));
-
 // Add the session
 app.use(
   session({
@@ -48,14 +46,6 @@ app.use(passport.session());
 app.use(require("prerender-node"));
 
 app.use(require("compression")());
-
-// Set the routes
-app.get("*", (req, res, next) => {
-  // get the authentication state of the user
-  res.locals.user = req.user || null;
-
-  next();
-});
 
 const projectsController = require("./controllers/projects.controller");
 app.use("/api/projects", projectsController);
@@ -77,6 +67,13 @@ app.use("/api/news", newsController);
 
 const userController = require("./controllers/user.controller");
 app.use("/api/users", userController);
+
+
+app.use(express.static("public"));
+
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 // Connect to port 5000
 const PORT = process.env.PORT || 5000;
