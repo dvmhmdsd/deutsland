@@ -3,12 +3,19 @@ import Layout from "shared/layout";
 import GeneralInfo from "./components/general-info";
 import BrandList from "./components/brand-list";
 
+import Helmet from "react-helmet";
+
 export default class AboutPage extends Component {
   render() {
     return (
       <Layout>
-        <GeneralInfo/>
-        <BrandList/>
+        <Helmet>
+          <title>About Us | Deutschland</title>
+          <meta name="title" content="Information about us" />
+          <meta name="description" content="Know more about us." />
+        </Helmet>
+        <GeneralInfo />
+        <BrandList />
       </Layout>
     );
   }

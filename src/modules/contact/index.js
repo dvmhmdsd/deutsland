@@ -10,6 +10,8 @@ import "./style.css";
 
 import { sendMessage } from "./services/messages.service";
 
+import Helmet from "react-helmet";
+
 export default class ContactPage extends Component {
   sendMessage = data => {
     return sendMessage(data);
@@ -18,6 +20,11 @@ export default class ContactPage extends Component {
   render() {
     return (
       <Layout>
+        <Helmet>
+          <title>Contact Us | Deutschland</title>
+          <meta name="title" content="Deutschland, technology limited" />
+          <meta name="description" content="The biggest and the best construction company." />
+        </Helmet>
         <article className="row">
           <section className="contact-map col-md-6">
             <ContactMap />

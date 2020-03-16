@@ -7,6 +7,8 @@ import ProjectFilters from "../filters";
 
 import { getProjects } from "../../services/projects.service";
 
+import Helmet from "react-helmet";
+
 export default class ProjectsPage extends Component {
   state = {
     projects: null,
@@ -68,6 +70,14 @@ export default class ProjectsPage extends Component {
   render() {
     return (
       <Layout>
+        <Helmet>
+          <title>Our projects | Deutschland</title>
+          <meta name="title" content="Our main Projects" />
+          <meta
+            name="description"
+            content="See more details about our main projects"
+          />
+        </Helmet>
         <div className="section">
           <div className="container">
             {this.state.isLoading ? (
@@ -87,12 +97,14 @@ export default class ProjectsPage extends Component {
                 {this.state.filteredProjects &&
                 this.state.filteredProjects.length > 0 ? (
                   <>
-                  {this.state.heading && <h2> {this.state.heading.toUpperCase()} </h2>}
-                  <ProjectGallery
-                    activeProject={this.state.activeProject}
-                    projects={this.state.filteredProjects}
-                    select={this.activateProject}
-                  />
+                    {this.state.heading && (
+                      <h2> {this.state.heading.toUpperCase()} </h2>
+                    )}
+                    <ProjectGallery
+                      activeProject={this.state.activeProject}
+                      projects={this.state.filteredProjects}
+                      select={this.activateProject}
+                    />
                   </>
                 ) : (
                   <p className="text-center mt-5"> No Items ! </p>

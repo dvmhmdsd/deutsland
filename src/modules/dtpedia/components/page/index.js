@@ -6,6 +6,7 @@ import "./style.css";
 import { getSingleDtpedia, getDtpedia } from "../../services/dtpedia.service";
 
 import { NavLink } from "react-router-dom";
+import Helmet from "react-helmet";
 
 export default class DtPediaPage extends Component {
   state = {
@@ -42,6 +43,14 @@ export default class DtPediaPage extends Component {
       <>
         {!this.state.isLoading && this.state.dtpediaItem ? (
           <Layout>
+            <Helmet>
+              <title>{this.state.dtpediaItem.title} | Deutschland</title>
+              <meta name="title" content={this.state.dtpediaItem.title} />
+              <meta
+                name="description"
+                content={this.state.dtpediaItem.body.split(" ").slice(0, 20)}
+              />
+            </Helmet>
             <main className="dtpedia-page-main">
               <header
                 className="dtpedia-page-header"
@@ -56,9 +65,7 @@ export default class DtPediaPage extends Component {
                   <h1 className="text-center">
                     {this.state.dtpediaItem.title}
                   </h1>
-                  <p className="dtpedia-date">
-                    {this.state.dtpediaItem.date}
-                  </p>
+                  <p className="dtpedia-date">{this.state.dtpediaItem.date}</p>
                 </div>
               </header>
               <section className="dtpedia-page-body">
@@ -74,7 +81,10 @@ export default class DtPediaPage extends Component {
                                 to={`/dtpedia/${item._id}/${this.createSlug(
                                   item.title
                                 )}}`}
-                                className={this.props.match.params.id === item._id && "active"}
+                                className={
+                                  this.props.match.params.id === item._id &&
+                                  "active"
+                                }
                               >
                                 {item.title}
                               </NavLink>

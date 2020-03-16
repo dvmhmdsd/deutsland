@@ -12,6 +12,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
+import Helmet from "react-helmet";
+
 export default class NewsPage extends Component {
   state = {
     newsItem: null,
@@ -83,6 +85,13 @@ export default class NewsPage extends Component {
       <>
         {this.state.newsItem ? (
           <Layout>
+            <Helmet>
+              <title>{this.state.newsItem.title} | Deutschland</title>
+              <meta
+                name="description"
+                content={this.state.newsItem.body.split(" ").slice(0, 20)}
+              />
+            </Helmet>
             <main className="news-page-main">
               <header
                 className="news-page-header"
@@ -171,7 +180,9 @@ export default class NewsPage extends Component {
                               >
                                 <FontAwesomeIcon
                                   icon={
-                                    this.state.isDeleting ? faCircleNotch : faTrash
+                                    this.state.isDeleting
+                                      ? faCircleNotch
+                                      : faTrash
                                   }
                                 />
                               </span>

@@ -2,10 +2,17 @@ import React, { Component } from "react";
 import "./style.css";
 
 import Layout from "shared/layout/index";
+
+import Helmet from "react-helmet";
+
 export default class History extends Component {
   render() {
     return (
       <Layout>
+        <Helmet>
+          <title>Our history | Deutschland</title>
+          <meta name="description" content="See our history." />
+        </Helmet>
         <div className="history py-5">
           <h2>History</h2>
           <div className="history-timeline">
