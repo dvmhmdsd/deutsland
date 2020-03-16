@@ -19,7 +19,7 @@ export default class ContactPage extends Component {
     return (
       <Layout>
         <article className="row">
-          <section className="map col-md-6">
+          <section className="contact-map col-md-6">
             <ContactMap />
           </section>
 

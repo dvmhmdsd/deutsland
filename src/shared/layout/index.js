@@ -9,7 +9,7 @@ export default class Layout extends Component {
         return (
             <div>
                 <Header inHome={this.props.inHome} />
-                <main className="main-content">{this.props.children}</main>
+                <main className={!this.props.inHome && "main-content"}>{this.props.children}</main>
                 <Footer/>
             </div>
         )
