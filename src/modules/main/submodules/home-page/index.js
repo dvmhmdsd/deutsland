@@ -9,11 +9,21 @@ import News from "modules/news/components/slider";
 import ServicesList from "../services-component/components/list";
 import Approvals from "./components/approvals";
 
+import Helmet from "react-helmet";
+
 export default class HomePage extends Component {
   render() {
     return (
       <>
         <Layout inHome={true}>
+          <Helmet>
+            <title>Deutschland</title>
+            <meta name="title" content="Deutschland, technology limited" />
+            <meta
+              name="description"
+              content="The biggest and the best construction company."
+            />
+          </Helmet>
           <Intro />
           <ServicesList />
           <Distribution />
