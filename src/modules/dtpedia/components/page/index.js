@@ -57,8 +57,7 @@ export default class DtPediaPage extends Component {
                     {this.state.dtpediaItem.title}
                   </h1>
                   <p className="dtpedia-date">
-                    {" "}
-                    {this.state.dtpediaItem.date}{" "}
+                    {this.state.dtpediaItem.date}
                   </p>
                 </div>
               </header>
@@ -75,6 +74,7 @@ export default class DtPediaPage extends Component {
                                 to={`/dtpedia/${item._id}/${this.createSlug(
                                   item.title
                                 )}}`}
+                                className={this.props.match.params.id === item._id && "active"}
                               >
                                 {item.title}
                               </NavLink>
