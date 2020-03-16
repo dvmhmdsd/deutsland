@@ -27,7 +27,7 @@ export default class LoginPage extends Component {
     this.setState({
       isLoading: true
     });
-    console.log(email, password)
+    
     let response;
     try {
       response = await login({ email, password });

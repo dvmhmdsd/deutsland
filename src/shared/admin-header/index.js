@@ -37,9 +37,12 @@ export default class AdminHeader extends Component {
           />
         </button>
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item text-muted pt-1">
-            {JSON.parse(localStorage.getItem("user")).name}
-          </li>
+          {JSON.parse(localStorage.getItem("user")) && (
+            <li className="nav-item text-muted pt-1">
+              {JSON.parse(localStorage.getItem("user")).name}
+            </li>
+          )}
+
           <li className="nav-item">
             <Link
               title="Go to website"
