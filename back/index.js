@@ -45,6 +45,10 @@ require("./config/passport")(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(require("prerender-node"));
+
+app.use(require("compression")());
+
 // Set the routes
 app.get("*", (req, res, next) => {
   // get the authentication state of the user
