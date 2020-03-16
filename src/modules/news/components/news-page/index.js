@@ -10,7 +10,7 @@ import {
 } from "../../services/news.service";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 export default class NewsPage extends Component {
   state = {
@@ -19,7 +19,9 @@ export default class NewsPage extends Component {
     body: "",
     name: "",
     isAdmin: false,
-    error: null
+    error: null,
+    isLoading: false,
+    isDeleting: false
   };
 
   componentDidMount() {
@@ -31,19 +33,27 @@ export default class NewsPage extends Component {
       });
     });
 
-    this.isUserAdmin()
+    this.isUserAdmin();
   }
 
   isUserAdmin = () => {
-    let user = JSON.parse(localStorage.getItem("user"))
+    let user = JSON.parse(localStorage.getItem("user"));
     if (!user) return;
-    
+
     if (user.type === "admin") this.setState({ isAdmin: true });
   };
 
   deleteComment = id => {
+    this.setState({ isDeleting: true });
+
     deleteNewsComment(id).then(res => {
-      this.setState({ commentDeleted: true });
+      this.setState({ commentDeleted: true, newsItem: res.data });
+
+      this.setState({ isDeleting: false });
+
+      setTimeout(() => {
+        this.setState({ commentDeleted: false });
+      }, 2000);
     });
   };
 
@@ -56,11 +66,14 @@ export default class NewsPage extends Component {
   saveComment = e => {
     e.preventDefault();
 
-    let { name, body, newsItem, comments } = this.state;
-    // console.log(newsItem._id, name, body)
-    commentToNews(newsItem._id, { name, body }).then(() => {
+    let { name, body, newsItem } = this.state;
+
+    this.setState({ isLoading: true });
+
+    commentToNews(newsItem._id, { name, body }).then(res => {
       this.setState({
-        comments: [{ name, body }, ...comments]
+        newsItem: res.data,
+        isLoading: false
       });
     });
   };
@@ -122,7 +135,7 @@ export default class NewsPage extends Component {
                             type="submit"
                             className="btn btn-primary ml-3"
                           >
-                            Comment
+                            {this.state.isLoading ? "Loading ..." : "Comment"}
                           </button>
                         </form>
                       </section>
@@ -130,7 +143,11 @@ export default class NewsPage extends Component {
                       <header>
                         <h2 className="mb-4">
                           Comments (
-                          {this.state.comments && this.state.comments.length})
+                          {this.state.newsItem.comments &&
+                          this.state.newsItem.comments.length
+                            ? this.state.newsItem.comments.length
+                            : 0}
+                          )
                         </h2>
                       </header>
 
@@ -141,25 +158,26 @@ export default class NewsPage extends Component {
                       )}
 
                       <ul className="list-unstyled comments-list">
-                        {this.state.comments &&
-                          this.state.comments.map((comment, index) => (
-                            <li className="comment-item" key={index}>
-                              <p className="mb-1"> {comment.body} </p>
-                              <small className="font-weight-bold">
-                                {comment.name}
-                              </small>
-                              {this.state.isAdmin && (
-                                <span
-                                  className="delete-comment"
-                                  onClick={() =>
-                                    this.deleteComment(comment._id)
+                        {this.state.newsItem.comments.map((comment, index) => (
+                          <li className="comment-item" key={index}>
+                            <p className="mb-1"> {comment.body} </p>
+                            <small className="font-weight-bold">
+                              {comment.name}
+                            </small>
+                            {this.state.isAdmin && (
+                              <span
+                                className="delete-comment"
+                                onClick={() => this.deleteComment(comment._id)}
+                              >
+                                <FontAwesomeIcon
+                                  icon={
+                                    this.state.isDeleting ? faCircleNotch : faTrash
                                   }
-                                >
-                                  <FontAwesomeIcon icon={faTrash} />
-                                </span>
-                              )}
-                            </li>
-                          ))}
+                                />
+                              </span>
+                            )}
+                          </li>
+                        ))}
                       </ul>
                     </section>
                   </div>

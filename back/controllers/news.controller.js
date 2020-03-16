@@ -94,9 +94,9 @@ server.post("/:id/comment", (req, res) => {
   let id = req.params.id;
   let { name, body } = req.body;
   let comment = { name, body };
-  News.findOneAndUpdate(id, { $push: { comments: comment } })
-    .then(() => {
-      res.sendStatus(200);
+  News.findOneAndUpdate(id, { $push: { comments: comment } }, {new: true})
+    .then((record) => {
+      res.status(200).send(record);
     })
     .catch(() => {
       throwError();
@@ -108,10 +108,12 @@ server.delete("/comment/:id", ensureAuth, isAdmin, (req, res) => {
 
   News.findOneAndUpdate(
     { "comments._id": id },
-    { $pull: { comments: { _id: id } } }
+    { $pull: { comments: { _id: id } } },
+    {new:true}
   ).then((comment, err) => {
     if (err) res.sendStatus(401);
-    res.sendStatus(200);
+    
+    res.status(200).send(comment);
   });
 });
 
