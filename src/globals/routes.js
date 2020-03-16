@@ -1,13 +1,13 @@
 import CareerItemPage from "modules/careers/components/item-page";
-import CareersListPage from "modules/careers/components/list-page";
 import ContactPage from "modules/contact";
 import DtPediaPage from "modules/dtpedia/components/page";
 import HomePage from "modules/main/submodules/home-page";
 import HistoryPage from "modules/main/submodules/history-page";
 import AboutPage from "modules/main/submodules/company-page";
 import NewsPage from "modules/news/components/news-page";
-import DTPediaListPage from "../modules/dtpedia/components/list-page";
-import ProjectsPage from "../modules/projects/components/page";
+import DTPediaListPage from "modules/dtpedia/components/list-page";
+import ProjectsPage from "modules/projects/components/page";
+import CareersPage from "modules/careers";
 
 export default [
   {
@@ -36,7 +36,7 @@ export default [
   },
   {
     path: "/careers",
-    component: CareersListPage,
+    component: CareersPage,
     label: "Careers"
   },
   {
