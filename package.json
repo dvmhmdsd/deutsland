@@ -23,13 +23,13 @@
     "react-scripts": "3.4.0",
     "react-wow": "^1.0.0"
   },
-  "proxy": "http://localhost:5000/api/",
+  "proxy": "http://localhost:5000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && mv dist/* back/public",
+    "deploy": "npm run build && mv build/* back/public",
     "dev-start": "concurrently \"cd back && nodemon\" \"npm start\""
   },
   "eslintConfig": {
