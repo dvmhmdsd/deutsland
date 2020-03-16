@@ -241,13 +241,14 @@ export default class AdminTable extends Component {
                     ? this.renderProjectForm()
                     : this.renderRegularForm()}
 
-                  {this.props.acceptsImage && this.state.isImageUploading ? (
-                    <p> Waiting for image uploading ... </p>
-                  ) : this.state.isImageUploaded || this.state.image ? (
-                    this.renderImagePreview()
-                  ) : (
-                    this.renderImageUpload()
-                  )}
+                  {this.props.acceptsImage &&
+                    (this.state.isImageUploading ? (
+                      <p> Waiting for image uploading ... </p>
+                    ) : this.state.isImageUploaded || this.state.image ? (
+                      this.renderImagePreview()
+                    ) : (
+                      this.renderImageUpload()
+                    ))}
 
                   <button
                     type="submit"

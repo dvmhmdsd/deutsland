@@ -22,7 +22,8 @@ export default class AdminModal extends Component {
     email: "",
     isImageUploading: false,
     isSubmitting: false,
-    isSubmitted: false
+    isSubmitted: false,
+    isFailed: false
   };
 
   removeImage = () => {
@@ -62,18 +63,27 @@ export default class AdminModal extends Component {
     this.setState({
       isSubmitting: true
     });
-
+    
     this.props.save(this.state).then(() => {
       this.props.updateParentState();
       this.setState({
         isSubmitting: false,
         isSubmitted: true
-      });
+      })
 
       setTimeout(() => {
-        this.setState({ isSubmitted: false, title: "", body: "", image: "" });
+        this.setState({ isSubmitted: false });
       }, 3000);
-    });
+    }).catch(() => {
+      this.setState({
+        isSubmitting: false,
+        isFailed: true
+      })
+
+      setTimeout(() => {
+        this.setState({ isFailed: false });
+      }, 3000);
+    })
   };
 
   componentDidMount() {
@@ -131,11 +141,13 @@ export default class AdminModal extends Component {
                     </button>
                   )}
                 </form>
-              ) : (
+              ) : this.state.isFailed ? <p className="alert alert-danger">
+                  An Error Occurred, please try again and make sure to fill all the fields
+                </p> :
                 <p className="alert alert-success">
                   Form Submitted successfully, you can close the modal.
                 </p>
-              )}
+              }
             </div>
           </div>
         </div>

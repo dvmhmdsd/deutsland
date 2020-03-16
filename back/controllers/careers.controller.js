@@ -26,17 +26,19 @@ server.get("/list", async (req, res) => {
 // });
 
 // Create a new record
-server.post("/", ensureAuth, async (req, res) => {
-  let { title, description } = req.body;
-
+server.post("/", ensureAuth, (req, res) => {
+  let { title, body } = req.body;
+  console.log(body)
   let careerItem = new Career({
     title,
-    description
+    body
   });
 
   careerItem.save().then(record => {
     res.send(record);
-  });
+  }).catch(() => {
+    res.send(400)
+  })
 });
 
 // Edit the record
@@ -44,9 +46,9 @@ server.put("/:id", ensureAuth, (req, res) => {
   try {
     let id = req.params.id;
 
-    let { title, description } = req.body;
+    let { title, body } = req.body;
 
-    Career.findByIdAndUpdate(id, { title, description }).then(() => {
+    Career.findByIdAndUpdate(id, { title, body }).then(() => {
       res.sendStatus(204);
     });
   } catch {
