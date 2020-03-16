@@ -47,8 +47,8 @@ export default class BrandList extends Component {
       <div className="container">
         <div className="row">
           {this.state.Brands &&
-            this.state.Brands.map(brand => (
-              <div className="col-lg-4 col-md-6 col-sm-12">
+            this.state.Brands.map((brand, index) => (
+              <div key={index} className="col-lg-4 col-md-6 col-sm-12">
                 <BrandItem data={brand} />
               </div>
             ))}

@@ -9,11 +9,12 @@ export default class BrandItem extends Component {
     return (
       <div className="brand-item">
         <h2>{this.props.data.title}</h2>
-        <img src={this.props.data.image1} />
+        <img src={this.props.data.image1} alt="The brand item" />
         <p>{this.props.data.paragraph}</p>
         {this.props.data.items &&
-          this.props.data.items.map(item => (
+          this.props.data.items.map((item, index) => (
             <ReactWOW
+              key={index}
               animation="fadeInLeft"
               data-wow-duration="2s"
               data-wow-delay="20s"

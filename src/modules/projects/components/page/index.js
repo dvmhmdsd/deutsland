@@ -17,6 +17,7 @@ export default class ProjectsPage extends Component {
     },
     get activeProject() {
       if (this.filteredProjects) return this.filteredProjects[0];
+      else return "";
     },
     isFailed: false,
     isLoading: true,

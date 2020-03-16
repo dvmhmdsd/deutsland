@@ -25,7 +25,7 @@ export default class Approvals extends Component {
 
   renderApprovalsList = () => {
     return this.state.approvalsImages.map((image, index) => (
-      <div className="approval-item mx-4">
+      <div key={index} className="approval-item mx-4">
         <img src={image} alt="Approvals logos" />
       </div>
     ));

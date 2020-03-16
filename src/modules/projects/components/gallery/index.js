@@ -11,6 +11,7 @@ export default class ProjectGallery extends Component {
             <img
               className="project-image"
               src={this.props.activeProject.image}
+              alt="the active project"
             />
             <div className="project-overlay w-100">
               <h2 className="project-title">
@@ -29,6 +30,7 @@ export default class ProjectGallery extends Component {
                   key={`project${index}`}
                   className="project-image"
                   src={project.image}
+                  alt="Other projects item"
                 />
               </div>
             ))}

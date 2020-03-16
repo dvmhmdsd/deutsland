@@ -45,7 +45,7 @@ export default class ContactInfo extends Component {
 
   getCurrentItem = (country = "egypt") => {
     let activeItem = this.state.info.find(item => {
-      return item.country == country;
+      return item.country === country;
     });
 
     this.setState({
