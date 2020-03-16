@@ -35,7 +35,7 @@ export default class CareersListPage extends Component {
         ) : (
           <div className="section">
             <div className="container ">
-              <h2 className="text-center">Vacancies</h2>
+              <h1 className="text-center mb-5">Vacancies</h1>
               <div className="row ">
                 {items.map(item => (
                   <div className="col-lg-6 col-sm-12">

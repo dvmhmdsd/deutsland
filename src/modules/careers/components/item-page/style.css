@@ -1,14 +1,13 @@
-.item-page img {
-  max-width: 30%;
-  margin-bottom: 50px;
-  float: left;
+.careers-item {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  transition: all 0.2s;
 }
 
-.item-page button {
-  background-color: #cb6828;
-  color: white;
-  border: solid 2px #cb6828;
-  border-radius: 20px;
-  width: 100px;
-  padding: 5px;
+.careers-item:hover {
+  box-shadow: 5px 4px 9px 1px #333;
+}
+
+.careers-item img {
+  max-width: 100%;
 }
