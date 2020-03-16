@@ -8,7 +8,7 @@ export default class GeneralInfo extends Component {
     return (
       <section className="general-info">
         <div className="container">
-          <h2>Who We Are</h2>
+          <h1>Who We Are</h1>
           <p>
             Proin augue neque, vestibulum vitae urna quis, ornare lobortis sem.
             Maecenas sit amet gravida neque, in mollis nulla. Aenean vel nulla

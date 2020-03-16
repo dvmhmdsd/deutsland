@@ -14,8 +14,10 @@ export default class AboutPage extends Component {
           <meta name="title" content="Information about us" />
           <meta name="description" content="Know more about us." />
         </Helmet>
-        <GeneralInfo />
-        <BrandList />
+        <div className="section pt-1">
+          <GeneralInfo />
+          <BrandList />
+        </div>
       </Layout>
     );
   }
