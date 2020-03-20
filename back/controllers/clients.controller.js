@@ -6,7 +6,7 @@ const Client = require("../models/Client.model");
 const ensureAuth = require("../helpers/ensureAuth");
 
 // Get the list
-server.get("/list", ensureAuth, async (req, res) => {
+server.get("/list", async (req, res) => {
   try {
     let clientsList = await Client.find({});
     res.send(clientsList);
