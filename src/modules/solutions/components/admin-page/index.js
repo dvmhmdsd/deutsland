@@ -2,11 +2,11 @@ import React, { Component } from "react";
 
 import isUserLoggedIn from "modules/users/services/auth.service";
 import {
-  getProjects,
-  deleteProject,
-  addProject,
-  updateProject
-} from "../../services/projects.service";
+  getSolutions,
+  deleteSolution,
+  addSolution,
+  updateSolution
+} from "../../services/solutions.service";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -17,19 +17,19 @@ import AddItemModal from "shared/admin-add-modal";
 
 import "./style.css";
 
-export default class ProjectsAdminPage extends Component {
+export default class SolutionsAdminPage extends Component {
   state = {
-    projectsData: null,
+    solutionsData: null,
     isLoading: true,
     isFailed: false
   };
 
   constructor() {
     super();
-    this.updateStateWithProjects = this.updateStateWithProjects.bind(this);
+    this.updateStateWithSolutions = this.updateStateWithSolutions.bind(this);
   }
 
-  tableHeadings = ["title", "type", "country"];
+  tableHeadings = ["title"];
 
   async componentDidMount() {
     isUserLoggedIn().then(response => {
@@ -38,15 +38,15 @@ export default class ProjectsAdminPage extends Component {
       }
     });
 
-    this.updateStateWithProjects();
+    this.updateStateWithSolutions();
   }
 
-  async updateStateWithProjects() {
+  async updateStateWithSolutions() {
     try {
-      let { data: projects } = await getProjects();
+      let { data: solutions } = await getSolutions();
 
       this.setState({
-        projectsData: projects,
+        solutionsData: solutions,
         isLoading: false
       });
     } catch {
@@ -55,25 +55,25 @@ export default class ProjectsAdminPage extends Component {
   }
 
   deleteRecord = id => {
-    deleteProject(id).then(() => {
-      this.updateStateWithProjects();
+    deleteSolution(id).then(() => {
+      this.updateStateWithSolutions();
     });
   };
 
   updateRecord = (id, data) => {
-    return updateProject(id, data);
+    return updateSolution(id, data);
   };
 
-  saveProject = data => {
-    return addProject(data);
+  saveSolution = data => {
+    return addSolution(data);
   };
 
   render() {
-    let { projectsData, isLoading, isFailed } = this.state;
+    let { solutionsData, isLoading, isFailed } = this.state;
     return (
       <AdminLayout>
         <div className="d-flex justify-content-between heading">
-          <h2> Projects </h2>
+          <h2> Solutions </h2>
           <button
             data-toggle="modal"
             data-target="#addModal"
@@ -89,27 +89,25 @@ export default class ProjectsAdminPage extends Component {
           <p className="text-center">
             An error occurred, please try again later
           </p>
-        ) : projectsData.length > 0 ? (
+        ) : solutionsData.length > 0 ? (
           <AdminTable
             className="table-striped text-center"
             headers={this.tableHeadings}
-            body={projectsData}
-            updateParentState={this.updateStateWithProjects}
+            body={solutionsData}
+            updateParentState={this.updateStateWithSolutions}
             deleteRecord={this.deleteRecord}
             updateRecord={this.updateRecord}
             acceptsImage={true}
             isEditable={true}
-            isProjectTable={true}
           />
         ) : (
           <p className="text-center">No Items Yet</p>
         )}
         <AddItemModal
-          save={this.saveProject}
-          updateParentState={() => this.updateStateWithProjects()}
-          data={projectsData}
+          save={this.saveSolution}
+          updateParentState={() => this.updateStateWithSolutions()}
+          data={solutionsData}
           acceptsImage={true}
-          isProject={true}
         />
       </AdminLayout>
     );

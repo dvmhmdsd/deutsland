@@ -14,6 +14,7 @@ export default class ContactMap extends Component {
           initialCenter={{ lat: 47.444, lng: -122.176 }}
         /> */}
         <iframe
+          title="Our location"
           width="100%"
           height="600"
           frameBorder="0"

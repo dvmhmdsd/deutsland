@@ -191,7 +191,10 @@ export default class AdminTable extends Component {
       <>
         <table className={`${className} table`}>
           <thead>
-            <tr>{this.renderTableHeaders(headers)}</tr>
+            <tr>
+              {this.renderTableHeaders(headers)}
+              <th>Actions</th>
+            </tr>
           </thead>
           <tbody>{this.renderTableBody(body)}</tbody>
         </table>
@@ -282,8 +285,8 @@ export default class AdminTable extends Component {
             <option value="" disabled selected>
               Choose a type
             </option>
-            {types.map(type => (
-              <option value={type}> {type} </option>
+            {types.map((type, index) => (
+              <option key={`type${index}`} value={type}> {type} </option>
             ))}
           </select>
         </div>

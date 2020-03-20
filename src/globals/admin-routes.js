@@ -7,7 +7,8 @@ import MessagesPage from "modules/contact/components/messages-admin-page";
 import CareersAdminPage from "modules/careers/components/career-admin-page";
 import DashboardHome from "modules/main/submodules/admin-home-page";
 import ClientsAdminPage from "modules/main/submodules/clients-admin-page";
-import ProjectsAdminPage from "../modules/projects/components/admin-page";
+import ProjectsAdminPage from "modules/projects/components/admin-page";
+import SolutionsAdminPage from "modules/solutions/components/admin-page";
 
 export default [
   {
@@ -34,6 +35,11 @@ export default [
     path: "/projects",
     label: "Projects",
     component: ProjectsAdminPage
+  },
+  {
+    path: "/solutions",
+    label: "Solutions",
+    component: SolutionsAdminPage
   },
   {
     path: "/news",

@@ -2,20 +2,20 @@ import React, { Component } from "react";
 
 import Layout from "shared/layout";
 
-import ProjectGallery from "../gallery";
+import SolutionGallery from "../gallery";
 
-import { getProjects } from "../../services/projects.service";
+import { getSolutions } from "../../services/solutions.service";
 
 import Helmet from "react-helmet";
 
 export default class SolutionsPage extends Component {
   state = {
-    projects: null,
-    get filteredProjects() {
-      return this.projects;
+    solutions: null,
+    get filteredSolutions() {
+      return this.solutions;
     },
-    get activeProject() {
-      if (this.filteredProjects) return this.filteredProjects[0];
+    get activeSolution() {
+      if (this.filteredSolutions) return this.filteredSolutions[0];
       else return "";
     },
     isFailed: false,
@@ -25,12 +25,12 @@ export default class SolutionsPage extends Component {
 
   async componentDidMount() {
     try {
-      let { data: projects } = await getProjects();
+      let { data: solutions } = await getSolutions();
 
       this.setState({
-        projects,
-        filteredProjects: projects,
-        activeProject: projects[0],
+        solutions,
+        filteredSolutions: solutions,
+        activeSolution: solutions[0],
         isLoading: false
       });
     } catch {
@@ -38,9 +38,9 @@ export default class SolutionsPage extends Component {
     }
   }
 
-  activateProject = (index = 0) => {
+  activateSolution = (index = 0) => {
     this.setState({
-      activeProject: this.state.filteredProjects[index]
+      activeSolution: this.state.filteredSolutions[index]
     });
   };
 
@@ -65,18 +65,18 @@ export default class SolutionsPage extends Component {
               </p>
             ) : (
               <>
-                <h1> Protected by Deutschland </h1>
+                <h1 className="mb-5"> Solutions </h1>
 
-                {this.state.filteredProjects &&
-                this.state.filteredProjects.length > 0 ? (
+                {this.state.filteredSolutions &&
+                this.state.filteredSolutions.length > 0 ? (
                   <>
                     {this.state.heading && (
                       <h2> {this.state.heading.toUpperCase()} </h2>
                     )}
-                    <ProjectGallery
-                      activeProject={this.state.activeProject}
-                      projects={this.state.filteredProjects}
-                      select={this.activateProject}
+                    <SolutionGallery
+                      activeSolution={this.state.activeSolution}
+                      solutions={this.state.filteredSolutions}
+                      select={this.activateSolution}
                     />
                   </>
                 ) : (

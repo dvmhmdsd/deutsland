@@ -8,7 +8,7 @@ import NewsPage from "modules/news/components/news-page";
 import DTPediaListPage from "modules/dtpedia/components/list-page";
 import ProjectsPage from "modules/projects/components/page";
 import CareersPage from "modules/careers";
-import SolutionsPage from "../modules/solutions/components/page";
+import SolutionsPage from "modules/solutions/components/page";
 
 export default [
   {
