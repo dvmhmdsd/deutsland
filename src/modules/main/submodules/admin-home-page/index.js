@@ -4,6 +4,8 @@ import "./style.css";
 
 import AdminLayout from "shared/admin-layout";
 
+import isUserLoggedIn from "modules/users/services/auth.service";
+
 export default class DashboardHome extends Component {
   async componentDidMount() {
     isUserLoggedIn().then(response => {
