@@ -1,4 +1,6 @@
 .type-filters {
+  display: flex;
+  align-items: baseline;
   overflow: auto;
 }
 
@@ -9,6 +11,8 @@
   border-radius: 20px;
   margin: 0.5rem;
   transition: all 0.2s;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .type-filters li:hover,

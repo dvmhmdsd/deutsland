@@ -42,17 +42,19 @@ export default class ProjectFilters extends Component {
           ))}
         </ul>
 
-        <select onChange={this.handleChange} className="form-control col-4">
-          <option value="" disabled selected>
-            Choose a country
-          </option>
-
-          {countries.map((country, index) => (
-            <option key={`country${index}`} value={country}>
-              {country.toUpperCase()}
+        <div className="col-4 mt-3">
+          <select onChange={this.handleChange} defaultValue="" className="form-control">
+            <option value="" disabled>
+              Choose a country
             </option>
-          ))}
-        </select>
+
+            {countries.map((country, index) => (
+              <option key={`country${index}`} value={country}>
+                {country.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
       </section>
     );
   }
