@@ -30,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "rm -rf back/public && mkdir back/public && npm run build && mv build/* back/public && rm -rf build && cd back/public && git init && git remote add heroku https://git.heroku.com/dt-land.git && git add . && git commit -m 'Edits' && git push heroku master && cd .. && cd ..",
+    "deploy": "rm -rf back/public && mkdir back/public && npm run build && mv build/* back/public && rm -rf build && cd back/ && git init && git remote add heroku https://git.heroku.com/dt-land.git && git add . && git commit -m 'Edits' && git push heroku master && cd ..",
     "dev-start": "concurrently \"cd back && nodemon\" \"npm start\""
   },
   "eslintConfig": {
