@@ -2,6 +2,21 @@
   max-width: 100%;
 }
 
+.slider-controls .slider-btn {
+  background-color: transparent;
+  border: 2px solid;
+  border-radius: 50%;
+  padding: 0.4rem 0.8rem;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.slider-controls .slider-btn:hover,
+.slider-controls .slider-btn:active {
+  color: #fff;
+  background-color: #CB6828;
+}
+
 .service-item {
   border: 1px solid #ccc;
   padding: 1rem;

@@ -9,6 +9,12 @@ import serviceImage4 from "assets/services/greyscale-04.png";
 import serviceImage5 from "assets/services/greyscale-05.png";
 import serviceImage6 from "assets/services/greyscale-06.png";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faChevronLeft
+} from "@fortawesome/free-solid-svg-icons";
+
 export default class ServicesList extends Component {
   state = {
     classes: [
@@ -28,7 +34,7 @@ export default class ServicesList extends Component {
 
   scrollHandler = e => {
     if (this.isComponentInViewport() && !this.isMobile()) {
-      setTimeout(() => this.slide(), 1000);
+      this.slide();
     } else {
       this.isInterval = false;
       clearInterval(this.slideInterval);
@@ -51,11 +57,36 @@ export default class ServicesList extends Component {
       this.isInterval = true;
       this.slideInterval = setInterval(() => {
         this.setState({ classes: this.slideArray(this.state.classes) });
-      }, 3000);
+      }, 2500);
     }
   };
 
-  slideArray = classesArray => {
+  slideRight = () => {
+    this.setState({ classes: this.slideArray(this.state.classes) });
+    clearInterval(this.slideInterval);
+    // this.slideInterval = null;
+    this.isInterval = false;
+
+    setTimeout(() => this.slide(), 3000);
+  };
+
+  slideLeft = () => {
+    this.setState({ classes: this.slideArray(this.state.classes, "left") });
+    clearInterval(this.slideInterval);
+    // this.slideInterval = null;
+    this.isInterval = false;
+
+    setTimeout(() => this.slide(), 3000);
+  };
+
+  slideArray = (classesArray, direction) => {
+    if (direction === "left") {
+      let classItem = classesArray.pop();
+      classesArray.unshift(classItem);
+
+      return classesArray;
+    }
+
     let classItem = classesArray.shift();
     classesArray.push(classItem);
 
@@ -72,6 +103,14 @@ export default class ServicesList extends Component {
       <section ref={el => (this.servicesItems = el)} className="section">
         <div className="container">
           <h2 className="text-center mb-5 section-heading"> Services </h2>
+          <div className="slider-controls d-md-flex justify-content-between">
+            <button className="slider-btn" onClick={this.slideLeft}>
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
+            <button className="slider-btn" onClick={this.slideRight}>
+              <FontAwesomeIcon icon={faChevronRight} />
+            </button>
+          </div>
           <article
             onMouseEnter={() => {
               clearInterval(this.slideInterval);

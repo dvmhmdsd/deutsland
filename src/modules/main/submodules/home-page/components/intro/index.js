@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 
-import bg from "assets/building-bg.gif";
+import bg from "assets/intro-bg.gif";
 
 import { Link } from "react-router-dom";
 

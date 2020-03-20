@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./style.css";
 
-import bg from "assets/building-bg.gif";
+import bg from "assets/trust-bg.gif";
 
 import ReactWOW from "react-wow";
 
