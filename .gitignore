@@ -24,4 +24,4 @@ yarn-error.log*
 
 #back
 back/node_modules
-# back/config
+back/config
