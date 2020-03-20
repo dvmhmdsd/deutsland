@@ -16,78 +16,114 @@ export default class History extends Component {
         <div className="history py-5">
           <h2>History</h2>
           <div className="history-timeline">
-            <div className="timeline-container left">
-              <div className="history-content">
-                <h3>2017</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec
-                  admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea
-                  quis iuvaret expetendis his, te elit voluptua dignissim per,
-                  habeo iusto primis ea eam.
-                </p>
+            <section className="history-item">
+              <div className="timeline-container left">
+                <div className="history-content">
+                  <h3>Title</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad
+                    nec admodum perfecto mnesarchum, vim ea mazim fierent
+                    detracto. Ea quis iuvaret expetendis his, te elit voluptua
+                    dignissim per, habeo iusto primis ea eam.
+                  </p>
+                </div>
+                <span className="after"></span>
               </div>
-              <span className="after"></span>
-            </div>
-            <div className="timeline-container right">
-              <div className="history-content">
-                <h3>2016</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec
-                  admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea
-                  quis iuvaret expetendis his, te elit voluptua dignissim per,
-                  habeo iusto primis ea eam.
-                </p>
+              <div className="history-year year-right">
+                <h3> 2017 </h3>
+                <p className="text-muted">Lorem ipsum dolor sit.</p>
               </div>
-              <span className="after"></span>
-            </div>
-            <div className="timeline-container left">
-              <div className="history-content">
-                <h3>2015</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec
-                  admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea
-                  quis iuvaret expetendis his, te elit voluptua dignissim per,
-                  habeo iusto primis ea eam.
-                </p>
+            </section>
+            <section className="history-item">
+              <div className="timeline-container right">
+                <div className="history-content">
+                  <h3>Title</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad
+                    nec admodum perfecto mnesarchum, vim ea mazim fierent
+                    detracto. Ea quis iuvaret expetendis his, te elit voluptua
+                    dignissim per, habeo iusto primis ea eam.
+                  </p>
+                </div>
+                <span className="after"></span>
               </div>
-              <span className="after"></span>
-            </div>
-            <div className="timeline-container right">
-              <div className="history-content">
-                <h3>2012</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec
-                  admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea
-                  quis iuvaret expetendis his, te elit voluptua dignissim per,
-                  habeo iusto primis ea eam.
-                </p>
+              <div className="history-year year-left">
+                <h3> 2016 </h3>
+                <p className="text-muted">Lorem ipsum dolor sit.</p>
               </div>
-              <span className="after"></span>
-            </div>
-            <div className="timeline-container left">
-              <div className="history-content">
-                <h3>2011</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec
-                  admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea
-                  quis iuvaret expetendis his, te elit voluptua dignissim per,
-                  habeo iusto primis ea eam.
-                </p>
+            </section>
+            <section className="history-item">
+              <div className="timeline-container left">
+                <div className="history-content">
+                  <h3>2015</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad
+                    nec admodum perfecto mnesarchum, vim ea mazim fierent
+                    detracto. Ea quis iuvaret expetendis his, te elit voluptua
+                    dignissim per, habeo iusto primis ea eam.
+                  </p>
+                </div>
+                <span className="after"></span>
               </div>
-              <span className="after"></span>
-            </div>
-            <div className="timeline-container right">
-              <div className="history-content">
-                <h3>2007</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec
-                  admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea
-                  quis iuvaret expetendis his, te elit voluptua dignissim per,
-                  habeo iusto primis ea eam.
-                </p>
+              <div className="history-year year-right">
+                <h3> 2016 </h3>
+                <p className="text-muted">Lorem ipsum dolor sit.</p>
               </div>
-              <span className="after"></span>
-            </div>
+            </section>
+            <section className="history-item">
+              <div className="timeline-container right">
+                <div className="history-content">
+                  <h3>Title</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad
+                    nec admodum perfecto mnesarchum, vim ea mazim fierent
+                    detracto. Ea quis iuvaret expetendis his, te elit voluptua
+                    dignissim per, habeo iusto primis ea eam.
+                  </p>
+                </div>
+                <span className="after"></span>
+              </div>
+              <div className="history-year year-left">
+                <h3> 2016 </h3>
+                <p className="text-muted">Lorem ipsum dolor sit.</p>
+              </div>
+            </section>
+            <section className="history-item">
+              <div className="timeline-container left">
+                <div className="history-content">
+                  <h3>2015</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad
+                    nec admodum perfecto mnesarchum, vim ea mazim fierent
+                    detracto. Ea quis iuvaret expetendis his, te elit voluptua
+                    dignissim per, habeo iusto primis ea eam.
+                  </p>
+                </div>
+                <span className="after"></span>
+              </div>
+              <div className="history-year year-right">
+                <h3> 2016 </h3>
+                <p className="text-muted">Lorem ipsum dolor sit.</p>
+              </div>
+            </section>
+            <section className="history-item">
+              <div className="timeline-container right">
+                <div className="history-content">
+                  <h3>Title</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad
+                    nec admodum perfecto mnesarchum, vim ea mazim fierent
+                    detracto. Ea quis iuvaret expetendis his, te elit voluptua
+                    dignissim per, habeo iusto primis ea eam.
+                  </p>
+                </div>
+                <span className="after"></span>
+              </div>
+              <div className="history-year year-left">
+                <h3> 2016 </h3>
+                <p className="text-muted">Lorem ipsum dolor sit.</p>
+              </div>
+            </section>
           </div>
         </div>
       </Layout>
