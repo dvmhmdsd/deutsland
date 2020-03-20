@@ -5,6 +5,14 @@ import "./style.css";
 import AdminLayout from "shared/admin-layout";
 
 export default class DashboardHome extends Component {
+  async componentDidMount() {
+    isUserLoggedIn().then(response => {
+      if (!response) {
+        this.props.history.push("/admin/login");
+      }
+    });
+  }
+
   render() {
     return (
       <AdminLayout>
