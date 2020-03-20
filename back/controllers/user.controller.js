@@ -23,9 +23,9 @@ server.post("/register", async (request, response) => {
   let { name, email, password, type } = request.body;
 
   User.find({ email }).then((usr, err) => {
-    if (usr) {
+    if (usr.length > 0) {
       console.log("user existed")
-      return res.status(400).json({ message: "User already exists" });
+      return response.status(400).json({ message: "User already exists" });
     } else {
       let user = new User({
         name,

@@ -44,6 +44,7 @@ export default class RegisterPage extends Component {
         setTimeout(() => this.setState({ success: false }), 2000);
       })
       .catch(err => {
+        console.log(err.response.status)
         if (err.response.status === 500) {
           this.setState({
             isSubmitting: false,
