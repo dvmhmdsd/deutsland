@@ -8,6 +8,7 @@ import NewsPage from "modules/news/components/news-page";
 import DTPediaListPage from "modules/dtpedia/components/list-page";
 import ProjectsPage from "modules/projects/components/page";
 import CareersPage from "modules/careers";
+import SolutionsPage from "../modules/solutions/components/page";
 
 export default [
   {
@@ -28,6 +29,11 @@ export default [
     path: "/history",
     component: HistoryPage,
     label: "History"
+  },
+  {
+    path: "/solutions",
+    component: SolutionsPage,
+    label: "Solutions"
   },
   {
     path: "/projects",

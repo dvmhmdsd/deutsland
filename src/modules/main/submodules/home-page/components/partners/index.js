@@ -4,13 +4,19 @@ import Carousel from "react-bootstrap/Carousel";
 
 import "./style.css";
 
-import Background from "assets/building.jpeg";
+import Background from "assets/partners/partners-bg.jpg";
 
 import slide1 from "assets/partners/angus-circle.png";
 import slide2 from "assets/partners/autro-circle.png";
 import slide3 from "assets/partners/emi-circle.png";
 
 import { getClients } from "modules/main/services/clients.service";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronRight,
+  faChevronLeft
+} from "@fortawesome/free-solid-svg-icons";
 
 export default class Partners extends Component {
   state = {
@@ -62,6 +68,9 @@ export default class Partners extends Component {
             onSelect={this.handleSelect}
             controls={true}
             indicators={false}
+            nextIcon={<FontAwesomeIcon icon={faChevronRight} />}
+            prevIcon={<FontAwesomeIcon icon={faChevronLeft} />}
+            pauseOnHover={true}
           >
             {this.state.partners.map((partner, index) => {
               let { image, caption } = partner;
@@ -85,6 +94,9 @@ export default class Partners extends Component {
               controls={true}
               indicators={false}
               fade={true}
+              nextIcon={<FontAwesomeIcon icon={faChevronRight} />}
+              prevIcon={<FontAwesomeIcon icon={faChevronLeft} />}
+              pauseOnHover={true}
             >
               {this.state.clients.map((client, index) => {
                 let { image, link } = client;

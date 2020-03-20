@@ -1,0 +1,45 @@
+.gallery img {
+  width: 100%;
+}
+
+.active-project {
+  position: relative;
+}
+
+.active-project .project-image {
+  margin-bottom: 0.3rem;
+  height: 25rem;
+}
+
+.active-project .project-overlay {
+  padding: 1rem;
+  margin-bottom: 0.3rem;
+  color: #000;
+}
+
+.active-project .project-location {
+  text-transform: capitalize;
+}
+
+.active-project .project-location span {
+  color: #CB6828;
+}
+
+.gallery .projects-list {
+  width: 100%;
+}
+
+.projects-list .project-image-container {
+  overflow: hidden;
+  width: 20%;
+}
+
+.projects-list .project-image {
+  height: 200px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.projects-list .project-image:hover {
+  transform: scale(1.1);
+}
