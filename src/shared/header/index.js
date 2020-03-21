@@ -46,7 +46,7 @@ export default class Header extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <FontAwesomeIcon icon={faBars} className="text-white" />
+            <FontAwesomeIcon icon={faBars} />
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">

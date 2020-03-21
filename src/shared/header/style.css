@@ -41,6 +41,15 @@ nav ul.navbar-nav li.nav-item a.nav-link:hover {
   color: #CB6828;
 }
 
+.navbar .navbar-toggler {
+  color: #fff !important;
+}
+
+.navbar.navbar--scrolled .navbar-toggler {
+  color: #000 !important;
+}
+
+
 @media (max-width: 992px) {
   nav ul li.nav-item a:hover {
     padding-left: 17px;
