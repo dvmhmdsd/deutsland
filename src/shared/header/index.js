@@ -6,6 +6,11 @@ import "./style.css";
 import routes from "globals/routes.js";
 import SocialMedia from "../social";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBars
+} from "@fortawesome/free-solid-svg-icons";
+
 export default class Header extends Component {
   componentDidMount() {
     if (!this.props.inHome) {
@@ -41,7 +46,7 @@ export default class Header extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            <FontAwesomeIcon icon={faBars} className="text-white" />
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ml-auto">
