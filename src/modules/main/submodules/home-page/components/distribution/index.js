@@ -13,7 +13,7 @@ export default class Distribution extends Component {
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12">
               <div className="content">
-                <h3>We are worldwide</h3>
+                <h3>Avenir Font</h3>
                 <p>
                   Topic sentences are similar to mini thesis statements. Like a
                   thesis statement, a topic sentence has a specific main point.

@@ -37,31 +37,36 @@ export default class Footer extends Component {
             </article>
             <article className="col-lg-4">
               <div className="item">
-                <ReactWOW
-                  animation="zoomIn"
-                  data-wow-duration="2s"
-                  data-wow-delay="20s"
-                >
-                  <h3>Contact Us</h3>
-                  <hr />
-                  <section className="contact-item">
-                    <FontAwesomeIcon className="icon" icon={faEnvelopeOpen} />
-                    <a href="mailto:info@construction.com">
-                      info@construction.com
-                    </a>
-                  </section>
-                  <section className="contact-item">
-                    <FontAwesomeIcon className="icon" icon={faPhoneAlt} />
-                    <a href="tel:+201098354184">(+2) 0109 835 4184</a>
-                  </section>
-                  <section className="contact-item">
-                    <FontAwesomeIcon className="icon" icon={faMapMarkerAlt} />
-                    <span>
-                      PO Box 16122, Collins Street West, Victoria 8007, United
-                      States
-                    </span>
-                  </section>
-                </ReactWOW>
+                <div className="item-middle">
+                  <ReactWOW
+                    animation="zoomIn"
+                    data-wow-duration="2s"
+                    data-wow-delay="20s"
+                  >
+                    <h3>Contact Us</h3>
+                    <hr />
+                    <section className="contact-item">
+                      <FontAwesomeIcon className="icon" icon={faEnvelopeOpen} />
+                      <a href="mailto:info@construction.com">
+                        info@construction.com
+                      </a>
+                    </section>
+                    <section className="contact-item">
+                      <FontAwesomeIcon className="icon" icon={faPhoneAlt} />
+                      <a href="tel:+201098354184">(+2) 0109 835 4184</a>
+                    </section>
+                    <section className="contact-item">
+                      <FontAwesomeIcon className="icon" icon={faMapMarkerAlt} />
+                      <span>
+                        PO Box 16122, Collins Street West, Victoria 8007, United
+                        States
+                      </span>
+                    </section>
+                  </ReactWOW>
+                </div>
+                <span className="footer-social">
+                  <SocialMedia />
+                </span>
               </div>
             </article>
             <article className="col-lg-4">
@@ -83,7 +88,6 @@ export default class Footer extends Component {
               </div>
             </article>
           </div>
-          <SocialMedia />
         </div>
       </footer>
     );

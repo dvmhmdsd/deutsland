@@ -155,7 +155,9 @@
     padding-left: 70px;
     padding-right: 25px;
   }
-
+  .history-year{
+    flex-direction: column;
+  }
   /* Make sure that all arrows are pointing leftwards */
   .timeline-container::before {
     left: 60px;
