@@ -103,7 +103,7 @@ export default class ServicesList extends Component {
       <section ref={el => (this.servicesItems = el)} className="section">
         <div className="container">
           <h2 className="text-center mb-5 section-heading"> Services </h2>
-          <div className="slider-controls d-md-flex justify-content-between">
+          <div className="slider-controls d-md-flex d-none justify-content-between">
             <button className="slider-btn" onClick={this.slideLeft}>
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>

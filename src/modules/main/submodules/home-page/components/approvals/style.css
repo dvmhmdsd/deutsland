@@ -1,8 +1,18 @@
 .approvals {
   padding: 2rem 0;
+  text-align: center;
 }
 
 .approvals img {
   max-width: 100%;
   height: auto;
+}
+
+@media(max-width:991px) {
+
+.approvals img {
+  max-width: 50%;
+  height: auto;
+}
+
 }

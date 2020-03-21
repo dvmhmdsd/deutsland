@@ -25,7 +25,7 @@ export default class Approvals extends Component {
 
   renderApprovalsList = () => {
     return this.state.approvalsImages.map((image, index) => (
-      <div key={index} className="approval-item mx-4">
+      <div key={index} className="approval-item mb-4 w-100 col-12 col-sm-6 col-md-4 col-lg-2">
         <img src={image} alt="Approvals logos" />
       </div>
     ));
@@ -33,8 +33,10 @@ export default class Approvals extends Component {
 
   render() {
     return (
-      <section className="approvals section">
-        <div className="container d-flex">{this.renderApprovalsList()}</div>
+      <section className="approvals w-100 section text-center">
+        <div className="container">
+          <div className="row">{this.renderApprovalsList()}</div>
+        </div>
       </section>
     );
   }
