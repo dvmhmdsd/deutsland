@@ -15,9 +15,8 @@ export let updateUser = async (id, user) => {
 };
 
 export let deleteUser = async id => {
-  let response = await axios.delete(`/api/users/${id}`);
-
-  return response;
+  if (window.confirm("Are you sure you want to delete this item ?"))
+    return await axios.delete(`/api/users/${id}`);
 };
 
 export let getUsers = async () => {
