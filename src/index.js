@@ -9,7 +9,23 @@ import "./App.css";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+
+
+// /**
+//    1. open the cache
+//    2. fetch
+//       a. if success --> update the cache then return
+//       b. if error --> return the cache
+//  */
+// self.addEventListener('fetch', function(event) {
+//   event.respondWith(
+//     caches.open('mysite-dynamic').then(function(cache) {
+//       return fetch(event.request).then(function(response) {
+//         cache.put(event.request, response.clone());
+//         return response;
+//       })
+//     })
+//   );
+// });
+
